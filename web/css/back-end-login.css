@@ -1,0 +1,76 @@
+*{
+	margin: 0;
+	padding: 0px;
+}
+
+body{
+	background: #ECECEC;
+	font-family: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;
+	text-shadow: 0 1px 0 #fff;
+	color: #5A738E;
+}
+input{
+	border-radius: 3px;
+	box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,.08) inset;
+    border: 1px solid #c8c8c8;
+    color: #777;
+    height: 40px;
+    width: 300px;
+    padding-left: 5px;
+}
+.content{
+
+	width: 728px;
+	height: 100%;
+	margin: auto;
+	margin-top: 10%;
+}
+.loginContent{
+	width: 100%;
+	margin: 0px auto;
+}
+h2{
+	text-align: center;
+	color: #5A738E;
+}
+
+table{
+	margin: 0 auto;
+}
+
+a{
+	
+	font-size: 15px;
+	color: #5A738E;
+}
+button{
+	margin-top: 20px; 
+	float: right; height: 35px; width: 100px;
+	cursor: pointer;
+}
+
+input{
+	margin-top: 20px;
+}
+
+#username{
+	background-image: url('../images/user_icon.png');
+	background-size: 20px 20px;
+	  background-position: 10px 10px;
+	  background-repeat: no-repeat;
+	padding-left: 40px;
+}
+#password{
+	background-image: url('../images/pass.png');
+	background-size: 20px 20px;
+	  background-position: 10px 10px;
+	  background-repeat: no-repeat;
+	padding-left: 40px;
+}
+
+
+
+
+
+
+

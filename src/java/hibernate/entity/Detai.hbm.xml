@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 24, 2017 1:01:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.entity.Detai" table="detai" catalog="nhom4_qldoan" optimistic-lock="version">
+        <id name="projectId" type="java.lang.Integer">
+            <column name="project_id" />
+            <generator class="identity" />
+        </id>
+        <property name="projectName" type="string">
+            <column name="project_name" length="500" />
+        </property>
+        <property name="projectContentlink" type="string">
+            <column name="project_contentlink" length="65535" />
+        </property>
+        <property name="projectAuthorid" type="java.lang.Integer">
+            <column name="project_authorid" />
+        </property>
+        <property name="projectInstructorid" type="int">
+            <column name="project_instructorid" not-null="true" />
+        </property>
+        <property name="projectProgress" type="java.lang.Integer">
+            <column name="project_progress" />
+        </property>
+        <property name="projectStartdate" type="string">
+            <column name="project_startdate" length="12" />
+        </property>
+        <property name="projectStatus" type="java.lang.Boolean">
+            <column name="project_status" />
+        </property>
+        <property name="projectDescription" type="string">
+            <column name="project_description" length="65535" />
+        </property>
+        <property name="projectViewcount" type="java.lang.Integer">
+            <column name="project_viewcount" />
+        </property>
+        <property name="projectPagecount" type="java.lang.Integer">
+            <column name="project_pagecount" />
+        </property>
+        <property name="projectCancel" type="java.lang.Boolean">
+            <column name="project_cancel" />
+        </property>
+    </class>
+</hibernate-mapping>

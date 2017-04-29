@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 24, 2017 1:01:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.entity.Users" table="users" catalog="nhom4_qldoan" optimistic-lock="version">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="string">
+            <column name="user_name" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="userPassword" type="string">
+            <column name="user_password" length="256" not-null="true" />
+        </property>
+        <property name="userFullname" type="string">
+            <column name="user_fullname" length="100" />
+        </property>
+        <property name="userDateofbirth" type="string">
+            <column name="user_dateofbirth" length="20" />
+        </property>
+        <property name="userGender" type="string">
+            <column name="user_gender" length="8" />
+        </property>
+        <property name="userFaculty" type="string">
+            <column name="user_faculty" length="50" />
+        </property>
+        <property name="userDegree" type="string">
+            <column name="user_degree" length="50" />
+        </property>
+        <property name="userAvatar" type="string">
+            <column name="user_avatar" length="65535" />
+        </property>
+        <property name="userActive" type="java.lang.Boolean">
+            <column name="user_active" />
+        </property>
+        <property name="userAddress" type="string">
+            <column name="user_address" length="65535" />
+        </property>
+        <property name="userEmail" type="string">
+            <column name="user_email" length="256" />
+        </property>
+        <property name="userMobile" type="string">
+            <column name="user_mobile" length="12" />
+        </property>
+        <property name="userReligion" type="string">
+            <column name="user_religion" length="20" />
+        </property>
+        <property name="userType" type="java.lang.Integer">
+            <column name="user_type" />
+        </property>
+        <property name="userClass" type="string">
+            <column name="user_class" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

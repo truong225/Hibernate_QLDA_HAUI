@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Tài khoản sinh viên</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="../css/back-end-index.css">
+	<body>
+		<div>DANH SÁCH TÀI KHOẢN SINH VIÊN</div>
+		<div >
+			<div style="float: right">
+				<button>Thêm</button>
+			</div>
+		</div>
+		<div>
+			<table id="myTable" class="table table-striped table-bordered" style="width: 100%">
+				<thead>
+					<tr>
+						<th>MSV</th>
+						<th>Họ Tên</th>
+						<th>Ngày sinh</th>
+						<th>Lớp</th>
+						<th>Khoa</th>
+						<th>Email</th>
+						<th>SĐT</th>
+						<th>HKTT</th>
+						<th>Niên khóa</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>0941060049</td>
+						<td>Đào Xuân Trường</td>
+						<td>14/05/1996</td>
+						<td>KTPM CLC</td>
+						<td>CNTT</td>
+						<td>abc@gmail.com</td>
+						<td>01665xxxxxx</td>
+						<td>Cổng làng Nguyên Xá, Bắc từ Liêm, Hà Nội</td>
+						<td>9</td>
+						<td><a href="#" style="color: blue">Update</a></td>
+						<td><a href="#" style="color: blue">Xóa</a></td>
+					</tr>
+					
+					
+				</tbody>
+			</table>
+		</div>
+	</body>
+	<script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script>
+		$(document).ready(function(){
+			$("#myTable").DataTable();
+		});
+    </script>
+</html>

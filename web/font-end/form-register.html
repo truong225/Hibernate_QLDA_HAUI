@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> Đồ án tốt nghiệp </title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><img src="images/haui_lg.png" width="45px" height="45px" alt=""><span> Đồ án tốt nghiệp</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="images/avatar.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Xin chào,</span>
+                <h2>Trường Xuân</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>Chung</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Trang chủ <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.html">Trang chủ</a></li>
+                      <li><a href="notify.html">Thông báo</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i> Đề tài <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="task.html">Tiến độ đề tài</a></li>
+                      <li><a href="rate-GV.html">Giảng viên đánh giá</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-desktop"></i> Đăng kí đề tài <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="form-register.html">Đăng kí đề tài</a></li>
+                      <li><a href="form-delete-project.html">Hủy đề tài</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i> Thông tin hội đồng <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="GVHD.html">Giảng viên hướng dẫn</a></li>
+                      <li><a href="HDPB.html">Hội đồng phản biện</a></li>
+                      <li><a href="HDC.html">Hội đồng chấm</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-bar-chart-o"></i> Tài liệu tham khảo <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="seach_Document.html">Tra cứu tài liệu</a></li>
+                      <li><a href="upload_Document.html">Đóng góp tài liệu</a></li>
+                    </ul>
+                  </li>
+                  </ul>
+              </div>
+              <div class="menu_section">
+                <h3>Cá nhân</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-bug"></i> Thông tin cá nhân <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="person information.html">Xem thông tin cá nhân</a></li>
+                      <li><a href="change_Password.html">Đổi mật khẩu</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="contact.html"><i class="fa fa-comments-o"></i><span class="fa fa-chevron-down"></span>Liên hệ</a></li>
+                  <li><a href="login.html"><i class="fa fa-sign-out"></i> Đăng xuất <span class="fa fa-chevron-down"></span></a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="index.html" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/avatar.jpg" alt="">Trường Xuân
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="person information.html"> Thông tin cá nhân</a></li>
+                    <li>
+                      <a href="setting.html">
+                        <span class="badge bg-red pull-right">50%</span>
+                        <span>Cài đặt</span>
+                      </a>
+                    </li>
+                    <li><a href="contact.html">Trợ giúp</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Đăng xuất</a></li>
+                  </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/avatar.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>Trường Xuân</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/avatar.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>Trường Xuân</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                        zlola
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/avatar.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>Trường Xuân</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/avatar.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>Trường Xuân</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <!-- page title -->
+          <div class="page-title">
+              
+
+              <div class="right_col">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                              <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          <!-- end page title -->
+           <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Form Đăng Kí </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <!-- Tabs -->
+                    <div id="wizard_verticle" class="form_wizard wizard_verticle">
+                      <ul class="list-unstyled wizard_steps">
+                        <li>
+                          <a href="#step-11">
+                            <span class="step_no">1</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-22">
+                            <span class="step_no">2</span>
+                          </a>
+                        </li>
+                        
+                      </ul>
+
+                      <div id="step-11">
+                        <h2 class="StepTitle">Bước 1: Đăng kí</h2>
+                        <form class="form-horizontal form-label-left">
+
+                          <span class="section">Đề tài</span>
+
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3" for="tendoan">Tên đề tài <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6">
+                              <input type="text" id="first-name2" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>
+
+
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3" for="giangvienhuongdan">Giảng viên hướng dẫn <span class="required">*</span></label>
+                              <div class="col-sm-6 col-md-6">
+                                <select class="form-control">
+                                <option value="">-- Chọn giảng viên hướng dẫn --</option>
+                                <option value="">Hoàng Quang huy</option>
+                                <option value="">Nguyễn Văn A</option>
+                                <option value="">Nguyễn Văn B</option>
+                                <option value="">Đào Xuân C</option>
+                              </select>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3" for="lydo">Lý do hủy đề tài <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6">
+                              <textarea type="form-control" rows="4" required class="form-control col-md-7 col-xs-12"></textarea>
+                            </div>
+                          </div>
+                          
+
+                        </form>
+                      </div>
+                      <div id="step-22">
+                        <h2 class="StepTitle">Bước 2: Xét duyệt đề tài</h2>
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th>Tên đề tài</th>
+                              <th>Giảng viên hướng dẫn</th>
+                              <th>Trạng thái duyệt</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Quản lý đồ án tốt nghiệp</td>
+                              <td>Hoàng Quang Huy</td>
+                              <td><i class="fa fa-check"></i></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                     </div>
+                     
+                    </div>
+                    <!-- End SmartWizard Content -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- form register -->
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Hệ thống quản lý đồ án tốt nghiệp Đại học Công Nghiệp Hà Nội <a href="https://colorlib.com">• Nhóm 4</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- jQuery Smart Wizard -->
+    <script src="../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+
+	
+  </body>
+</html>

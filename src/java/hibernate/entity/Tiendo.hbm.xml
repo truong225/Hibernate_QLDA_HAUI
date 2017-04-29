@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 24, 2017 1:01:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.entity.Tiendo" table="tiendo" catalog="nhom4_qldoan" optimistic-lock="version">
+        <id name="tdId" type="java.lang.Integer">
+            <column name="td_id" />
+            <generator class="identity" />
+        </id>
+        <property name="tdName" type="string">
+            <column name="td_name" length="100" />
+        </property>
+        <property name="tdCreatedate" type="string">
+            <column name="td_createdate" length="12" />
+        </property>
+        <property name="tdProjectid" type="int">
+            <column name="td_projectid" not-null="true" />
+        </property>
+        <property name="tdParentid" type="int">
+            <column name="td_parentid" not-null="true" />
+        </property>
+        <property name="tdDescription" type="string">
+            <column name="td_description" length="65535" />
+        </property>
+        <property name="tdStatus" type="java.lang.Boolean">
+            <column name="td_status" />
+        </property>
+        <property name="tdProcess" type="java.lang.Integer">
+            <column name="td_process" />
+        </property>
+    </class>
+</hibernate-mapping>
