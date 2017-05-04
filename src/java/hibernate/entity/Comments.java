@@ -1,5 +1,5 @@
 package hibernate.entity;
-// Generated Apr 24, 2017 1:01:57 PM by Hibernate Tools 4.3.1
+// Generated May 4, 2017 2:32:41 PM by Hibernate Tools 4.3.1
 
 
 
@@ -10,30 +10,36 @@ public class Comments  implements java.io.Serializable {
 
 
      private Integer commentId;
+     private Tiendo tiendo;
      private String commentContent;
-     private int commentTdid;
      private String commentCreatedate;
      private String commentLastmodified;
      private Boolean commentStatus;
      private Boolean commentIsread;
-     private int commentUserid;
+     private int userId;
+     private Boolean isdelete;
+     private String deleteDate;
+     private Integer deleteUserid;
 
     public Comments() {
     }
 
 	
-    public Comments(int commentTdid, int commentUserid) {
-        this.commentTdid = commentTdid;
-        this.commentUserid = commentUserid;
+    public Comments(Tiendo tiendo, int userId) {
+        this.tiendo = tiendo;
+        this.userId = userId;
     }
-    public Comments(String commentContent, int commentTdid, String commentCreatedate, String commentLastmodified, Boolean commentStatus, Boolean commentIsread, int commentUserid) {
+    public Comments(Tiendo tiendo, String commentContent, String commentCreatedate, String commentLastmodified, Boolean commentStatus, Boolean commentIsread, int userId, Boolean isdelete, String deleteDate, Integer deleteUserid) {
+       this.tiendo = tiendo;
        this.commentContent = commentContent;
-       this.commentTdid = commentTdid;
        this.commentCreatedate = commentCreatedate;
        this.commentLastmodified = commentLastmodified;
        this.commentStatus = commentStatus;
        this.commentIsread = commentIsread;
-       this.commentUserid = commentUserid;
+       this.userId = userId;
+       this.isdelete = isdelete;
+       this.deleteDate = deleteDate;
+       this.deleteUserid = deleteUserid;
     }
    
     public Integer getCommentId() {
@@ -43,19 +49,19 @@ public class Comments  implements java.io.Serializable {
     public void setCommentId(Integer commentId) {
         this.commentId = commentId;
     }
+    public Tiendo getTiendo() {
+        return this.tiendo;
+    }
+    
+    public void setTiendo(Tiendo tiendo) {
+        this.tiendo = tiendo;
+    }
     public String getCommentContent() {
         return this.commentContent;
     }
     
     public void setCommentContent(String commentContent) {
         this.commentContent = commentContent;
-    }
-    public int getCommentTdid() {
-        return this.commentTdid;
-    }
-    
-    public void setCommentTdid(int commentTdid) {
-        this.commentTdid = commentTdid;
     }
     public String getCommentCreatedate() {
         return this.commentCreatedate;
@@ -85,12 +91,33 @@ public class Comments  implements java.io.Serializable {
     public void setCommentIsread(Boolean commentIsread) {
         this.commentIsread = commentIsread;
     }
-    public int getCommentUserid() {
-        return this.commentUserid;
+    public int getUserId() {
+        return this.userId;
     }
     
-    public void setCommentUserid(int commentUserid) {
-        this.commentUserid = commentUserid;
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+    public Boolean getIsdelete() {
+        return this.isdelete;
+    }
+    
+    public void setIsdelete(Boolean isdelete) {
+        this.isdelete = isdelete;
+    }
+    public String getDeleteDate() {
+        return this.deleteDate;
+    }
+    
+    public void setDeleteDate(String deleteDate) {
+        this.deleteDate = deleteDate;
+    }
+    public Integer getDeleteUserid() {
+        return this.deleteUserid;
+    }
+    
+    public void setDeleteUserid(Integer deleteUserid) {
+        this.deleteUserid = deleteUserid;
     }
 
 

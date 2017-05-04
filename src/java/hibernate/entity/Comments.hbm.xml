@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 24, 2017 1:01:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 4, 2017 2:32:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="hibernate.entity.Comments" table="comments" catalog="nhom4_qldoan" optimistic-lock="version">
         <id name="commentId" type="java.lang.Integer">
             <column name="comment_id" />
             <generator class="identity" />
         </id>
+        <many-to-one name="tiendo" class="hibernate.entity.Tiendo" fetch="select">
+            <column name="td_id" not-null="true" />
+        </many-to-one>
         <property name="commentContent" type="string">
             <column name="comment_content" length="65535" />
-        </property>
-        <property name="commentTdid" type="int">
-            <column name="comment_tdid" not-null="true" />
         </property>
         <property name="commentCreatedate" type="string">
             <column name="comment_createdate" length="12" />
@@ -26,8 +26,17 @@
         <property name="commentIsread" type="java.lang.Boolean">
             <column name="comment_isread" />
         </property>
-        <property name="commentUserid" type="int">
-            <column name="comment_userid" not-null="true" />
+        <property name="userId" type="int">
+            <column name="user_id" not-null="true" />
+        </property>
+        <property name="isdelete" type="java.lang.Boolean">
+            <column name="isdelete" />
+        </property>
+        <property name="deleteDate" type="string">
+            <column name="delete_date" length="45" />
+        </property>
+        <property name="deleteUserid" type="java.lang.Integer">
+            <column name="delete_userid" />
         </property>
     </class>
 </hibernate-mapping>

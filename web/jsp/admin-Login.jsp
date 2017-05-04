@@ -27,12 +27,16 @@
                             <td><input id="userPassword" name="userPassword" type="Password" placeholder="Mật khẩu"></td>
                         </tr>
                         <tr>
-
+                            <td style="color: red">${error}</td>
+                        </tr>
+                        <tr>
                             <td>
-                                <input type="submit" value="Dang nhap"/>
+                                <input type="submit" value="Dang nhap"/></td>
                         </tr>
                     </table>
+                    
                 </div>
+               
             </f:form>
         </div>
 

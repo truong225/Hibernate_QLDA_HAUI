@@ -73,8 +73,47 @@
 
                 <!-- Noi dung -->
                 <section class="right-content" style="height: auto;"><!-- InstanceBeginEditable name="Noidung" -->
-                    <div> HOME </div>
+                    <div> DANH SÁCH SINH VIÊN </div>
+                    <div>
+                        <input id="btn_add" value="Thêm" type="button"/>
+                    </div>
+                    <div>
+                        <table id="myTable" class="table table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th>MSV</th>
+                                    <th>Họ Tên</th>
+                                    <th>Ngày sinh</th>
+                                    <th>Khoa</th>
+                                    <th>Email</th>
+                                    <th>SĐT</th>
+                                    <th>Số SVHD</th>
+                                    <th>Số ĐTHD</th>
+                                    <th>Số lần Truy cập</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="x" items="${lsSV}" >
+                                    <tr>
+                                        <td>${x.getUserName()}</td>
+                                        <td>${x.getUserFullname()}</td>
+                                        <td>${x.getUserDateofbirth()}</td>
+                                        <td>${x.getUserFaculty()}</td>
+                                        <td>${x.getUserEmail()}</td>
+                                        <td>${x.getUserMobile()}</td>
+                                        <td>${x.getUserCountLogin()}</td>
+                                        <td>${x.getUserNumDthd()}</td>
+                                        <td>${x.getUserNumSvdhd()}</td>
+                                        <td><a href="#" style="color: blue">Update</a></td>
+                                        <td><a href="#" style="color: blue">Xóa</a></td>
+                                    </tr>
+                                </c:forEach>
 
+                            </tbody>
+                        </table>
+                    </div>
 
                     <!-- InstanceEndEditable -->
 

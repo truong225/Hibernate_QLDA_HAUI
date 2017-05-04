@@ -50,7 +50,7 @@
                                 <ul class="sub-menu">
                                     <li><a href="inittksv.htm" >Tài khoản sinh viên</a></li>
                                     <li><a href="inittkgv.htm" >Tài khoản giảng viên</a></li>
-                                    <li><a href="intkad.htm" >Tài khoản quản trị</a></li>
+                                    <li><a href="intkad.htm.htm" >Tài khoản quản trị</a></li>
                                 </ul>
                             </li>
                             <li><a href="initDSDTActive.htm" >Quản lý đề tài</a>
@@ -73,8 +73,47 @@
 
                 <!-- Noi dung -->
                 <section class="right-content" style="height: auto;"><!-- InstanceBeginEditable name="Noidung" -->
-                    <div> HOME </div>
+                    <div> DANH SÁCH SINH VIÊN </div>
+                    <div>
+                        <input id="btn_add" value="Thêm" type="button"/>
+                    </div>
+                    <div>
+                        <table id="myTable" class="table table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th>MSV</th>
+                                    <th>Họ Tên</th>
+                                    <th>Ngày sinh</th>
+                                    <th>Lớp</th>
+                                    <th>Khoa</th>
+                                    <th>Email</th>
+                                    <th>SĐT</th>
+                                    <th>HKTT</th>
+                                    <th>Niên khóa</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="x" items="${lsSV}" >
+                                    <tr>
+                                        <td>${x.getUserName()}</td>
+                                        <td>${x.getUserFullname()}</td>
+                                        <td>${x.getUserDateofbirth()}</td>
+                                        <td>${x.getUserClass()}</td>
+                                        <td>${x.getUserFaculty()}</td>
+                                        <td>${x.getUserEmail()}</td>
+                                        <td>${x.getUserMobile()}</td>
+                                        <td>${x.getUserReligion()}</td>
+                                        <td>9</td>
+                                        <td><a href="#" style="color: blue">Update</a></td>
+                                        <td><a href="#" style="color: blue">Xóa</a></td>
+                                    </tr>
+                                </c:forEach>
 
+                            </tbody>
+                        </table>
+                    </div>
 
                     <!-- InstanceEndEditable -->
 
@@ -91,9 +130,9 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/jquery.dataTables.min.js"></script>
     <script>
-                            $(document).ready(function () {
-                                $("#myTable").DataTable();
-                            });
+                                                    $(document).ready(function () {
+                                                        $("#myTable").DataTable();
+                                                    });
     </script>
     <!-- InstanceEnd --></html>
 

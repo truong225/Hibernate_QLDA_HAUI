@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 24, 2017 1:01:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 4, 2017 2:32:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="hibernate.entity.Detai" table="detai" catalog="nhom4_qldoan" optimistic-lock="version">
         <id name="projectId" type="java.lang.Integer">
             <column name="project_id" />
             <generator class="identity" />
         </id>
+        <many-to-one name="users" class="hibernate.entity.Users" fetch="select">
+            <column name="user_id" />
+        </many-to-one>
         <property name="projectName" type="string">
             <column name="project_name" length="500" />
         </property>
         <property name="projectContentlink" type="string">
             <column name="project_contentlink" length="65535" />
-        </property>
-        <property name="projectAuthorid" type="java.lang.Integer">
-            <column name="project_authorid" />
         </property>
         <property name="projectInstructorid" type="int">
             <column name="project_instructorid" not-null="true" />
@@ -41,5 +41,20 @@
         <property name="projectCancel" type="java.lang.Boolean">
             <column name="project_cancel" />
         </property>
+        <property name="isdelete" type="java.lang.Boolean">
+            <column name="isdelete" />
+        </property>
+        <property name="deleteDate" type="string">
+            <column name="delete_date" length="45" />
+        </property>
+        <property name="deleteUserid" type="java.lang.Integer">
+            <column name="delete_userid" />
+        </property>
+        <set name="tiendos" table="tiendo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="project_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.entity.Tiendo" />
+        </set>
     </class>
 </hibernate-mapping>

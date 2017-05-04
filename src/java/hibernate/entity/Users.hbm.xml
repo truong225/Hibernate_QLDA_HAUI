@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 24, 2017 1:01:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 4, 2017 2:32:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="hibernate.entity.Users" table="users" catalog="nhom4_qldoan" optimistic-lock="version">
         <id name="userId" type="java.lang.Integer">
@@ -53,5 +53,32 @@
         <property name="userClass" type="string">
             <column name="user_class" length="50" />
         </property>
+        <property name="userCountLogin" type="java.lang.Integer">
+            <column name="user_count_login" />
+        </property>
+        <property name="userNumDthd" type="java.lang.Integer">
+            <column name="user_num_dthd" />
+        </property>
+        <property name="userNumSvdhd" type="java.lang.Integer">
+            <column name="user_num_svdhd" />
+        </property>
+        <property name="isdelete" type="java.lang.Boolean">
+            <column name="isdelete" />
+        </property>
+        <property name="deleteDate" type="string">
+            <column name="delete_date" length="45" />
+        </property>
+        <property name="deleteUserid" type="java.lang.Integer">
+            <column name="delete_userid" />
+        </property>
+        <property name="userNv" type="java.lang.Integer">
+            <column name="user_nv" />
+        </property>
+        <set name="detais" table="detai" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="hibernate.entity.Detai" />
+        </set>
     </class>
 </hibernate-mapping>

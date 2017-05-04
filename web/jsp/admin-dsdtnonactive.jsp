@@ -73,8 +73,43 @@
 
                 <!-- Noi dung -->
                 <section class="right-content" style="height: auto;"><!-- InstanceBeginEditable name="Noidung" -->
-                    <div> HOME </div>
+                    <div> DANH SÁCH SINH VIÊN </div>
+                    <div>
+                        <input id="btn_add" value="Thêm" type="button"/>
+                    </div>
+                    <div>
+                        <table id="myTable" class="table table-striped table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên đề tài</th>
+                                    <th>SV Thực hiện</th>
+                                    <th>Giảng viên HD</th>
+                                    <th>Ngày bắt đầu</th>
+                                    <th>Số lần báo cáo</th>
+                                    <th>Trạng thái</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="x" items="${lsDT}" >
+                                    <tr>
+                                        <td>${x.getProjectId()}</td>
+                                        <td>${x.getProjectName()}</td>
+                                        <td>${x.getUsers().getUserId()}</td>
+                                        <td>${x.getProjectInstructorid()}</td>
+                                        <td>${x.getProjectStartdate()}</td>
+                                        <td>${x.getProjectViewcount()}</td>
+                                        <td>${x.getProjectStatus()}</td>
+                                        <td><a href="#" style="color: blue">Update</a></td>
+                                        <td><a href="#" style="color: blue">Xóa</a></td>
+                                    </tr>
+                                </c:forEach>
 
+                            </tbody>
+                        </table>
+                    </div>
 
                     <!-- InstanceEndEditable -->
 

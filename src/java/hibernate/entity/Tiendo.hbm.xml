@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 24, 2017 1:01:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 4, 2017 2:32:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="hibernate.entity.Tiendo" table="tiendo" catalog="nhom4_qldoan" optimistic-lock="version">
         <id name="tdId" type="java.lang.Integer">
             <column name="td_id" />
             <generator class="identity" />
         </id>
+        <many-to-one name="detai" class="hibernate.entity.Detai" fetch="select">
+            <column name="project_id" not-null="true" />
+        </many-to-one>
         <property name="tdName" type="string">
             <column name="td_name" length="100" />
         </property>
         <property name="tdCreatedate" type="string">
             <column name="td_createdate" length="12" />
         </property>
-        <property name="tdProjectid" type="int">
-            <column name="td_projectid" not-null="true" />
-        </property>
-        <property name="tdParentid" type="int">
-            <column name="td_parentid" not-null="true" />
+        <property name="userId" type="int">
+            <column name="user_id" not-null="true" />
         </property>
         <property name="tdDescription" type="string">
             <column name="td_description" length="65535" />
@@ -29,5 +29,20 @@
         <property name="tdProcess" type="java.lang.Integer">
             <column name="td_process" />
         </property>
+        <property name="isdelete" type="java.lang.Boolean">
+            <column name="isdelete" />
+        </property>
+        <property name="deleteDate" type="string">
+            <column name="delete_date" length="45" />
+        </property>
+        <property name="deleteUserid" type="java.lang.Integer">
+            <column name="delete_userid" />
+        </property>
+        <set name="commentses" table="comments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="td_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.entity.Comments" />
+        </set>
     </class>
 </hibernate-mapping>
