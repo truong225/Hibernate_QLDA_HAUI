@@ -11,7 +11,7 @@
 <head>
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Untitled Document</title>
+<title>Hệ thống quản lý đồ án tốt nghiệp</title>
 <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.min.css">
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
@@ -59,11 +59,11 @@
 								<li><a href="initDSDTNonActive.htm" >Đề tài đã hoàn thành</a></li>
 							</ul>
 						</li>
-						<li><a href="dsgvhd.html" >Thông tin hội đồng</a>
+						<li><a href="initDSGVHD.htm" >Thông tin hội đồng</a>
 							<ul class="sub-menu">
-								<li><a href="dsgvhd.html" >Giảng viên hướng dẫn</a></li>
-								<li><a href="dshdpb.html" >DS hội đồng phản biện</a></li>
-								<li><a href="dshdc.html" >DS hội đồng chấm</a></li>
+								<li><a href="initDSGVHD.htm" >Giảng viên hướng dẫn</a></li>
+								<li><a href="initDSGVPB.htm" >DS hội đồng phản biện</a></li>
+								<li><a href="initDSHDC.htm" >DS hội đồng chấm</a></li>
 							</ul>
 						</li>
 						<li><a href="initLogin.htm" >Đăng xuất</a></li>

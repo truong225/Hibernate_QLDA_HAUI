@@ -22,117 +22,196 @@ import org.hibernate.Transaction;
  */
 public class AdminModel {
 
-    SessionFactory sf = null;
-    Session ss = null;
-    Transaction t = null;
+    private SessionFactory sf = null;
+    private Session ss = null;
+    private Transaction t = null;
+
     
     
-    public List<Detai> getAllDTNonActive(){
-        List<Detai> ls = null;
-        try {
-            sf =HibernateUtil.getSessionFactory();
-            ss = sf.getCurrentSession();
-            t = ss.beginTransaction();
-            
-            String hql = "FROM Detai as d where d.projectStatus = 0 and d.isdelete = 0";
-            Query query = ss.createQuery(hql);
-            ls = query.list();
-        } catch (Exception e) {
-            t.rollback();
-            e.printStackTrace();
-        }
-        return ls;
-    }
     
-    public List<Detai> getAllDTActive(){
+    
+    public List<Detai> getAllDTNonActive() {
         List<Detai> ls = null;
         try {
             sf = HibernateUtil.getSessionFactory();
-            ss = sf.getCurrentSession();
+            ss = sf.openSession();
             t = ss.beginTransaction();
-            
+
+            String hql = "FROM Detai as d where d.projectStatus = 0 and d.isdelete = 0";
+            Query query = ss.createQuery(hql);
+            ls = query.list();
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+        } finally {
+            ss.close();
+        }
+        return ls;
+    }
+
+    public List<Detai> getAllDTActive() {
+        List<Detai> ls = null;
+        try {
+            sf = HibernateUtil.getSessionFactory();
+            ss = sf.openSession();
+            t = ss.beginTransaction();
+
             String hql = "FROM Detai as d where d.projectStatus = 1 and d.isdelete = 0";
             Query query = ss.createQuery(hql);
             ls = query.list();
             t.commit();
-            
+
         } catch (Exception e) {
             t.rollback();
             e.printStackTrace();
-        }finally{
-            
+        } finally {
+            ss.close();
         }
         return ls;
     }
-    
-    public List<Users> getDSAdmin(){
+
+    public List<Users> getDSAdmin() {
         List<Users> ls = null;
-        
+
         try {
-            sf= HibernateUtil.getSessionFactory();
-            ss = sf.getCurrentSession();
+            sf = HibernateUtil.getSessionFactory();
+            ss = sf.openSession();
             t = ss.beginTransaction();
-            
+
             String hql = "FROM Users as u where u.userType =0 and u.userActive = 1";
-            
-            Query query  = ss.createQuery(hql);
+
+            Query query = ss.createQuery(hql);
             ls = query.list();
             t.commit();
         } catch (Exception e) {
             t.rollback();
             e.printStackTrace();
+        } finally {
+            ss.close();
         }
         return ls;
     }
-    
-    public List<Users> getDSGV(){
+
+    public List<Users> getDSHDC() {
         List<Users> ls = null;
-        
+
         try {
-            sf= HibernateUtil.getSessionFactory();
-            ss = sf.getCurrentSession();
+            sf = HibernateUtil.getSessionFactory();
+            ss = sf.openSession();
             t = ss.beginTransaction();
-            
-            String hql = "FROM Users as u where u.userType =0 and u.userActive = 1";
-            
-            Query query  = ss.createQuery(hql);
+
+            String hql = "FROM Users as u where u.userType =2 and u.userActive = 1 and u.userNv = 3";
+
+            Query query = ss.createQuery(hql);
             ls = query.list();
             t.commit();
         } catch (Exception e) {
             t.rollback();
             e.printStackTrace();
+        } finally {
+            ss.close();
         }
         return ls;
     }
     
-    public List<Users> getDSSV(){
+    public List<Users> getDSGVPB() {
         List<Users> ls = null;
-        
+
         try {
-            sf= HibernateUtil.getSessionFactory();
-            ss = sf.getCurrentSession();
+            sf = HibernateUtil.getSessionFactory();
+            ss = sf.openSession();
             t = ss.beginTransaction();
-            
+
+            String hql = "FROM Users as u where u.userType =2 and u.userActive = 1 and u.userNv = 2";
+
+            Query query = ss.createQuery(hql);
+            ls = query.list();
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+        } finally {
+            ss.close();
+        }
+        return ls;
+    }
+    
+    public List<Users> getDSGVHD() {
+        List<Users> ls = null;
+
+        try {
+            sf = HibernateUtil.getSessionFactory();
+            ss = sf.openSession();
+            t = ss.beginTransaction();
+
+            String hql = "FROM Users as u where u.userType =2 and u.userActive = 1 and u.userNv = 1";
+
+            Query query = ss.createQuery(hql);
+            ls = query.list();
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+        } finally {
+            ss.close();
+        }
+        return ls;
+    }
+    
+    public List<Users> getDSGV() {
+        List<Users> ls = null;
+
+        try {
+            sf = HibernateUtil.getSessionFactory();
+            ss = sf.openSession();
+            t = ss.beginTransaction();
+
+            String hql = "FROM Users as u where u.userType =2 and u.userActive = 1";
+
+            Query query = ss.createQuery(hql);
+            ls = query.list();
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+        } finally {
+            ss.close();
+        }
+        return ls;
+    }
+
+    public List<Users> getDSSV() {
+        List<Users> ls = null;
+
+        try {
+            sf = HibernateUtil.getSessionFactory();
+            ss = sf.openSession();
+            t = ss.beginTransaction();
+
             String hql = "FROM Users as u where u.userType =1 and u.userActive = 1";
-            
-            Query query  = ss.createQuery(hql);
+
+            Query query = ss.createQuery(hql);
             ls = query.list();
             t.commit();
+            //ss.close();
         } catch (Exception e) {
             t.rollback();
             e.printStackTrace();
+        } finally {
+            ss.close();
         }
         return ls;
     }
-    
+
     public List<Users> getUsers(String userName, String userPassword) {
 
         List<Users> ls = null;
+
         try {
             sf = HibernateUtil.getSessionFactory();
-            ss = sf.getCurrentSession();
+            ss = sf.openSession();
             t = ss.beginTransaction();
-           
             String hql = "FROM Users as u where u.userName=? and u.userPassword=?";
             Query query = ss.createQuery(hql);
             query.setParameter(0, userName);
@@ -142,9 +221,11 @@ public class AdminModel {
         } catch (Exception e) {
             t.rollback();
             e.printStackTrace();
-        } 
+        } finally {
+            ss.close();
+        }
 
         return ls;
     }
-    
+
 }

@@ -98,5 +98,29 @@ public class AdminController {
         model.addObject("lsDT", ls);
         return model;
     }
+    
+    @RequestMapping(value = "initDSGVHD")
+    public ModelAndView initDSGVHD() {
+        ModelAndView model = new ModelAndView("admin-dsgvhd");
+        List<Users> ls = adminModel.getDSGVHD();
+        model.addObject("lsSV", ls);
+        return model;
+    }
+
+    @RequestMapping(value = "initDSGVPB")
+    public ModelAndView initDSGVPB() {
+        ModelAndView model = new ModelAndView("admin-dsgvpb");
+        List<Users> ls = adminModel.getDSGVPB();
+        model.addObject("lsSV", ls);
+        return model;
+    }
+    
+    @RequestMapping(value = "initDSHDC")
+    public ModelAndView initDSHDC() {
+        ModelAndView model = new ModelAndView("admin-dshdc");
+        List<Users> ls = adminModel.getDSHDC();
+        model.addObject("lsSV", ls);
+        return model;
+    }
 
 }
