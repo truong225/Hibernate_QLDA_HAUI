@@ -21,10 +21,10 @@
                 <div class="loginContent">
                     <table class="tbLogin">
                         <tr>
-                            <td><input id="userName" name="userName" type="input" placeholder="Tên đăng nhập"></td>
+                            <td><f:input  path="userName" placeholder="Tên đăng nhập"/></td>
                         </tr>
                         <tr>
-                            <td><input id="userPassword" name="userPassword" type="Password" placeholder="Mật khẩu"></td>
+                            <td><f:input path="userPassword" type="Password" placeholder="Mật khẩu"/></td>
                         </tr>
                         <tr>
                             <td style="color: red">${error}</td>

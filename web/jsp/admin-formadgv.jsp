@@ -69,7 +69,7 @@
                 </section>
                 <!-- Noi dung -->
                 <section class="right-content" style="height: auto;"><!-- InstanceBeginEditable name="Noidung" -->
-                    <div> Thêm Tài Khoản SV</div>
+                    <div> Thêm Tài Khoản GV</div>
 
                     <div>
                         <f:form action="insertDSSV.htm" method="GET" commandName="sv">
@@ -147,8 +147,9 @@
                                     <td>Loại TK: </td>
                                     <td>
                                         <f:select path="userType">
-                                            <f:option value="1">Sinh Viên</f:option>
+                                            
                                             <f:option value="2">Giảng Viên</f:option>
+                                            <f:option value="1">Sinh Viên</f:option>
                                             <f:option value="0">Quản trị</f:option>
                                         </f:select>
                                         

@@ -3,7 +3,7 @@
     Created on : Apr 29, 2017, 2:35:58 PM
     Author     : we
 --%>
-
+<%@taglib  prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -75,7 +75,11 @@
                 <section class="right-content" style="height: auto;"><!-- InstanceBeginEditable name="Noidung" -->
                     <div> DANH SÁCH SINH VIÊN </div>
                     <div>
-                        <input id="btn_add" value="Thêm" type="button"/>
+                        <div>
+                        <f:form action="initFormAdaGV.htm" >
+                            <input id="btn_add" value="Thêm" type="submit"/>
+                        </f:form>
+                    </div>
                     </div>
                     <div>
                         <table id="myTable" class="table table-striped table-bordered" style="width: 100%">
@@ -86,7 +90,6 @@
                                     <th>Ngày sinh</th>
                                     <th>Khoa</th>
                                     <th>Email</th>
-                                    <th>SĐT</th>
                                     <th>Số SVHD</th>
                                     <th>Số ĐTHD</th>
                                     <th>Số lần Truy cập</th>
@@ -102,12 +105,11 @@
                                         <td>${x.getUserDateofbirth()}</td>
                                         <td>${x.getUserFaculty()}</td>
                                         <td>${x.getUserEmail()}</td>
-                                        <td>${x.getUserMobile()}</td>
                                         <td>${x.getUserNumDthd()}</td>
                                         <td>${x.getUserNumSvdhd()}</td>
                                         <td>${x.getUserCountLogin()}</td>
                                         <td><a href="#" style="color: blue">Update</a></td>
-                                        <td><a href="#" style="color: blue">Xóa</a></td>
+                                        <td><a href="delete.htm?userId=${x.getUserId()}&model=inittkgv.htm" style="color: blue">Xóa</a></td>
                                     </tr>
                                 </c:forEach>
 

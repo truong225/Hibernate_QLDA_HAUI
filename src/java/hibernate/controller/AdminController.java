@@ -30,13 +30,15 @@ public class AdminController {
     @RequestMapping(value = "initLogin")
     public ModelAndView initlogin() {
         ModelAndView model = new ModelAndView("admin-Login");
+        Users users = new Users();
+        model.getModel().put("User", users);
         return model;
     }
 
     @RequestMapping(value = "Login")
     public String Login(@ModelAttribute("User") Users user) {
 
-        List<Users> ls = adminModel.getUsers(user.getUserName(), user.getUserPassword());
+        List<Users> ls = adminModel.getUsers(user);
         if (ls != null && ls.size() > 0) {
             return "redirect:Home.htm";
         } else {
@@ -47,6 +49,8 @@ public class AdminController {
     @RequestMapping(value = "LoginF")
     public ModelAndView LoginF() {
         ModelAndView model = new ModelAndView("admin-Login");
+        Users users = new Users();
+        model.getModel().put("User", users);
         model.addObject("error", "   Đăng nhập thất bại!");
         return model;
     }
@@ -122,5 +126,69 @@ public class AdminController {
         model.addObject("lsSV", ls);
         return model;
     }
+    
+    
+    
+    @RequestMapping(value = "delete.htm")
+    public String delete(@RequestParam(value = "userId") Integer userId, @RequestParam(value = "model") String model){
+        boolean check = adminModel.Delete(userId);
+        if(check == true){
+            return "redirect:"+model;
+        }
+        else{
+            return "";
+        }
+    }
 
+    @RequestMapping(value = "initFormAdaSV")
+    public ModelAndView initFormAddSV(){
+        ModelAndView model = new ModelAndView("admin-formadsv");
+        Users sv = new Users();
+         model.getModelMap().put("sv", sv); 
+        return model;
+    }
+    
+    @RequestMapping(value = "initFormAdaAD")
+    public ModelAndView initFormAddAD(){
+        ModelAndView model = new ModelAndView("admin-formadad");
+        Users sv = new Users();
+         model.getModelMap().put("sv", sv); 
+        return model;
+    }
+    
+    @RequestMapping(value = "initFormAdaGV")
+    public ModelAndView initFormAddGV(){
+        ModelAndView model = new ModelAndView("admin-formadgv");
+        Users sv = new Users();
+         model.getModelMap().put("sv", sv); 
+        return model;
+    }
+    
+    @RequestMapping(value = "insertDSSV")
+    public String insertSV(@ModelAttribute(value = "sv") Users sv){
+        boolean check = adminModel.InsertSV(sv);
+        if(check == true){
+            return "redirect:inittksv.htm";
+        }
+        return "";
+    }
+    
+    @RequestMapping(value = "initFormAddDT")
+    public ModelAndView initFormAdđT(){
+        ModelAndView model = new ModelAndView("admin-formadddt");
+        Detai dt = new Detai();
+        model.getModelMap().put("dt", dt);
+        return model;
+    }
+    
+    @RequestMapping(value = "insertDSDT")
+    public String insertDT(@ModelAttribute(value = "dt") Detai dt) {
+        boolean check = adminModel.InsertDT(dt);
+        if (check == true) {
+            return "redirect:initDSDTActive.htm";
+        }
+
+        return "redirect:initDSDTActive.htm";
+    }
+    
 }

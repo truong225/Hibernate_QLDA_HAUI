@@ -75,7 +75,12 @@
                 <section class="right-content" style="height: auto;"><!-- InstanceBeginEditable name="Noidung" -->
                     <div> DANH SÁCH SINH VIÊN </div>
                     <div>
-                        <input id="btn_add" value="Thêm" type="button"/>
+                        <div>
+                            <f:form action="initFormAdaSV.htm">
+                                <input id="btn_add" value="Thêm" type="submit"/>
+                            </f:form>
+                        </div>
+
                     </div>
                     <div>
                         <table id="myTable" class="table table-striped table-bordered" style="width: 100%">

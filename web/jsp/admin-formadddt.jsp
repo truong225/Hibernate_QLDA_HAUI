@@ -1,17 +1,15 @@
 <%-- 
-    Document   : tksv
-    Created on : Apr 29, 2017, 2:35:58 PM
+    Document   : admin-formadsv
+    Created on : May 6, 2017, 10:36:43 PM
     Author     : we
 --%>
-<%@taglib  uri="http://www.springframework.org/tags/form" prefix="f" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!doctype html><html><!-- InstanceBegin template="/Templates/backend-hibernate.dwt" codeOutsideHTMLIsLocked="false" -->
     <head>
         <meta charset="utf-8">
         <!-- InstanceBeginEditable name="doctitle" -->
-        <title>Hệ thống quản lý đồ án tốt nghiệp</title>
+        <title>Untitled Document</title>
         <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.min.css">
         <!-- InstanceEndEditable -->
         <!-- InstanceBeginEditable name="head" -->
@@ -19,14 +17,13 @@
         <link href="../css/back-end-index.css" rel="stylesheet" type="text/css">
     </head>
     <script src="../js/customer.js"></script>
-
     <body style="background: gray;  ">
         <div class="contain" style="background: #FFF">
             <header class="header">
                 <div class="header-logo" style="float: left;">
                     <a href="#">HỆ THỐNG QUẢN LÝ ĐỒ ÁN TỐT NGHIỆP</a>
                 </div>
-                <div class="dropdown">
+                <div class="dropdown" style="float: right;">
 
                     <div class="header-user" >
                         <img src="../images/avatar.jpg" alt="" id="header-avatar">
@@ -50,7 +47,7 @@
                                 <ul class="sub-menu">
                                     <li><a href="inittksv.htm" >Tài khoản sinh viên</a></li>
                                     <li><a href="inittkgv.htm" >Tài khoản giảng viên</a></li>
-                                    <li><a href="intkad.htm" >Tài khoản quản trị</a></li>
+                                    <li><a href="intkad.htm.htm" >Tài khoản quản trị</a></li>
                                 </ul>
                             </li>
                             <li><a href="initDSDTActive.htm" >Quản lý đề tài</a>
@@ -70,47 +67,70 @@
                         </ul>
                     </div>
                 </section>
-
                 <!-- Noi dung -->
                 <section class="right-content" style="height: auto;"><!-- InstanceBeginEditable name="Noidung" -->
-                    <div> DANH SÁCH SINH VIÊN </div>
-                    <div>
-                        <f:form action="initFormAddDT.htm">
-                            <input id="btn_add" value="Thêm" type="submit"/>
-                        </f:form>
-                    </div>
-                    <div>
-                        <table id="myTable" class="table table-striped table-bordered" style="width: 100%">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Tên đề tài</th>
-                                    <th>SV Thực hiện</th>
-                                    <th>Giảng viên HD</th>
-                                    <th>Ngày bắt đầu</th>
-                                    <th>Số lần báo cáo</th>
-                                    <th>Trạng thái</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach var="x" items="${lsDT}" >
-                                    <tr>
-                                        <td>${x.getProjectId()}</td>
-                                        <td>${x.getProjectName()}</td>
-                                        <td>${x.getUsers().getUserId()}</td>
-                                        <td>${x.getProjectInstructorid()}</td>
-                                        <td>${x.getProjectStartdate()}</td>
-                                        <td>${x.getProjectViewcount()}</td>
-                                        <td>${x.getProjectStatus()}</td>
-                                        <td><a href="#" style="color: blue">Update</a></td>
-                                        <td><a href="#" style="color: blue">Xóa</a></td>
-                                    </tr>
-                                </c:forEach>
+                    <div> Thêm Tài Khoản GV</div>
 
-                            </tbody>
-                        </table>
+                    <div>
+                        <f:form action="insertDSDT.htm" method="GET" commandName="dt">
+                            <table class="form-add">
+                                <tr>
+                                    <td>
+                                        <td>Tên đề tài <span style="color: red;">(*)</span>: </td>
+                                        <td>
+                                            <f:input path="projectName"/>
+                                        </td>
+                                    </td>
+                                    <td>
+                                    <td>Đường dẫn <span style="color: red;">(*)</span>: </td>
+                                    <td><f:input path="projectContentlink"/></td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <td>Sinh viên thực hiện: </td>
+                                    <td>
+                                        <f:input path="users.userId" />
+                                    </td>
+                                    </td>
+                                    <td>
+                                    <td>Ngày bắt đầu: </td>
+                                    <td><f:input type="date" path="projectStartdate"/></td>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>
+                                    <td>Giảng viên hướng dẫn </td>
+                                    <td>
+                                        <f:input path="projectInstructorid" />
+                                    </td>
+                                    </td>
+                                    <td>
+                                    <td></td>
+                                    <td></td>
+                                    </td>
+                                </tr>
+                                
+                               
+                                <tr>
+                                    <td>
+                                    <td>Tóm tắt: </td>
+                                    <td>
+                                        <f:textarea path="projectDescription" cols="25" rows="5"></f:textarea>
+                                        
+                                    </td>
+                                    </td>
+                                </tr> 
+                           </table>
+                            <div class="btn">
+                                <div style="width: 310px; margin: 0 auto">
+                                    <input class="btn_add1" type="button" value="Thêm">
+                                    <input class="btn_add1" type="submit" value="Lưu">
+                                    <input class="btn_add1" type="button" value="Hủy">
+                                </div>
+                            </div>
+                        </f:form>
                     </div>
 
                     <!-- InstanceEndEditable -->
@@ -133,4 +153,3 @@
                             });
     </script>
     <!-- InstanceEnd --></html>
-
