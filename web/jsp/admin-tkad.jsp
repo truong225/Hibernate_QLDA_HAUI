@@ -102,7 +102,7 @@
                                         <td>${x.getUserDateofbirth()}</td>
                                         <td>${x.getUserEmail()}</td>
                                         <td>${x.getUserCountLogin()}</td>
-                                        <td><a href="#" style="color: blue">Update</a></td>
+                                        <td><a href="initUpdateUserAD.htm?userId=${x.getUserId()}" style="color: blue">Update</a></td>
                                         <td><a href="delete.htm?userId=${x.getUserId()}&model=intkad.htm" style="color: blue">Xóa</a></td>
                                     </tr>
                                 </c:forEach>

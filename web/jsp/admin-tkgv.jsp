@@ -108,7 +108,7 @@
                                         <td>${x.getUserNumDthd()}</td>
                                         <td>${x.getUserNumSvdhd()}</td>
                                         <td>${x.getUserCountLogin()}</td>
-                                        <td><a href="#" style="color: blue">Update</a></td>
+                                        <td><a href="initUpdateUserGV.htm?userId=${x.getUserId()}" style="color: blue">Update</a></td>
                                         <td><a href="delete.htm?userId=${x.getUserId()}&model=inittkgv.htm" style="color: blue">Xóa</a></td>
                                     </tr>
                                 </c:forEach>

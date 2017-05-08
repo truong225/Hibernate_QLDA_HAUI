@@ -65,7 +65,7 @@ public class AdminModel {
         }
         return ls;
     }
-    
+
     public List<Detai> getAllDTActive1() {
         List<Detai> ls = null;
         try {
@@ -207,7 +207,7 @@ public class AdminModel {
         return ls;
     }
 
-    public List<Users> getUsers(Users users) {
+    public List<Users> getUsersAd(Users users) {
 
         List<Users> ls = null;
 
@@ -215,7 +215,7 @@ public class AdminModel {
             sf = HibernateUtil.getSessionFactory();
             ss = sf.openSession();
             t = ss.beginTransaction();
-            String hql = "FROM Users as u where u.userName=? and u.userPassword=? and u.userActive = 1";
+            String hql = "FROM Users as u where u.userName=? and u.userPassword=? and u.userActive = 1 and u.userType = 0";
             Query query = ss.createQuery(hql);
             query.setParameter(0, users.getUserName());
             query.setParameter(1, users.getUserPassword());
@@ -242,6 +242,31 @@ public class AdminModel {
         return ls;
     }
 
+    public List<Users> getUsers(Users users) {
+
+        List<Users> ls = null;
+
+        try {
+            sf = HibernateUtil.getSessionFactory();
+            ss = sf.openSession();
+            t = ss.beginTransaction();
+            String hql = "FROM Users as u where u.userName=? and u.userPassword=? and u.userActive = 1";
+            Query query = ss.createQuery(hql);
+            query.setParameter(0, users.getUserName());
+            query.setParameter(1, users.getUserPassword());
+            ls = query.list();
+            t.commit();
+
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+        } finally {
+            ss.close();
+        }
+
+        return ls;
+    }
+
     public List<Users> getUsers(Integer userId) {
 
         List<Users> ls = null;
@@ -254,15 +279,7 @@ public class AdminModel {
 
             ls = query.list();
             t.commit();
-            if (ls.size() > 0) {
-                Users newItem = ls.get(0);
-                Integer countLogin = newItem.getUserCountLogin();
-                countLogin++;
-                newItem.setUserCountLogin(countLogin);
-                t = ss.beginTransaction();
-                ss.save(newItem);
-                t.commit();
-            }
+            
 
         } catch (Exception e) {
             t.rollback();
@@ -296,7 +313,7 @@ public class AdminModel {
         return check;
 
     }
-    
+
     public boolean InsertDT(Detai dt) {
         boolean check = false;
         try {
@@ -320,13 +337,16 @@ public class AdminModel {
         return check;
 
     }
-    
 
     public boolean Update(Users users) {
         boolean check = false;
         try {
-            init();
-            ss.save(users);
+            Users newItem = users;
+            sf = HibernateUtil.getSessionFactory();
+            ss = sf.openSession();
+            t = ss.beginTransaction();
+            ss.update(newItem);
+
             t.commit();
             check = true;
         } catch (Exception e) {
@@ -373,13 +393,12 @@ public class AdminModel {
         t = ss.beginTransaction();
     }
 
-    
     public static void main(String[] args) {
         AdminModel model = new AdminModel();
         Detai dt = new Detai();
         dt.setProjectName("test");
         dt.setProjectInstructorid(3);
         model.InsertDT(dt);
-        
+
     }
 }

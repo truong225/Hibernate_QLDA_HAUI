@@ -106,7 +106,7 @@
                                         <td>${x.getUserEmail()}</td>
                                         <td>${x.getUserReligion()}</td>
                                         <td>9</td>
-                                        <td><a href="#" style="color: blue">Update</a></td>
+                                        <td><a href="initUpdateUser.htm?userId=${x.getUserId()}&model=inittksv.htm" style="color: blue">Update</a></td>
                                         <td><a href="delete.htm?userId=${x.getUserId()}&model=inittksv.htm" style="color: blue">Xóa</a></td>
                                     </tr>
                                 </c:forEach>

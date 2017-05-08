@@ -72,19 +72,16 @@
                     <div> Thêm Tài Khoản SV</div>
 
                     <div>
-                        <f:form action="insertDSSV.htm" method="GET" commandName="sv">
+                        <f:form action="updateUserSV.htm" method="GET" commandName="sv">
                             <table class="form-add">
                                 <tr>
                                     <td>
                                         <td>Mã Tài khoản : </td>
                                         <td>
-                                            <f:input path="userName"/>
+                                            <f:input path="userId" readonly="true"/>
                                         </td>
                                     </td>
-                                    <td>
-                                    <td>Mật khẩu <span style="color: red;">(*)</span>: </td>
-                                    <td><f:input path="userPassword"/></td>
-                                    </td>
+                                   
 
                                 </tr>
                                 <tr>
@@ -132,12 +129,12 @@
                                     <td>
                                     <td>Lớp: </td>
                                     <td>
-                                        <f:input path="" />
+                                        <f:input path="userClass" />
                                     </td>
                                     </td>
                                     <td>
                                     <td>Email: </td>
-                                    <td><f:input path="userClass" /></td>
+                                    <td><f:input path="userEmail" /></td>
                                     </td>
                                 </tr>
                                 <tr>
@@ -172,6 +169,23 @@
                                     <td></td>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                    <td>Trạng thái kích hoạt: </td>
+                                    <td>
+                                        <f:select path="userActive">
+                                            <f:option value="1">Kích hoạt</f:option>
+                                            <f:option value="0">Không kích hoạt</f:option>
+                                        </f:select>
+                                        
+                                    </td>
+                                    <td>
+                                    <td>Số lần đăng nhập: </td>
+                                    <td>
+                                        <f:input path="userCountLogin" />
+                                    </td>
+                                    </td>
+                                </tr>
                                 
                                 <tr>
                                     <td>
@@ -185,9 +199,8 @@
                             </table>
                             <div class="btn">
                                 <div style="width: 310px; margin: 0 auto">
-                                    <input class="btn_add1" type="button" value="Thêm">
                                     <input class="btn_add1" type="submit" value="Lưu">
-                                    <input class="btn_add1" type="button" value="Hủy">
+                                    <input class="btn_add1" type="button" value="Hủy" onclick="history.go(-1)">
                                 </div>
                             </div>
                         </f:form>

@@ -72,27 +72,24 @@
                     <div> Thêm Tài Khoản SV</div>
 
                     <div>
-                        <f:form action="insertDSSV.htm" method="GET" commandName="sv">
+                        <f:form action="updateUser.htm" method="GET" commandName="sv">
                             <table class="form-add">
                                 <tr>
                                     <td>
-                                        <td>Mã Tài khoản : </td>
-                                        <td>
-                                            <f:input path="userName"/>
-                                        </td>
-                                    </td>
+                                    <td>Mã Tài khoản : </td>
                                     <td>
-                                    <td>Mật khẩu <span style="color: red;">(*)</span>: </td>
-                                    <td><f:input path="userPassword"/></td>
+                                        <f:input path="userId" readonly="true"/>
                                     </td>
+                                    </td>
+
 
                                 </tr>
                                 <tr>
                                     <td>
-                                        <td>Tên đăng nhập <span style="color: red;">(*)</span>: </td>
-                                        <td>
-                                            <f:input path="userName"/>
-                                        </td>
+                                    <td>Tên đăng nhập <span style="color: red;">(*)</span>: </td>
+                                    <td>
+                                        <f:input path="userName"/>
+                                    </td>
                                     </td>
                                     <td>
                                     <td>Mật khẩu <span style="color: red;">(*)</span>: </td>
@@ -120,7 +117,7 @@
                                             <f:option value="1">Nam</f:option>
                                             <f:option value="0">Nữ  </f:option>
                                         </f:select>
-                                        
+
                                     </td>
                                     <td></td>
                                     </td>
@@ -132,12 +129,12 @@
                                     <td>
                                     <td>Lớp: </td>
                                     <td>
-                                        <f:input path="" />
+                                        <f:input path="userClass" />
                                     </td>
                                     </td>
                                     <td>
                                     <td>Email: </td>
-                                    <td><f:input path="userClass" /></td>
+                                    <td><f:input path="userEmail" /></td>
                                     </td>
                                 </tr>
                                 <tr>
@@ -154,7 +151,7 @@
                                     </td>
                                     </td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td>
                                     <td>Loại TK: </td>
@@ -164,7 +161,7 @@
                                             <f:option value="2">Giảng Viên</f:option>
                                             <f:option value="0">Quản trị</f:option>
                                         </f:select>
-                                        
+
                                     </td>
                                     <td></td>
                                     </td>
@@ -172,24 +169,40 @@
                                     <td></td>
                                     </td>
                                 </tr>
-                                
+                                <tr>
+                                    <td>
+                                    <td>Trạng thái kích hoạt: </td>
+                                    <td>
+                                        <f:select path="userActive">
+                                            <f:option value="1">Kích hoạt</f:option>
+                                            <f:option value="0">Không kích hoạt</f:option>
+                                        </f:select>
+
+                                    </td>
+                                    <td>
+                                    <td>Số lần đăng nhập: </td>
+                                    <td>
+                                        <f:input path="userCountLogin" />
+                                    </td>
+                                    </td>
+                                </tr>
+
                                 <tr>
                                     <td>
                                     <td>HKTT: </td>
                                     <td>
                                         <f:textarea path="userReligion" cols="25" rows="5"></f:textarea>
-                                        
-                                    </td>
-                                    </td>
-                                </tr>
-                            </table>
-                            <div class="btn">
-                                <div style="width: 310px; margin: 0 auto">
-                                    <input class="btn_add1" type="button" value="Thêm">
-                                    <input class="btn_add1" type="submit" value="Lưu">
-                                    <input class="btn_add1" type="button" value="Hủy">
+
+                                        </td>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="btn">
+                                    <div style="width: 310px; margin: 0 auto">
+                                        <input class="btn_add1" type="submit" value="Lưu">
+                                        <input class="btn_add1" type="button" value="Hủy" onclick="history.go(-1)">
+                                    </div>
                                 </div>
-                            </div>
                         </f:form>
                     </div>
 
@@ -208,8 +221,8 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/jquery.dataTables.min.js"></script>
     <script>
-                            $(document).ready(function () {
-                                $("#myTable").DataTable();
-                            });
+                                            $(document).ready(function () {
+                                                $("#myTable").DataTable();
+                                            });
     </script>
     <!-- InstanceEnd --></html>

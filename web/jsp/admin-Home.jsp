@@ -30,7 +30,7 @@
 
                     <div class="header-user" >
                         <img src="../images/avatar.jpg" alt="" id="header-avatar">
-                        <span id="header-userName">Trường DX</span>
+                        <span id="header-userName">${accountName}</span>
                     </div>
                     <ul class="dropdown-content" >
                         <li>Thông tin cá nhân</li>
