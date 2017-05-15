@@ -51,6 +51,7 @@
                                     <li><a href="inittksv.htm" >Tài khoản sinh viên</a></li>
                                     <li><a href="inittkgv.htm" >Tài khoản giảng viên</a></li>
                                     <li><a href="intkad.htm" >Tài khoản quản trị</a></li>
+                                    <li><a href="intknotactive.htm" >Tài khoản không kích hoạt</a></li>
                                 </ul>
                             </li>
                             <li><a href="initDSDTActive.htm" >Quản lý đề tài</a>
@@ -73,7 +74,7 @@
 
                 <!-- Noi dung -->
                 <section class="right-content" style="height: auto;"><!-- InstanceBeginEditable name="Noidung" -->
-                    <div> HOME </div>
+                    <div class="title"> CHÀO MỪNG BẠN ĐẾN VỚI HỆ THỐNG QUẢN LÝ ĐỒ ÁN TỐT NGHIỆP </div>
 
 
                     <!-- InstanceEndEditable -->
@@ -83,7 +84,10 @@
 
             </section>
             <footer class="footer">
-
+                <div>
+                    <p>Copyright 2017 © HaUI</p>
+                    <p>Phát triển hệ thống bởi nhóm 4 - KTPMCLCK9</p>
+                </div>
             </footer>
             <div style="clear: both"></div>
         </div>

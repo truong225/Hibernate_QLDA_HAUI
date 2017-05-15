@@ -64,6 +64,7 @@
                                     <li><a href="initDSGVHD.htm" >Giảng viên hướng dẫn</a></li>
                                     <li><a href="initDSGVPB.htm" >DS hội đồng phản biện</a></li>
                                     <li><a href="initDSHDC.htm" >DS hội đồng chấm</a></li>
+                                    
                                 </ul>
                             </li>
                             <li><a href="initLogin.htm" >Đăng xuất</a></li>
@@ -73,7 +74,7 @@
 
                 <!-- Noi dung -->
                 <section class="right-content" style="height: auto;"><!-- InstanceBeginEditable name="Noidung" -->
-                    <div> DANH SÁCH SINH VIÊN </div>
+                    <div class="title"> DANH SÁCH ĐỀ TÀI TỐT NGHIỆP ĐÃ HOÀN THÀNH </div>
                     <div>
                         <f:form action="initFormAdaSV.htm">
                             <input id="btn_add" value="Thêm" type="submit"/>
@@ -116,11 +117,12 @@
                     <!-- InstanceEndEditable -->
 
                 </section>
-
-
             </section>
             <footer class="footer">
-
+                <div>
+                    <p>Copyright 2017 © HaUI</p>
+                    <p>Phát triển hệ thống bởi nhóm 4 - KTPMCLCK9</p>
+                </div>
             </footer>
             <div style="clear: both"></div>
         </div>

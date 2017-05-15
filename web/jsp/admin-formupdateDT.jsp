@@ -70,115 +70,65 @@
                 </section>
                 <!-- Noi dung -->
                 <section class="right-content" style="height: auto;"><!-- InstanceBeginEditable name="Noidung" -->
-                    <div class="title"> Thêm Tài Khoản SV</div>
+                    <div class="title"> Thêm Tài Khoản GV</div>
 
                     <div>
-                        <f:form action="insertDSSV.htm" method="GET" commandName="sv">
+                        <f:form action="updateDT.htm" method="GET" commandName="dt">
                             <table class="form-add">
-                                
                                 <tr>
                                     <td>
-                                        <td>Tên đăng nhập <span style="color: red;">(*)</span>: </td>
-                                        <td>
-                                            <f:input path="userName"/>
-                                        </td>
-                                    </td>
+                                    <td>Mã đề tài : </td>
                                     <td>
-                                    <td>Mật khẩu <span style="color: red;">(*)</span>: </td>
-                                    <td><f:input path="userPassword"/></td>
+                                        <f:input path="projectId" readonly="true"/>
+                                    </td>
                                     </td>
 
                                 </tr>
                                 <tr>
                                     <td>
-                                    <td>Họ tên: </td>
+                                    <td>Tên đề tài <span style="color: red;">(*)</span>: </td>
                                     <td>
-                                        <f:input path="userFullname" />
+                                        <f:input path="projectName"/>
                                     </td>
                                     </td>
                                     <td>
-                                    <td>Ngày sinh: </td>
-                                    <td><f:input type="date" path="userDateofbirth"/></td>
+                                    <td>Đường dẫn <span style="color: red;">(*)</span>: </td>
+                                    <td><f:input path="projectContentlink"/></td>
                                     </td>
+
                                 </tr>
+                               
                                 <tr>
                                     <td>
-                                    <td>Giới tính: </td>
+                                    <td>Giảng viên hướng dẫn </td>
                                     <td>
-                                        <f:select path="userGender">
-                                            <f:option value="1">Nam</f:option>
-                                            <f:option value="0">Nữ  </f:option>
-                                        </f:select>
-                                        
+                                        <f:input path="projectInstructorid" />
                                     </td>
+                                    </td>
+                                    <td>
                                     <td></td>
-                                    </td>
-                                    <td>Khoa: </td>
-                                    <td><f:input path="userFaculty" /></td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                    <td>Lớp: </td>
-                                    <td>
-                                        <f:input path="" />
-                                    </td>
-                                    </td>
-                                    <td>
-                                    <td>Email: </td>
-                                    <td><f:input path="userClass" /></td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                    <td>Điện thoại: </td>
-                                    <td>
-                                        <f:input path="userMobile" />
-                                    </td>
-                                    </td>
-                                    <td>
-                                    <td>Địa chỉ: </td>
-                                    <td>
-                                        <f:input path="userAddress" />
-                                    </td>
-                                    </td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>
-                                    <td>Loại TK: </td>
-                                    <td>
-                                        <f:select path="userType">
-                                            <f:option value="1">Sinh Viên</f:option>
-                                            <f:option value="2">Giảng Viên</f:option>
-                                            <f:option value="0">Quản trị</f:option>
-                                        </f:select>
-                                        
-                                    </td>
-                                    <td></td>
-                                    </td>
-                                    <td> </td>
                                     <td></td>
                                     </td>
                                 </tr>
-                                
+
+
                                 <tr>
                                     <td>
-                                    <td>HKTT: </td>
+                                    <td>Tóm tắt: </td>
                                     <td>
-                                        <f:textarea path="userReligion" cols="25" rows="5"></f:textarea>
-                                        
-                                    </td>
-                                    </td>
-                                </tr>
-                            </table>
-                            <div class="btn">
-                                <div style="width: 310px; margin: 0 auto">
-                                    <input class="btn_add1" type="button" value="Thêm">
-                                    <input class="btn_add1" type="submit" value="Lưu">
-                                    <input class="btn_add1" type="button" value="Hủy">
+                                        <f:textarea path="projectDescription" cols="25" rows="5"></f:textarea>
+
+                                        </td>
+                                        </td>
+                                    </tr> 
+                                </table>
+                                <div class="btn">
+                                    <div style="width: 310px; margin: 0 auto">
+                                        <input class="btn_add1" type="button" value="Thêm">
+                                        <input class="btn_add1" type="submit" value="Lưu">
+                                        <input class="btn_add1" type="button" value="Hủy">
+                                    </div>
                                 </div>
-                            </div>
                         </f:form>
                     </div>
 
@@ -189,7 +139,7 @@
 
             </section>
             <footer class="footer">
-                 <div>
+                <div>
                     <p>Copyright 2017 © HaUI</p>
                     <p>Phát triển hệ thống bởi nhóm 4 - KTPMCLCK9</p>
                 </div>

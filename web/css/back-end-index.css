@@ -3,6 +3,28 @@
 	font-size: small;
 }
 
+input#btn_add {
+    border-radius: 3px;
+    box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,.08) inset;
+    border: 1px solid #c8c8c8;
+    color: #777;
+    height: 40px;
+    width: 80px;
+    padding-left: 5px;
+    margin: 10px;
+}
+
+form#command {
+    text-align: right;
+}
+
+.title {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.title {}
+
 ul {padding-left: -40px;}
 
 table.form-add {
@@ -58,7 +80,7 @@ li {
     list-style-type: none;
     height: 32px;
     padding-left: 10px;
-    padding-top: 12px;
+    padding-right: 25px;
     cursor: pointer;
 }
 
@@ -88,6 +110,7 @@ body {}
 
 .header-user{
 	padding: 10px;
+	line-height: 50px;
 }
 
 .header-user:hover {
@@ -118,7 +141,8 @@ body {}
 	margin-top: 0px;
 }
 .dropdown-content li{
-	padding-right: 22px;
+	padding-top: 20px;
+	padding-right: 25px;
 }
 .dropdown:hover .dropdown-content{
 	z-index: 99;
@@ -179,6 +203,7 @@ body {}
 	margin-bottom: 40px;
 	padding-top: 10px;
 	padding-right: 10px;
+	min-height: 400px;
 }
 
 li{
@@ -213,4 +238,5 @@ li{
 	clear: both;
 	text-align: center;
 	border-top: solid 1px black;
+        padding-bottom: 10px;
 }

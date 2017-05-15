@@ -48,6 +48,7 @@
                                     <li><a href="inittksv.htm" >Tài khoản sinh viên</a></li>
                                     <li><a href="inittkgv.htm" >Tài khoản giảng viên</a></li>
                                     <li><a href="intkad.htm.htm" >Tài khoản quản trị</a></li>
+                                    <li><a href="intknotactive.htm" >Tài khoản không kích hoạt</a></li>
                                 </ul>
                             </li>
                             <li><a href="initDSDTActive.htm" >Quản lý đề tài</a>
@@ -69,17 +70,26 @@
                 </section>
                 <!-- Noi dung -->
                 <section class="right-content" style="height: auto;"><!-- InstanceBeginEditable name="Noidung" -->
-                    <div> Thêm Tài Khoản GV</div>
+                    <div class="title"> Thêm Tài Khoản GV</div>
 
                     <div>
                         <f:form action="insertDSDT.htm" method="GET" commandName="dt">
                             <table class="form-add">
                                 <tr>
                                     <td>
-                                        <td>Tên đề tài <span style="color: red;">(*)</span>: </td>
-                                        <td>
-                                            <f:input path="projectName"/>
-                                        </td>
+                                    <td>Mã đề tài : </td>
+                                    <td>
+                                        <f:input path="projectId" readonly="true"/>
+                                    </td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <td>Tên đề tài <span style="color: red;">(*)</span>: </td>
+                                    <td>
+                                        <f:input path="projectName"/>
+                                    </td>
                                     </td>
                                     <td>
                                     <td>Đường dẫn <span style="color: red;">(*)</span>: </td>
@@ -99,7 +109,7 @@
                                     <td><f:input type="date" path="projectStartdate"/></td>
                                     </td>
                                 </tr>
-                                 <tr>
+                                <tr>
                                     <td>
                                     <td>Giảng viên hướng dẫn </td>
                                     <td>
@@ -111,25 +121,25 @@
                                     <td></td>
                                     </td>
                                 </tr>
-                                
-                               
+
+
                                 <tr>
                                     <td>
                                     <td>Tóm tắt: </td>
                                     <td>
                                         <f:textarea path="projectDescription" cols="25" rows="5"></f:textarea>
-                                        
-                                    </td>
-                                    </td>
-                                </tr> 
-                           </table>
-                            <div class="btn">
-                                <div style="width: 310px; margin: 0 auto">
-                                    <input class="btn_add1" type="button" value="Thêm">
-                                    <input class="btn_add1" type="submit" value="Lưu">
-                                    <input class="btn_add1" type="button" value="Hủy">
+
+                                        </td>
+                                        </td>
+                                    </tr> 
+                                </table>
+                                <div class="btn">
+                                    <div style="width: 310px; margin: 0 auto">
+                                        <input class="btn_add1" type="button" value="Thêm">
+                                        <input class="btn_add1" type="submit" value="Lưu">
+                                        <input class="btn_add1" type="button" value="Hủy">
+                                    </div>
                                 </div>
-                            </div>
                         </f:form>
                     </div>
 
@@ -140,7 +150,10 @@
 
             </section>
             <footer class="footer">
-
+                <div>
+                    <p>Copyright 2017 © HaUI</p>
+                    <p>Phát triển hệ thống bởi nhóm 4 - KTPMCLCK9</p>
+                </div>
             </footer>
             <div style="clear: both"></div>
         </div>

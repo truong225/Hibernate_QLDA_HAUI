@@ -48,6 +48,7 @@
                                     <li><a href="inittksv.htm" >Tài khoản sinh viên</a></li>
                                     <li><a href="inittkgv.htm" >Tài khoản giảng viên</a></li>
                                     <li><a href="intkad.htm.htm" >Tài khoản quản trị</a></li>
+                                    <li><a href="intknotactive.htm" >Tài khoản không kích hoạt</a></li>
                                 </ul>
                             </li>
                             <li><a href="initDSDTActive.htm" >Quản lý đề tài</a>
@@ -69,10 +70,10 @@
                 </section>
                 <!-- Noi dung -->
                 <section class="right-content" style="height: auto;"><!-- InstanceBeginEditable name="Noidung" -->
-                    <div> Thêm Tài Khoản GV</div>
+                    <div class="title"> Thêm Tài Khoản GV</div>
 
                     <div>
-                        <f:form action="insertDSSV.htm" method="GET" commandName="sv">
+                        <f:form action="insertDSGV.htm" method="GET" commandName="sv">
                             <table class="form-add">
                                 <tr>
                                     <td>
@@ -188,7 +189,10 @@
 
             </section>
             <footer class="footer">
-
+                 <div>
+                    <p>Copyright 2017 © HaUI</p>
+                    <p>Phát triển hệ thống bởi nhóm 4 - KTPMCLCK9</p>
+                </div>
             </footer>
             <div style="clear: both"></div>
         </div>

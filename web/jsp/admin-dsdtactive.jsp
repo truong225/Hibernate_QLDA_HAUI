@@ -26,7 +26,7 @@
                 <div class="header-logo" style="float: left;">
                     <a href="#">HỆ THỐNG QUẢN LÝ ĐỒ ÁN TỐT NGHIỆP</a>
                 </div>
-                <div class="dropdown">
+                <div class="dropdown" style="float: right;">
 
                     <div class="header-user" >
                         <img src="../images/avatar.jpg" alt="" id="header-avatar">
@@ -51,6 +51,7 @@
                                     <li><a href="inittksv.htm" >Tài khoản sinh viên</a></li>
                                     <li><a href="inittkgv.htm" >Tài khoản giảng viên</a></li>
                                     <li><a href="intkad.htm" >Tài khoản quản trị</a></li>
+                                    <li><a href="intknotactive.htm" >Tài khoản không kích hoạt</a></li>
                                 </ul>
                             </li>
                             <li><a href="initDSDTActive.htm" >Quản lý đề tài</a>
@@ -64,6 +65,7 @@
                                     <li><a href="initDSGVHD.htm" >Giảng viên hướng dẫn</a></li>
                                     <li><a href="initDSGVPB.htm" >DS hội đồng phản biện</a></li>
                                     <li><a href="initDSHDC.htm" >DS hội đồng chấm</a></li>
+                                    
                                 </ul>
                             </li>
                             <li><a href="initLogin.htm" >Đăng xuất</a></li>
@@ -73,7 +75,7 @@
 
                 <!-- Noi dung -->
                 <section class="right-content" style="height: auto;"><!-- InstanceBeginEditable name="Noidung" -->
-                    <div> DANH SÁCH SINH VIÊN </div>
+                    <div class="title"> DANH SÁCH ĐỀ TÀI TỐT NGHIỆP ĐANG THỰC HIỆN </div>
                     <div>
                         <f:form action="initFormAddDT.htm">
                             <input id="btn_add" value="Thêm" type="submit"/>
@@ -104,8 +106,8 @@
                                         <td>${x.getProjectStartdate()}</td>
                                         <td>${x.getProjectViewcount()}</td>
                                         <td>${x.getProjectStatus()}</td>
-                                        <td><a href="#" style="color: blue">Update</a></td>
-                                        <td><a href="#" style="color: blue">Xóa</a></td>
+                                        <td><a href="initUpdateDSDT.htm?projectId=${x.getProjectId()}" style="color: blue">Update</a></td>
+                                        <td><a href="deleteDT.htm?projectId=${x.getProjectId()}" style="color: blue">Xóa</a></td>
                                     </tr>
                                 </c:forEach>
 
@@ -120,7 +122,10 @@
 
             </section>
             <footer class="footer">
-
+                 <div>
+                    <p>Copyright 2017 © HaUI</p>
+                    <p>Phát triển hệ thống bởi nhóm 4 - KTPMCLCK9</p>
+                </div>
             </footer>
             <div style="clear: both"></div>
         </div>

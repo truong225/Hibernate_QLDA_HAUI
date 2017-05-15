@@ -35,7 +35,7 @@ public class AdminModel {
         try {
             init();
 
-            String hql = "FROM Detai as d where d.projectStatus = 0 and d.isdelete = 0";
+            String hql = "FROM Detai as d where d.projectStatus = 0";
             Query query = ss.createQuery(hql);
             ls = query.list();
             t.commit();
@@ -53,7 +53,7 @@ public class AdminModel {
         try {
             init();
 
-            String hql = "FROM Detai as d where d.projectStatus = 1 and d.isdelete = 0";
+            String hql = "FROM Detai as d where d.projectStatus = 1 ";
             Query query = ss.createQuery(hql);
             ls = query.list();
             t.commit();
@@ -206,6 +206,27 @@ public class AdminModel {
         }
         return ls;
     }
+    
+    public List<Users> getDSNonActive() {
+        List<Users> ls = null;
+
+        try {
+            init();
+
+            String hql = "FROM Users as u where u.userActive = 0";
+
+            Query query = ss.createQuery(hql);
+            ls = query.list();
+            t.commit();
+            //ss.close();
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+        } finally {
+            ss.close();
+        }
+        return ls;
+    }
 
     public List<Users> getUsersAd(Users users) {
 
@@ -291,6 +312,30 @@ public class AdminModel {
         return ls;
     }
 
+    public Detai getDetai(Integer projectId) {
+
+        Detai ls = null;
+
+        try {
+            init();
+            String hql = "FROM Detai as u where u.projectId=?";
+            Query query = ss.createQuery(hql);
+            query.setParameter(0, projectId);
+
+            ls = (Detai) query.uniqueResult();
+            t.commit();
+            
+
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+        } finally {
+            ss.close();
+        }
+
+        return ls;
+    }
+    
     public boolean InsertSV(Users users) {
         boolean check = false;
         try {
@@ -359,6 +404,29 @@ public class AdminModel {
 
         return check;
     }
+    
+    public boolean UpdateDT(Detai detai) {
+        boolean check = false;
+        try {
+            Detai newItem = detai;
+            newItem.setProjectStatus(true);
+            sf = HibernateUtil.getSessionFactory();
+            ss = sf.openSession();
+            t = ss.beginTransaction();
+            ss.update(newItem);
+
+            t.commit();
+            check = true;
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+            check = false;
+        } finally {
+            ss.close();
+        }
+
+        return check;
+    }
 
     public boolean Delete(Integer userId) {
         boolean check = false;
@@ -386,6 +454,32 @@ public class AdminModel {
 
         return check;
     }
+    
+    public boolean DeleteDT(Integer projectId) {
+        boolean check = false;
+        try {
+            Detai ls = getDetai(projectId);
+            ls.setIsdelete(true);
+            Calendar cal = Calendar.getInstance();
+            Date date = cal.getTime();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String dateDelete = sdf.format(date);
+            ls.setDeleteDate(dateDelete);
+            ls.setProjectStatus(false);
+            init();
+            ss.update(ls);
+            t.commit();
+            check = true;
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+            check = false;
+        } finally {
+            // ss.close();
+        }
+
+        return check;
+    }
 
     public void init() {
         sf = HibernateUtil.getSessionFactory();
@@ -396,9 +490,9 @@ public class AdminModel {
     public static void main(String[] args) {
         AdminModel model = new AdminModel();
         Detai dt = new Detai();
-        dt.setProjectName("test");
+        dt.setProjectId(7);
+        dt.setProjectName("Da update");
         dt.setProjectInstructorid(3);
-        model.InsertDT(dt);
-
+        model.UpdateDT(dt);
     }
 }
