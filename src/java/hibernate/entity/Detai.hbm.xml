@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated May 4, 2017 2:32:43 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 17, 2017 4:56:12 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="hibernate.entity.Detai" table="detai" catalog="nhom4_qldoan" optimistic-lock="version">
         <id name="projectId" type="java.lang.Integer">
@@ -49,6 +49,15 @@
         </property>
         <property name="deleteUserid" type="java.lang.Integer">
             <column name="delete_userid" />
+        </property>
+        <property name="detaiResult" type="string">
+            <column name="detai_result" length="65535" />
+        </property>
+        <property name="detaiRequest" type="string">
+            <column name="detai_request" length="65535" />
+        </property>
+        <property name="detaiSpecialized" type="string">
+            <column name="detai_specialized" length="45" />
         </property>
         <set name="tiendos" table="tiendo" inverse="true" lazy="true" fetch="select">
             <key>
