@@ -1,5 +1,5 @@
 package hibernate.entity;
-// Generated May 4, 2017 2:32:41 PM by Hibernate Tools 4.3.1
+// Generated May 17, 2017 4:56:12 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -26,6 +26,8 @@ public class Users  implements java.io.Serializable {
      private String userMobile;
      private String userReligion;
      private Integer userType;
+     private String userSubject;
+     private String userDescription;
      private String userClass;
      private Integer userCountLogin;
      private Integer userNumDthd;
@@ -44,7 +46,7 @@ public class Users  implements java.io.Serializable {
         this.userName = userName;
         this.userPassword = userPassword;
     }
-    public Users(String userName, String userPassword, String userFullname, String userDateofbirth, String userGender, String userFaculty, String userDegree, String userAvatar, Boolean userActive, String userAddress, String userEmail, String userMobile, String userReligion, Integer userType, String userClass, Integer userCountLogin, Integer userNumDthd, Integer userNumSvdhd, Boolean isdelete, String deleteDate, Integer deleteUserid, Integer userNv, Set<Detai> detais) {
+    public Users(String userName, String userPassword, String userFullname, String userDateofbirth, String userGender, String userFaculty, String userDegree, String userAvatar, Boolean userActive, String userAddress, String userEmail, String userMobile, String userReligion, Integer userType, String userSubject, String userDescription, String userClass, Integer userCountLogin, Integer userNumDthd, Integer userNumSvdhd, Boolean isdelete, String deleteDate, Integer deleteUserid, Integer userNv, Set<Detai> detais) {
        this.userName = userName;
        this.userPassword = userPassword;
        this.userFullname = userFullname;
@@ -59,6 +61,8 @@ public class Users  implements java.io.Serializable {
        this.userMobile = userMobile;
        this.userReligion = userReligion;
        this.userType = userType;
+       this.userSubject = userSubject;
+       this.userDescription = userDescription;
        this.userClass = userClass;
        this.userCountLogin = userCountLogin;
        this.userNumDthd = userNumDthd;
@@ -175,6 +179,20 @@ public class Users  implements java.io.Serializable {
     public void setUserType(Integer userType) {
         this.userType = userType;
     }
+    public String getUserSubject() {
+        return this.userSubject;
+    }
+    
+    public void setUserSubject(String userSubject) {
+        this.userSubject = userSubject;
+    }
+    public String getUserDescription() {
+        return this.userDescription;
+    }
+    
+    public void setUserDescription(String userDescription) {
+        this.userDescription = userDescription;
+    }
     public String getUserClass() {
         return this.userClass;
     }
@@ -238,7 +256,10 @@ public class Users  implements java.io.Serializable {
     public void setDetais(Set<Detai> detais) {
         this.detais = detais;
     }
-    
+
+
+
+
 }
 
 
