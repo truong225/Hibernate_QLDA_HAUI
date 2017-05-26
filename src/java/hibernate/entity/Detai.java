@@ -1,5 +1,5 @@
 package hibernate.entity;
-// Generated May 17, 2017 4:56:12 PM by Hibernate Tools 4.3.1
+// Generated May 4, 2017 2:32:41 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -26,9 +26,6 @@ public class Detai  implements java.io.Serializable {
      private Boolean isdelete;
      private String deleteDate;
      private Integer deleteUserid;
-     private String detaiResult;
-     private String detaiRequest;
-     private String detaiSpecialized;
      private Set<Tiendo> tiendos = new HashSet<Tiendo>(0);
 
     public Detai() {
@@ -38,7 +35,7 @@ public class Detai  implements java.io.Serializable {
     public Detai(int projectInstructorid) {
         this.projectInstructorid = projectInstructorid;
     }
-    public Detai(Users users, String projectName, String projectContentlink, int projectInstructorid, Integer projectProgress, String projectStartdate, Boolean projectStatus, String projectDescription, Integer projectViewcount, Integer projectPagecount, Boolean projectCancel, Boolean isdelete, String deleteDate, Integer deleteUserid, String detaiResult, String detaiRequest, String detaiSpecialized, Set<Tiendo> tiendos) {
+    public Detai(Users users, String projectName, String projectContentlink, int projectInstructorid, Integer projectProgress, String projectStartdate, Boolean projectStatus, String projectDescription, Integer projectViewcount, Integer projectPagecount, Boolean projectCancel, Boolean isdelete, String deleteDate, Integer deleteUserid, Set<Tiendo> tiendos) {
        this.users = users;
        this.projectName = projectName;
        this.projectContentlink = projectContentlink;
@@ -53,9 +50,6 @@ public class Detai  implements java.io.Serializable {
        this.isdelete = isdelete;
        this.deleteDate = deleteDate;
        this.deleteUserid = deleteUserid;
-       this.detaiResult = detaiResult;
-       this.detaiRequest = detaiRequest;
-       this.detaiSpecialized = detaiSpecialized;
        this.tiendos = tiendos;
     }
    
@@ -163,27 +157,6 @@ public class Detai  implements java.io.Serializable {
     
     public void setDeleteUserid(Integer deleteUserid) {
         this.deleteUserid = deleteUserid;
-    }
-    public String getDetaiResult() {
-        return this.detaiResult;
-    }
-    
-    public void setDetaiResult(String detaiResult) {
-        this.detaiResult = detaiResult;
-    }
-    public String getDetaiRequest() {
-        return this.detaiRequest;
-    }
-    
-    public void setDetaiRequest(String detaiRequest) {
-        this.detaiRequest = detaiRequest;
-    }
-    public String getDetaiSpecialized() {
-        return this.detaiSpecialized;
-    }
-    
-    public void setDetaiSpecialized(String detaiSpecialized) {
-        this.detaiSpecialized = detaiSpecialized;
     }
     public Set<Tiendo> getTiendos() {
         return this.tiendos;

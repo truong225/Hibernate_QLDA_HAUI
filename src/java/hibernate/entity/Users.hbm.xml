@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated May 17, 2017 4:56:12 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 4, 2017 2:32:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="hibernate.entity.Users" table="users" catalog="nhom4_qldoan" optimistic-lock="version">
+    <class name="hibernate.entity.Users" table="users" catalog="nhom4_qldoan" optimistic-lock="version" >
         <id name="userId" type="java.lang.Integer">
             <column name="user_id" />
             <generator class="identity" />
@@ -33,7 +33,7 @@
             <column name="user_avatar" length="65535" />
         </property>
         <property name="userActive" type="java.lang.Boolean">
-            <column name="user_active" />
+            <column name="user_active" default="1" />
         </property>
         <property name="userAddress" type="string">
             <column name="user_address" length="65535" />
@@ -50,12 +50,6 @@
         <property name="userType" type="java.lang.Integer">
             <column name="user_type" />
         </property>
-        <property name="userSubject" type="string">
-            <column name="user_subject" length="45" />
-        </property>
-        <property name="userDescription" type="string">
-            <column name="user_description" length="65535" />
-        </property>
         <property name="userClass" type="string">
             <column name="user_class" length="50" />
         </property>
@@ -69,7 +63,7 @@
             <column name="user_num_svdhd" />
         </property>
         <property name="isdelete" type="java.lang.Boolean">
-            <column name="isdelete" />
+            <column name="isdelete" default="0" />
         </property>
         <property name="deleteDate" type="string">
             <column name="delete_date" length="45" />
