@@ -19,4 +19,11 @@ public class ClientController {
         
         return model;
     }
+    
+    @RequestMapping(value = "initDSGVHD")
+    public ModelAndView initDSGVHD(){
+        ModelAndView model = new ModelAndView("client-DSGVHD");
+        
+        return model;
+    }
 }

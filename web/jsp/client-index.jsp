@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/custom.css">
     </head>
-    <body>
+    <body style="background: #FFF">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container" style="">
                 <div class="logo">
@@ -43,7 +43,7 @@
                     <h2 style="font-size: 20px; font-weight: bold">Danh sách giảng viên hướng dẫn</h2>
                     <p>Tra cứu danh sách giảng viên hướng dẫn theo từng khoa...</p>
                     <p>
-                        <button class="btn btn-default">Chi tiết</button>
+                        <a href="initDSGVHD.htm"><button class="btn btn-default">Chi tiết</button></a>
                     </p>
                 </div>
                 <div class="col-md-4">
