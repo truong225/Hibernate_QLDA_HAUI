@@ -34,7 +34,6 @@ public class AdminModel {
         List<Detai> ls = null;
         try {
             init();
-
             String hql = "FROM Detai as d where d.projectStatus = 0";
             Query query = ss.createQuery(hql);
             ls = query.list();
