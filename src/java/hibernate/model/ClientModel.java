@@ -5,10 +5,12 @@
  */
 package hibernate.model;
 
+import hibernate.entity.Detai;
 import hibernate.entity.Users;
 import hibernate.util.HibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -37,10 +39,28 @@ public class ClientModel {
         return listFaculty;
     }
 
+    //Lay danh sách GV theo khoa
+    public List<Users> getAllDSGVByID(String faculty) {
+        List<Users> ls = null;
+        try {
+            init();
+            String hql = "FROM Users as a where a.userType = 2 and a.userFaculty = '" + faculty+"'";
+            Query query = ss.createQuery(hql);
+            ls = query.list();
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+        } finally {
+            ss.close();
+        }
+        return ls;
+    }
+
     public void init() {
         sf = HibernateUtil.getSessionFactory();
         ss = sf.openSession();
         t = ss.beginTransaction();
     }
-    
+
 }
