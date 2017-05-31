@@ -62,5 +62,38 @@ public class ClientModel {
         ss = sf.openSession();
         t = ss.beginTransaction();
     }
+    
+    public List<Users> getUsersAd(Users users) {
+
+        List<Users> ls = null;
+
+        try {
+            sf = HibernateUtil.getSessionFactory();
+            ss = sf.openSession();
+            t = ss.beginTransaction();
+            String hql = "FROM Users as u where u.userName=? and u.userPassword=? and u.userActive = 1 and u.userType = 1";
+            Query query = ss.createQuery(hql);
+            query.setParameter(0, users.getUserName());
+            query.setParameter(1, users.getUserPassword());
+            ls = query.list();
+            t.commit();
+            if (ls.size() > 0) {
+                Users newItem = ls.get(0);
+                Integer countLogin = newItem.getUserCountLogin();
+                countLogin++;
+                newItem.setUserCountLogin(countLogin);
+                t = ss.beginTransaction();
+                ss.save(newItem);
+                t.commit();
+
+            }
+
+        } catch (Exception e) {
+            t.rollback();
+            e.printStackTrace();
+        }
+
+        return ls;
+    }
 
 }
