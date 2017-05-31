@@ -50,7 +50,7 @@ public class ClientController {
     @RequestMapping(value = "loadDSGVHD")
     public ModelAndView loadDSGVHD(@RequestParam(value = "faculty") String faculty){
         List<Users> ls = clientModel.getAllDSGVByID(faculty);
-        ModelAndView map = new ModelAndView("client-DSGVHD");
+        ModelAndView map = new ModelAndView("client-DSGVHD_1");
         map.addObject("listGVHD", ls);
         List ls1 = clientModel.getAllFaculty();
         map.addObject("listFaculty", ls1);

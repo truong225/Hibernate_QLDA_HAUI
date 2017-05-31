@@ -70,7 +70,30 @@
                     </div>
                 </f:form>
             </div>
-           
+            <div class="x_panel" style="margin-top: 30px">
+                <c:forEach var="x" items="${listGVHD}">
+                    <div class="col-md-55">
+                        <div class="thumbnail">
+                            <div class="image view view-first">
+                                <img style="width: 100%; display: block;" src="../images/${x.userAvatar}" alt="image">
+                                <div class="mask no-caption">
+                                    <div class="tools tools-bottom">
+                                        <a href="#"><i class="fa fa-link"></i></a>
+                                        <a href="#"><i class="fa fa-pencil"></i></a>
+                                        <a href="#"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="caption">
+                                <p><strong>${x.userDegree} ${x.userFullname}</strong>
+                                </p>
+                                <p>${x.userEmail}</p>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
+
+            </div>
         </div>
     </div>
 </div>  
