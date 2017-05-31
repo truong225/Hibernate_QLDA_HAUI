@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -33,6 +34,8 @@ public class ClientController {
         return model;
     }
     
+    
+    
     //Khai bao trang client-DSGVHD
     @RequestMapping(value = "initDSGVHD")
     public ModelAndView initDSGVHD(){
@@ -41,6 +44,17 @@ public class ClientController {
         List ls = clientModel.getAllFaculty();
         model.addObject("listFaculty", ls);
         return model;
+    }
+    
+    
+    @RequestMapping(value = "loadDSGVHD")
+    public ModelAndView loadDSGVHD(@RequestParam(value = "faculty") String faculty){
+        List<Users> ls = clientModel.getAllDSGVByID(faculty);
+        ModelAndView map = new ModelAndView("client-DSGVHD");
+        map.addObject("listGVHD", ls);
+        List ls1 = clientModel.getAllFaculty();
+        map.addObject("listFaculty", ls1);
+        return map;
     }
     
 }
