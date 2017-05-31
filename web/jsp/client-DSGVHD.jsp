@@ -50,58 +50,44 @@
                 <div class="">
                     <h2>Danh sách giảng viên hướng dẫn</h2>
                 </div>
-                <div class="col-md-4 col-sm-12">
-                    <h3>Chọn khoa: </h3>
-                    <select class="form-control">
-                        <c:forEach var="x" items="${listFaculty}">
-                            <option >${x}</option>
-                        </c:forEach>
-                    </select>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <input type="submit" value="Chọn" style="margin-top: 40px; padding: 10px"/>
-                </div>
+                <f:form action="loadDSGVHD.htm" method="GET">
+                    <div class="col-md-4 col-sm-12">
+                        <h3>Chọn khoa: </h3>
+
+                        <select class="form-control" name="faculty">
+                            <c:forEach var="x" items="${listFaculty}">
+                                <option>${x}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <input type="submit" value="Chọn" style="margin-top: 40px; padding: 10px"/>
+                    </div>
+                </f:form>
             </div>
             <div class="x_panel" style="margin-top: 30px">
+                <c:forEach var="x" items="${listGVHD}">
+                    <div class="col-md-55">
+                        <div class="thumbnail">
+                            <div class="image view view-first">
+                                <img style="width: 100%; display: block;" src="../images/${x.userAvatar}" alt="image">
+                                <div class="mask no-caption">
+                                    <div class="tools tools-bottom">
+                                        <a href="#"><i class="fa fa-link"></i></a>
+                                        <a href="#"><i class="fa fa-pencil"></i></a>
+                                        <a href="#"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="caption">
+                                <p><strong>${x.userDegree} ${x.userFullname}</strong>
+                                </p>
+                                <p>${x.userEmail}</p>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
 
-                <div class="col-md-55">
-                    <div class="thumbnail">
-                        <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="../images/avatar.jpg" alt="image">
-                            <div class="mask no-caption">
-                                <div class="tools tools-bottom">
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                    <a href="#"><i class="fa fa-pencil"></i></a>
-                                    <a href="#"><i class="fa fa-times"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="caption">
-                            <p><strong>Image Name</strong>
-                            </p>
-                            <p>Snow and Ice Incoming</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-55">
-                    <div class="thumbnail">
-                        <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="../images/avatar.jpg" alt="image">
-                            <div class="mask no-caption">
-                                <div class="tools tools-bottom">
-                                    <a href="#"><i class="fa fa-link"></i></a>
-                                    <a href="#"><i class="fa fa-pencil"></i></a>
-                                    <a href="#"><i class="fa fa-times"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="caption">
-                            <p><strong>Image Name</strong>
-                            </p>
-                            <p>Snow and Ice Incoming</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
