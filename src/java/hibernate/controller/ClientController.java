@@ -5,6 +5,7 @@
  */
 package hibernate.controller;
 
+import hibernate.entity.Tiendo;
 import hibernate.entity.Users;
 import hibernate.model.ClientModel;
 import java.util.List;
@@ -24,6 +25,29 @@ public class ClientController {
 
     public ClientController() {
         clientModel = new ClientModel();
+    }
+    
+     //Su kien dang xuat
+    @RequestMapping(value = "logout")
+    public ModelAndView Logout(HttpSession session) {
+        ModelAndView model = new ModelAndView("client-login");
+        session.setAttribute("Username", "");
+        session.removeAttribute("avatar");
+        session.removeAttribute("Username");
+        Users users = new Users();
+        model.getModel().put("User", users);
+        return model;
+    }
+    
+ 
+
+    //Check Login
+    public boolean CheckLogin(HttpSession session) {
+        if (!session.getAttribute("Username").equals("") || session == null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     //Khai bao client-index.jsp
@@ -77,13 +101,14 @@ public class ClientController {
     @RequestMapping(value = "Login")
     public ModelAndView Login(HttpSession session, @ModelAttribute("User") Users user) {
         ModelAndView model;
-        List<Users> ls = clientModel.getUsers(user);
+        List<Users> ls = clientModel.getUsersSV(user);
         if (ls != null && ls.size() > 0) {
             Users users = ls.get(0);
             model = new ModelAndView("client-Homepage");
             model.addObject("user", users);
             session.setAttribute("Username", users.getUserFullname());
             session.setAttribute("avatar", users.getUserAvatar());
+            session.setAttribute("id", users.getUserId());
             return model;
         } else {
             model = new ModelAndView("client-login");
@@ -127,7 +152,9 @@ public class ClientController {
         try {
             if (CheckLogin(session)) {
                 model = new ModelAndView("client-Task");
-
+                int id = Integer.valueOf(session.getAttribute("id").toString());
+                List<Tiendo> dsTD = clientModel.getAllTD(id);
+                model.addObject("lstd", dsTD);
                 return model;
             } else {
                 model = new ModelAndView("client-login");
@@ -146,26 +173,6 @@ public class ClientController {
 
     }
 
-    //Su kien dang xuat
-    @RequestMapping(value = "logout")
-    public ModelAndView Logout(HttpSession session) {
-        ModelAndView model = new ModelAndView("client-login");
-        session.setAttribute("Username", "");
-        session.removeAttribute("avatar");
-        session.removeAttribute("Username");
-        Users users = new Users();
-        model.getModel().put("User", users);
-        return model;
-    }
+      //lay toan bo danh sach tien do dang thuc hien
     
-    
-
-    //Check Login
-    public boolean CheckLogin(HttpSession session) {
-        if (!session.getAttribute("Username").equals("") || session == null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }

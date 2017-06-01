@@ -4,6 +4,7 @@
     Author     : we
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vi">
@@ -75,7 +76,7 @@
                                             <li><a href="notify.html">Thông báo</a></li>
                                         </ul>
                                     </li>
-                                     <li><a href="initClient-Task.htm"><i class="fa fa-edit"></i> Đề tài <span class="fa fa-chevron-down"></span></a>
+                                    <li><a href="initClient-Task.htm"><i class="fa fa-edit"></i> Đề tài <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a href="initClient-Task.htm">Tiến độ đề tài</a></li>
                                             <li><a href="rate-GV.html">Giảng viên đánh giá</a></li>
@@ -162,7 +163,7 @@
                         <div class="title_left">
                             <h3>Tiến độ dự án</h3>
                         </div>
-                        
+
                     </div>
                     <div class="clearfix"></div>
 
@@ -176,14 +177,17 @@
                         <th>Đính kèm báo cáo</th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Tìm tài liệu làm slide thuyết trình về quy trình quản lý dự án</td>
-                                <td>Tài liệu + keyword từ giảng viên hướng dẫn</td>
-                                <td>Thông tin về quy trình quản lý dự án</td>
-                                <td>20/2/2017</td>
-                                <td><a href="">Đính kèm</a></td>
-                            </tr>
+                            <c:forEach var="x" items="${lstd}" >
+                                <tr>
+                                    <td>${x.tdId}</td>
+                                    <td>${x.tdName}</td>
+                                    <td>${x.tdRequest}</td>
+                                    <td>${x.tdResult}</td>
+                                    <td>${x.tdEnddate}</td>
+                                    <td><a href="">Đính kèm</a></td>
+                                </tr>
+                            </c:forEach>
+
                         </tbody>
                     </table>
                 </div>
