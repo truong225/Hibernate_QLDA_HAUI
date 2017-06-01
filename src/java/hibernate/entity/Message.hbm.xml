@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 1, 2017 11:03:29 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.entity.Message" table="message" catalog="nhom4_qldoan" optimistic-lock="version">
+        <id name="messageId" type="java.lang.Integer">
+            <column name="message_id" />
+            <generator class="identity" />
+        </id>
+        <property name="messageProjectId" type="java.lang.Integer">
+            <column name="message_project_id" />
+        </property>
+        <property name="messageStudentId" type="java.lang.Integer">
+            <column name="message_student_id" />
+        </property>
+        <property name="messageLecturerId" type="java.lang.Integer">
+            <column name="message_lecturer_id" />
+        </property>
+        <property name="messageType" type="java.lang.Integer">
+            <column name="message_type" />
+        </property>
+        <property name="messageStatus" type="java.lang.Integer">
+            <column name="message_status" />
+        </property>
+        <property name="messageNote" type="string">
+            <column name="message_note" length="65535" />
+        </property>
+        <property name="messageIsDelete" type="java.lang.Integer">
+            <column name="message_is_delete" />
+        </property>
+    </class>
+</hibernate-mapping>

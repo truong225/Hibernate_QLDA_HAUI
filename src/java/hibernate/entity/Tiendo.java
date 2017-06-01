@@ -1,5 +1,5 @@
 package hibernate.entity;
-// Generated Jun 1, 2017 4:02:48 PM by Hibernate Tools 4.3.1
+// Generated Jun 1, 2017 11:03:26 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -22,6 +22,9 @@ public class Tiendo  implements java.io.Serializable {
      private Boolean isdelete;
      private String deleteDate;
      private Integer deleteUserid;
+     private String tdResult;
+     private String tdRequest;
+     private String tdEnddate;
      private Set<Comments> commentses = new HashSet<Comments>(0);
 
     public Tiendo() {
@@ -32,7 +35,7 @@ public class Tiendo  implements java.io.Serializable {
         this.detai = detai;
         this.userId = userId;
     }
-    public Tiendo(Detai detai, String tdName, String tdCreatedate, int userId, String tdDescription, Boolean tdStatus, Integer tdProcess, Boolean isdelete, String deleteDate, Integer deleteUserid, Set<Comments> commentses) {
+    public Tiendo(Detai detai, String tdName, String tdCreatedate, int userId, String tdDescription, Boolean tdStatus, Integer tdProcess, Boolean isdelete, String deleteDate, Integer deleteUserid, String tdResult, String tdRequest, String tdEnddate, Set<Comments> commentses) {
        this.detai = detai;
        this.tdName = tdName;
        this.tdCreatedate = tdCreatedate;
@@ -43,6 +46,9 @@ public class Tiendo  implements java.io.Serializable {
        this.isdelete = isdelete;
        this.deleteDate = deleteDate;
        this.deleteUserid = deleteUserid;
+       this.tdResult = tdResult;
+       this.tdRequest = tdRequest;
+       this.tdEnddate = tdEnddate;
        this.commentses = commentses;
     }
    
@@ -122,6 +128,27 @@ public class Tiendo  implements java.io.Serializable {
     
     public void setDeleteUserid(Integer deleteUserid) {
         this.deleteUserid = deleteUserid;
+    }
+    public String getTdResult() {
+        return this.tdResult;
+    }
+    
+    public void setTdResult(String tdResult) {
+        this.tdResult = tdResult;
+    }
+    public String getTdRequest() {
+        return this.tdRequest;
+    }
+    
+    public void setTdRequest(String tdRequest) {
+        this.tdRequest = tdRequest;
+    }
+    public String getTdEnddate() {
+        return this.tdEnddate;
+    }
+    
+    public void setTdEnddate(String tdEnddate) {
+        this.tdEnddate = tdEnddate;
     }
     public Set<Comments> getCommentses() {
         return this.commentses;

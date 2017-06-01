@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 1, 2017 4:02:50 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 1, 2017 11:03:29 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="hibernate.entity.Tiendo" table="tiendo" catalog="nhom4_qldoan" optimistic-lock="version">
         <id name="tdId" type="java.lang.Integer">
@@ -37,6 +37,15 @@
         </property>
         <property name="deleteUserid" type="java.lang.Integer">
             <column name="delete_userid" />
+        </property>
+        <property name="tdResult" type="string">
+            <column name="td_result" length="65535" />
+        </property>
+        <property name="tdRequest" type="string">
+            <column name="td_request" length="65535" />
+        </property>
+        <property name="tdEnddate" type="string">
+            <column name="td_enddate" length="45" />
         </property>
         <set name="commentses" table="comments" inverse="true" lazy="true" fetch="select">
             <key>

@@ -119,6 +119,32 @@ public class ClientController {
         }
 
     }
+    
+    //Khai bao trang quan ly de tai
+    @RequestMapping(value = "initClient-Task")
+    public ModelAndView initClientTask(HttpSession session) {
+        ModelAndView model = new ModelAndView("client-404");
+        try {
+            if (CheckLogin(session)) {
+                model = new ModelAndView("client-Task");
+
+                return model;
+            } else {
+                model = new ModelAndView("client-login");
+                Users users = new Users();
+                model.getModel().put("User", users);
+                model.addObject("error", "   Vui lòng đăng nhập trước khi truy cập vào hệ thống!");
+                return model;
+            }
+        } catch (Exception e) {
+            model = new ModelAndView("client-login");
+            Users users = new Users();
+            model.getModel().put("User", users);
+            model.addObject("error", "   Vui lòng đăng nhập trước khi truy cập vào hệ thống!");
+            return model;
+        }
+
+    }
 
     //Su kien dang xuat
     @RequestMapping(value = "logout")
@@ -131,6 +157,8 @@ public class ClientController {
         model.getModel().put("User", users);
         return model;
     }
+    
+    
 
     //Check Login
     public boolean CheckLogin(HttpSession session) {

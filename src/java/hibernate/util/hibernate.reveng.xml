@@ -41,8 +41,9 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="nhom4_qldoan"/>
-  <table-filter match-name="users"/>
   <table-filter match-name="tiendo"/>
-  <table-filter match-name="detai"/>
   <table-filter match-name="comments"/>
+  <table-filter match-name="message"/>
+  <table-filter match-name="detai"/>
+  <table-filter match-name="users"/>
 </hibernate-reverse-engineering>

@@ -49,6 +49,7 @@ Contributor(s):
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.show_sql">true</property>
     <mapping resource="hibernate/entity/Detai.hbm.xml"/>
+    <mapping resource="hibernate/entity/Message.hbm.xml"/>
     <mapping resource="hibernate/entity/Users.hbm.xml"/>
     <mapping resource="hibernate/entity/Tiendo.hbm.xml"/>
     <mapping resource="hibernate/entity/Comments.hbm.xml"/>
