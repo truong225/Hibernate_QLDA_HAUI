@@ -121,7 +121,7 @@ public class ClientController {
 
     //Check Login
     public boolean CheckLogin(HttpSession session) {
-        if (session.getAttribute("Username").equals("")) {
+        if (!session.getAttribute("Username").equals("") || session == null) {
             return true;
         } else {
             return false;
