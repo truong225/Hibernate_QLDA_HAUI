@@ -41,12 +41,12 @@
   <div class="main_container">
     <div class="col-md-3 left_col">
       <div class="left_col scroll-view">
-        <div class="navbar nav_title" style="border: 0;"> <a href="index.html" class="site_title"><img src="images/haui_lg.png" width="45px" height="45px" alt=""><span> Đồ án tốt nghiệp</span></a> </div>
+        <div class="navbar nav_title" style="border: 0;"> <a href="index.html" class="site_title"><img src="../images/haui_lg.png" width="45px" height="45px" alt=""><span> Đồ án tốt nghiệp</span></a> </div>
         <div class="clearfix"></div>
         
         <!-- menu profile quick info -->
         <div class="profile clearfix">
-          <div class="profile_pic"> <img src="images/avatar.jpg" alt="..." class="img-circle profile_img"> </div>
+            <div class="profile_pic"> <img src="../images/${sessionScope.avatar}" alt="..." class="img-circle profile_img"> </div>
           <div class="profile_info"> <span>Xin chào,</span>
               <h2>${sessionScope.Username}</h2>
           </div>
@@ -115,7 +115,7 @@
         <nav>
           <div class="nav toggle"> <a id="menu_toggle"><i class="fa fa-bars"></i></a> </div>
           <ul class="nav navbar-nav navbar-right">
-            <li class=""> <a href="index.html" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <img src="images/avatar.jpg" alt="">${sessionScope.Username} <span class=" fa fa-angle-down"></span> </a>
+            <li class=""> <a href="index.html" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <img src="../images/${sessionScope.avatar}" alt="">${sessionScope.Username} <span class=" fa fa-angle-down"></span> </a>
               <ul class="dropdown-menu dropdown-usermenu pull-right">
                 <li><a href="person information.html"> Thông tin cá nhân</a></li>
                 <li> <a href="setting.html"> <span class="badge bg-red pull-right">50%</span> <span>Cài đặt</span> </a> </li>
@@ -125,10 +125,10 @@
             </li>
             <li role="presentation" class="dropdown"> <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-envelope-o"></i> <span class="badge bg-green">6</span> </a>
               <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                <li> <a> <span class="image"><img src="images/avatar.jpg" alt="Profile Image" /></span> <span> <span>${sessionScope.Username}</span> <span class="time">3 mins ago</span> </span> <span class="message"> Film festivals used to be do-or-die moments for movie makers. They were where... </span> </a> </li>
-                <li> <a> <span class="image"><img src="images/avatar.jpg" alt="Profile Image" /></span> <span> <span>${sessionScope.Username}</span> <span class="time">3 mins ago</span> </span> <span class="message"> Film festivals used to be do-or-die moments for movie makers. They were where... </span> </a> </li>
-                <li> <a> <span class="image"><img src="images/avatar.jpg" alt="Profile Image" /></span> <span> <span>${sessionScope.Username}</span> <span class="time">3 mins ago</span> </span> <span class="message"> Film festivals used to be do-or-die moments for movie makers. They were where... </span> </a> </li>
-                <li> <a> <span class="image"><img src="images/avatar.jpg" alt="Profile Image" /></span> <span> <span>${sessionScope.Username}</span> <span class="time">3 mins ago</span> </span> <span class="message"> Film festivals used to be do-or-die moments for movie makers. They were where... </span> </a> </li>
+                <li> <a> <span class="image"><img src="../images/${sessionScope.avatar}" alt="Profile Image" /></span> <span> <span>${sessionScope.Username}</span> <span class="time">3 mins ago</span> </span> <span class="message"> Film festivals used to be do-or-die moments for movie makers. They were where... </span> </a> </li>
+                <li> <a> <span class="image"><img src="../images/${sessionScope.avatar}" alt="Profile Image" /></span> <span> <span>${sessionScope.Username}</span> <span class="time">3 mins ago</span> </span> <span class="message"> Film festivals used to be do-or-die moments for movie makers. They were where... </span> </a> </li>
+                <li> <a> <span class="image"><img src="../images/${sessionScope.avatar}" alt="Profile Image" /></span> <span> <span>${sessionScope.Username}</span> <span class="time">3 mins ago</span> </span> <span class="message"> Film festivals used to be do-or-die moments for movie makers. They were where... </span> </a> </li>
+                <li> <a> <span class="image"><img src="../images/${sessionScope.avatar}" alt="Profile Image" /></span> <span> <span>${sessionScope.Username}</span> <span class="time">3 mins ago</span> </span> <span class="message"> Film festivals used to be do-or-die moments for movie makers. They were where... </span> </a> </li>
                 <li>
                   <div class="text-center"> <a> <strong>See All Alerts</strong> <i class="fa fa-angle-right"></i> </a> </div>
                 </li>
