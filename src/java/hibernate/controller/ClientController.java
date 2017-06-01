@@ -97,17 +97,27 @@ public class ClientController {
     //Mo trang client-Homepage
     @RequestMapping(value = "initClientHompage")
     public ModelAndView initClientHomepage(HttpSession session) {
-        if (CheckLogin(session)) {
-            ModelAndView model = new ModelAndView("client-Homepage");
+        ModelAndView model = new ModelAndView("client-404");
+        try {
+            if (CheckLogin(session)) {
+                model = new ModelAndView("client-Homepage");
 
-            return model;
-        } else {
-            ModelAndView model = new ModelAndView("client-login");
+                return model;
+            } else {
+                model = new ModelAndView("client-login");
+                Users users = new Users();
+                model.getModel().put("User", users);
+                model.addObject("error", "   Vui lòng đăng nhập trước khi truy cập vào hệ thống!");
+                return model;
+            }
+        } catch (Exception e) {
+            model = new ModelAndView("client-login");
             Users users = new Users();
             model.getModel().put("User", users);
             model.addObject("error", "   Vui lòng đăng nhập trước khi truy cập vào hệ thống!");
             return model;
         }
+
     }
 
     //Su kien dang xuat

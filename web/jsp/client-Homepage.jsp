@@ -41,7 +41,7 @@
   <div class="main_container">
     <div class="col-md-3 left_col">
       <div class="left_col scroll-view">
-        <div class="navbar nav_title" style="border: 0;"> <a href="index.html" class="site_title"><img src="../images/haui_lg.png" width="45px" height="45px" alt=""><span> Đồ án tốt nghiệp</span></a> </div>
+        <div class="navbar nav_title" style="border: 0;"> <a href="initClientHompage.htm" class="site_title"><img src="../images/haui_lg.png" width="45px" height="45px" alt=""><span> Đồ án tốt nghiệp</span></a> </div>
         <div class="clearfix"></div>
         
         <!-- menu profile quick info -->
@@ -60,9 +60,9 @@
           <div class="menu_section">
             <h3>Chung</h3>
             <ul class="nav side-menu">
-              <li><a><i class="fa fa-home"></i> Trang chủ <span class="fa fa-chevron-down"></span></a>
+                <li><a href="initClientHompage.htm"><i class="fa fa-home"></i> Trang chủ <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                  <li><a href="index.html">Trang chủ</a></li>
+                  <li><a href="initClientHompage.htm">Trang chủ</a></li>
                   <li><a href="notify.html">Thông báo</a></li>
                 </ul>
               </li>
