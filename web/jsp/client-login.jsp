@@ -27,7 +27,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="submit" value="Dang nhap"/></td>
+                                <input type="submit" value="Đăng nhập"/></td>
                         </tr>
                     </table>
                     

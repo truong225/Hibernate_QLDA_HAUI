@@ -63,7 +63,7 @@ public class ClientModel {
         t = ss.beginTransaction();
     }
     
-    public List<Users> getUsersAd(Users users) {
+    public List<Users> getUsers(Users users) {
 
         List<Users> ls = null;
 
@@ -92,7 +92,7 @@ public class ClientModel {
             t.rollback();
             e.printStackTrace();
         }
-
+        
         return ls;
     }
 

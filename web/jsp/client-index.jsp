@@ -57,7 +57,10 @@
                     <h2 style="font-size: 20px;font-weight: bold">Quản lý tiến độ dự án</h2>
                     <p>Vào hệ thống quản lý đồ án...</p>
                     <p>
-                        <button class="btn btn-default">Đăng nhập</button>
+                        <a href="initLogin.htm">
+                            <button class="btn btn-default">Đăng nhập</button>
+                        </a>
+
                     </p>
                 </div>
             </div>		
