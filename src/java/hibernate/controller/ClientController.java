@@ -83,6 +83,7 @@ public class ClientController {
             model = new ModelAndView("client-Homepage");
             model.addObject("user", users);
             session.setAttribute("Username", users.getUserFullname());
+            session.setAttribute("avatar", users.getUserAvatar());
             return model;
         } else {
             model = new ModelAndView("client-login");
@@ -114,6 +115,8 @@ public class ClientController {
     public ModelAndView Logout(HttpSession session) {
         ModelAndView model = new ModelAndView("client-login");
         session.setAttribute("Username", "");
+        session.removeAttribute("avatar");
+        session.removeAttribute("Username");
         Users users = new Users();
         model.getModel().put("User", users);
         return model;
