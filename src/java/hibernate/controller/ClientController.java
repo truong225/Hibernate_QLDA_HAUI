@@ -53,7 +53,7 @@ public class ClientController {
     //Khai bao client-index.jsp
     @RequestMapping(value = "initHomePage")
     public ModelAndView initHomePage() {
-        ModelAndView model = new ModelAndView("client-index");
+        ModelAndView model = new ModelAndView("student-index");
 
         return model;
     }
@@ -61,7 +61,7 @@ public class ClientController {
     //Khai bao trang client-DSGVHD
     @RequestMapping(value = "initDSGVHD")
     public ModelAndView initDSGVHD() {
-        ModelAndView model = new ModelAndView("client-DSGVHD");
+        ModelAndView model = new ModelAndView("homepage-DSGVHD");
         //Lay danh sach Khoa
         List ls = clientModel.getAllFaculty();
         model.addObject("listFaculty", ls);
@@ -71,7 +71,7 @@ public class ClientController {
     @RequestMapping(value = "loadDSGVHD")
     public ModelAndView loadDSGVHD(@RequestParam(value = "faculty") String faculty) {
         List<Users> ls = clientModel.getAllDSGVByID(faculty);
-        ModelAndView map = new ModelAndView("client-DSGVHD_1");
+        ModelAndView map = new ModelAndView("homepage-DSGVHD_1");
         map.addObject("listGVHD", ls);
         List ls1 = clientModel.getAllFaculty();
         map.addObject("listFaculty", ls1);
@@ -104,7 +104,7 @@ public class ClientController {
         List<Users> ls = clientModel.getUsersSV(user);
         if (ls != null && ls.size() > 0) {
             Users users = ls.get(0);
-            model = new ModelAndView("client-Homepage");
+            model = new ModelAndView("homepage-Homepage");
             model.addObject("user", users);
             session.setAttribute("Username", users.getUserFullname());
             session.setAttribute("avatar", users.getUserAvatar());
