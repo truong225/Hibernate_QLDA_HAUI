@@ -50,7 +50,9 @@
                     <h2 style="font-size: 20px;font-weight: bold">Đăng kí đề tài đồ án tốt nghiệp</h2>
                     <p>Đăng kí đề tài đồ án tốt nghiệp...</p>
                     <p>
+                        <a href="initHompageProjectList.htm">
                         <button class="btn btn-default">Đăng kí</button>
+                        </a>
                     </p>
                 </div>
                 <div class="col-md-4">

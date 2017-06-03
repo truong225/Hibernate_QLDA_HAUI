@@ -144,7 +144,70 @@ public class ClientModel {
         }finally{
             ss.close();
         }
-
+        return ls;
+    }
+    
+    //Lay DS de tai theo ID GV
+    public List<Detai> getAllDTByUserID(int userID){
+        List<Detai> ls = null;
+        try {
+            init();
+            String hql = "FROM Detai as d where d.projectInstructorid = ?";
+            Query query = ss.createQuery(hql);
+            query.setInteger(0, userID);
+            ls = query.list();
+        } catch (Exception e) {
+            t.rollback();
+        }finally{
+            ss.close();
+        }
+        return ls;
+    }
+    //Lay user theo ID
+    public Users getUserByID(int id){
+        Users user = null;
+        
+        try {
+            init();
+            String hql = "FROM Users as u where u.id="+id;
+            Query query = ss.createQuery(hql);
+            user = (Users) query.uniqueResult();
+        } catch (Exception e) {
+            t.rollback();
+        }finally{
+            ss.close();
+        }
+        return user;
+    }
+    
+    //Lay danh sach giang vien theo DS DT
+    public List<Users> getAllGVByDSDT(List<Detai> lsDT){
+        List<Users> lsUsers= new ArrayList<Users>();
+        for(Detai i:lsDT){
+            Users u = getUserByID(i.getProjectInstructorid());
+            lsUsers.add(u);
+        }
+        return lsUsers;
+    }
+    
+    //Lay danh sach de tai theo khoa
+    public List<Detai> getAllDT(String faculty){
+        List<Users> lsGV = null;
+        List<Detai> ls = new ArrayList<>();
+        List<Detai> ls1 = null;
+        try {
+            lsGV = getAllDSGVByID(faculty);
+            for(Users i:lsGV){
+                ls1 = new ArrayList<>();
+                ls1 = getAllDTByUserID(i.getUserId());
+                for(Detai j:ls1){
+                    ls.add(j);
+                }
+            }
+            
+        } catch (Exception e) {
+            
+        }
         return ls;
     }
 

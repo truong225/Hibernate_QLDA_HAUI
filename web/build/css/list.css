@@ -1,0 +1,133 @@
+﻿.container-avatar {
+    position: relative;
+    width: 50%;
+}
+
+.image-avatar {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle-avatar {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.container-avatar:hover .image-avatar {
+    opacity: 0.3;
+}
+
+.container-avatar:hover .middle-avatar {
+    opacity: 1;
+}
+
+.text-avatar {
+    background-color: #9ACD32;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+}
+
+.w3-white, .w3-hover-white:hover {
+    color: #000 !important;
+    background-color: #fff !important;
+}
+
+.w3-border {
+    border: 1px solid #ccc !important;
+}
+
+.w3-btn, .w3-button {
+    border: none;
+    display: inline-block;
+    outline: 0;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.new-btn:hover {
+    -moz-box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.tooltip-a {
+    position: relative;
+    display: inline-block;
+}
+
+    .tooltip-a .tooltiptext-a {
+        visibility: hidden;
+        width: 250px;
+        height: 330px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        top: 120%;
+        margin-left: -80px;
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+
+        .tooltip-a .tooltiptext-a::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent black transparent;
+        }
+
+    .tooltip-a:hover .tooltiptext-a {
+        visibility: visible;
+        opacity: 1;
+    }
+
+.divider-outer {
+    position: relative;
+    border: 1px solid #f0f0f0;
+    margin-top: 30px;
+}
+
+    .divider-outer .col {
+        padding: 15px 30px;
+    }
+
+.divider {
+    content: '\f006';
+    font-family: 'FontAwesome';
+    position: absolute;
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    background: rgb(255,255,255); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(39,94,221,1) 50%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(39,94,221,1) 50%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(39,94,221,1) 50%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}

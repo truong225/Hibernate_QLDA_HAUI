@@ -5,6 +5,7 @@
  */
 package hibernate.controller;
 
+import hibernate.entity.Detai;
 import hibernate.entity.Tiendo;
 import hibernate.entity.Users;
 import hibernate.model.ClientModel;
@@ -26,7 +27,7 @@ public class ClientController {
     public ClientController() {
         clientModel = new ClientModel();
     }
-    
+
      //Su kien dang xuat
     @RequestMapping(value = "logout")
     public ModelAndView Logout(HttpSession session) {
@@ -38,8 +39,8 @@ public class ClientController {
         model.getModel().put("User", users);
         return model;
     }
-    
- 
+
+
 
     //Check Login
     public boolean CheckLogin(HttpSession session) {
@@ -53,7 +54,7 @@ public class ClientController {
     //Khai bao client-index.jsp
     @RequestMapping(value = "initHomePage")
     public ModelAndView initHomePage() {
-        ModelAndView model = new ModelAndView("student-index");
+        ModelAndView model = new ModelAndView("homepage-index");
 
         return model;
     }
@@ -104,7 +105,7 @@ public class ClientController {
         List<Users> ls = clientModel.getUsersSV(user);
         if (ls != null && ls.size() > 0) {
             Users users = ls.get(0);
-            model = new ModelAndView("homepage-Homepage");
+            model = new ModelAndView("student-Homepage");
             model.addObject("user", users);
             session.setAttribute("Username", users.getUserFullname());
             session.setAttribute("avatar", users.getUserAvatar());
@@ -125,7 +126,7 @@ public class ClientController {
         ModelAndView model = new ModelAndView("client-404");
         try {
             if (CheckLogin(session)) {
-                model = new ModelAndView("client-Homepage");
+                model = new ModelAndView("student-Homepage");
 
                 return model;
             } else {
@@ -144,7 +145,7 @@ public class ClientController {
         }
 
     }
-    
+
     //Khai bao trang quan ly de tai
     @RequestMapping(value = "initClient-Task")
     public ModelAndView initClientTask(HttpSession session) {
@@ -173,6 +174,27 @@ public class ClientController {
 
     }
 
-      //lay toan bo danh sach tien do dang thuc hien
-    
+    //Khai bao giao dien danh sach de tai
+    @RequestMapping(value = "initHompageProjectList")
+    public ModelAndView initHompageProjectList(){
+        ModelAndView model = new ModelAndView("homepage-project-list");
+        List ls = clientModel.getAllFaculty();
+        model.addObject("listFaculty", ls);
+
+        return model;
+    }
+
+     @RequestMapping(value = "loadHomepageDSDT")
+    public ModelAndView loadHomepageDSDT(@RequestParam(value = "faculty") String faculty) {
+        List<Users> ls = clientModel.getAllDSGVByID(faculty);
+        ModelAndView model = new ModelAndView("homepage-project-list_1");
+       // model.addObject("listGVHD", ls);
+        List ls1 = clientModel.getAllFaculty();
+        model.addObject("listFaculty", ls1);
+        List<Detai> lsDT = clientModel.getAllDT(faculty);
+        model.addObject("listDT", lsDT);
+        List<Users> lsUser = clientModel.getAllGVByDSDT(lsDT);
+        model.addObject("listUsers", lsUser);
+        return model;
+    }
 }
