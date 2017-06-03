@@ -152,7 +152,7 @@ public class ClientController {
         ModelAndView model = new ModelAndView("client-404");
         try {
             if (CheckLogin(session)) {
-                model = new ModelAndView("client-Task");
+                model = new ModelAndView("student-Task");
                 int id = Integer.valueOf(session.getAttribute("id").toString());
                 List<Tiendo> dsTD = clientModel.getAllTD(id);
                 model.addObject("lstd", dsTD);

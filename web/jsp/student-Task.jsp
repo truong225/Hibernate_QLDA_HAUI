@@ -79,7 +79,9 @@
                                     <li><a href="initClient-Task.htm"><i class="fa fa-edit"></i> Đề tài <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a href="initClient-Task.htm">Tiến độ đề tài</a></li>
-                                            <li><a href="rate-GV.html">Giảng viên đánh giá</a></li>
+                                            <li><a href="">Đăng kí đề tài</a></li>
+                                            <li><a href="">Hủy đề tài</a></li>
+                                            <li><a href="">Trạng thái phê duyệt</a></li>
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-table"></i> Thông tin hội đồng <span class="fa fa-chevron-down"></span></a>

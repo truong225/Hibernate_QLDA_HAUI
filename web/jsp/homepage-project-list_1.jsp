@@ -70,10 +70,11 @@
         <div class="container" >
             <div class="row" Style="margin-top: 60px;">
                 <div style="margin-top: 20px; margin-left: 20px">
-                    <button  OnClick="Unnamed_Click" class="btn btn-default new-btn" />❮ Trang chủ</button>
+                    <a href="initHomePage.htm"><button  OnClick="" class="btn btn-default new-btn" />❮ Trang chủ</button></a>
+
                 </div>
                 <div style="margin-top: -35px; float: right; margin-right: 30px">
-                    <Button Text="Đăng nhập ❯" OnClick="Unnamed_Click1" class="btn btn-success new-btn" >Đăng nhập ❯</button>
+                    <button Text="Đăng nhập ❯" OnClick="" class="btn btn-success new-btn" >Đăng nhập ❯</button>
                 </div>
                 <hr />
 
@@ -97,6 +98,7 @@
                         <input type="submit" value="Chọn" style="margin-top: 40px; padding: 10px"/>
                     </div>
                 </f:form>
+                
                 <div class="x_panel" style="margin-top: 10px; position: relative">
                     <table id="myTable" class="table table-striped table-bordered" style="width: 99%; position: relative; z-index: 0">
                         <thead style="position: relative">
@@ -146,6 +148,7 @@
                                     out.print(" </td>");
                                     out.print(" </tr>");
                                 }
+                                
                             %>
                             
 
@@ -175,8 +178,9 @@
     $(document).ready(function () {
         $("#myTable").DataTable();
     });
-    function redirect_to_login(id) {
-        window.location.href = "User_Login.aspx?pjid=" + id;
+    function test111() {
+        var x = document.getElementById('test1').value;
+        document.getElementById('test').value=x;
     }
 </script>
 <!-- InstanceEnd --></html>

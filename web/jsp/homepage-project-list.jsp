@@ -53,7 +53,7 @@
         <div class="container" >
             <div class="row" Style="margin-top: 60px;">
                 <div style="margin-top: 20px; margin-left: 20px">
-                    <button  OnClick="Unnamed_Click" class="btn btn-default new-btn" />❮ Trang chủ</button>
+                    <a href="initHomePage.htm"> <button  OnClick="" class="btn btn-default new-btn" />❮ Trang chủ</button></a>
                 </div>
                 <div style="margin-top: -35px; float: right; margin-right: 30px">
                     <Button Text="Đăng nhập ❯" OnClick="Unnamed_Click1" class="btn btn-success new-btn" >Đăng nhập ❯</button>
