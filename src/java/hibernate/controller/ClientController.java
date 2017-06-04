@@ -198,13 +198,9 @@ public class ClientController {
     //Khai bao trang dang ki de tai
     @RequestMapping(value = "initStudent_regProjet")
     public ModelAndView initStudent_regProjet(HttpSession session) {
-        ModelAndView model;
-        int id = Integer.parseInt(session.getAttribute("id").toString());
-        if(clientModel.checkRegis(id)){
-            model = new ModelAndView("student-RegProject_1");
-        }else{
-            model = new ModelAndView("student-RegProject_registed");
-        }
+        ModelAndView model = new ModelAndView("student-RegProject_1");
+        
+       
         return model;
     }
 
@@ -215,6 +211,7 @@ public class ClientController {
             model = new ModelAndView("student-RegProject_2");
             List ls1 = clientModel.getAllFaculty();
             model.addObject("listFaculty", ls1);
+            
         } else {
             model = new ModelAndView("");
         }
@@ -225,7 +222,7 @@ public class ClientController {
     //Lay khoa
     @RequestMapping(value = "regProjet2")
     public ModelAndView getAllDTbyFaculty(@RequestParam(value = "faculty") String faculty) {
-        ModelAndView model = new ModelAndView("student-RegProject_2_1");
+        ModelAndView model = new ModelAndView("student-RegProject_3");
         //Lay danh sach khoa
         List ls1 = clientModel.getAllFaculty();
         model.addObject("listFaculty", ls1);

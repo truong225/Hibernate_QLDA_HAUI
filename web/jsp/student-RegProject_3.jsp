@@ -4,9 +4,9 @@
     Author     : we
 --%>
 
+<%@page import="java.util.List"%>
 <%@page import="hibernate.entity.Users"%>
 <%@page import="hibernate.entity.Detai"%>
-<%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,33 +17,36 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Hệ thống quản lý đồ án tốt nghiệp Đại Học Công Nghiệp Hà Nội</title>
-        <!-- InstanceBeginEditable name="doctitle" -->
-        <title>Hệ thống quản lý đồ án tốt nghiệp Đại Học Công Nghiệp Hà Nội</title>
+
+        <title>Đồ án tốt nghiệp</title>
+
+        <link rel="stylesheet" href="../resources/css/jquery-ui.css">
         <!-- Bootstrap -->
-        <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- Font Awesome -->
-        <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <!-- NProgress -->
-        <link href="../vendors/nprogress/nprogress.css" rel="stylesheet" />
+        <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
         <!-- iCheck -->
-        <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet" />
+        <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
         <link href="../build/css/list.css" rel="stylesheet" />
         <!-- bootstrap-progressbar -->
-        <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
+        <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
         <!-- JQVMap -->
-        <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+        <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
         <!-- bootstrap-daterangepicker -->
-        <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
-        <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-        <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet" />
-        <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet" />
-        <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet" />
-        <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet" />
-        <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <!-- Custom Theme Style -->
-        <link href="../build/css/custom.min_1.css" rel="stylesheet" />
+        <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
+        <!-- Datatables -->
+        <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+        <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+        <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+        <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+        <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom Theme Style -->
+        <link href="../build/css/custom.min_1.css" rel="stylesheet">
+        <link rel="stylesheet" href="../resources/css/custom.css">
     </head>
 
     <body class="nav-md">
@@ -153,6 +156,7 @@
                 <!-- /top navigation --> 
 
                 <!-- page content -->
+
                 <div class="right_col" role="main">
                     <div class="clearfix"></div>
                     <!-- end page title -->
@@ -160,23 +164,25 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_title">
                                 <h2>Đăng Kí - Bước 1: Đăng kí</h2>
-                                <div>${error}</div>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_panel">
                                 <div class="x_content">
                                     <div style="margin-bottom: 20px; font-size: 20px">
-                                        <div class="col-md-4 col-sm-12">
-                                            <h3>Chọn khoa đăng ký: </h3>
-                                            <select class="form-control">
-                                                <c:forEach var="x" items="${listFaculty}">
-                                                    <option>${x}</option>
-                                                </c:forEach>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4 col-sm-12">
-                                            <input type="submit" value="Chọn" style="margin-top: 40px; padding: 5px"/>
-                                        </div>
+                                        <f:form action="initStudent_regProjet2" method="GET">
+                                            <div class="col-md-4 col-sm-12">
+                                                <h3>Chọn khoa: </h3>
+
+                                                <select class="form-control" name="faculty">
+                                                    <c:forEach var="x" items="${listFaculty}">
+                                                        <option>${x}</option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 col-sm-12">
+                                                <input type="submit" value="Chọn" style="margin-top: 40px; padding: 10px"/>
+                                            </div>
+                                        </f:form>
                                     </div>
                                     <br />
                                     <br />
@@ -208,7 +214,7 @@
                                                         out.print("    <td style=\"text-align: center\">" + lsDT.get(i).getProjectDescription() + "</td>");
                                                         out.print("   <td style=\"text-align: center\">");
                                                         out.print("       <div class=\"tooltip-a\">");
-                                                        out.print("           <a href=\"#\">" + lsUser.get(i).getUserDegree() + " " + lsUser.get(i).getUserFullname() + "</a>");
+                                                        out.print("           <a href=\"#\">"+ lsUser.get(i).getUserDegree() + " " + lsUser.get(i).getUserFullname() +"</a>");
                                                         out.print("          <div class=\"tooltiptext-a\">");
                                                         out.print("               <img src=\"../images/" + lsUser.get(i).getUserAvatar() + "\" style=\"width:150px;height:200px;margin-top:10px\" />");
                                                         out.print("              <hr style=\"width: 80%\" />");
@@ -222,13 +228,14 @@
                                                         out.print("      </div>");
                                                         out.print("  </td>");
                                                         out.print("  <td>");
-                                                        out.print("<a href=\"registProject.htm?dt="+lsDT.get(i).getProjectId()+"\"><button class=\"btn btn-success new-btn\"  >Đăng ký ❯</button></a>"
+                                                        out.print("<button class=\"btn btn-success new-btn\"  >Đăng ký ❯</button>"
                                                         );
                                                         out.print(" </td>");
                                                         out.print(" </tr>");
                                                     }
 
                                                 %>
+
 
                                             </tbody>
                                         </table>
@@ -238,65 +245,90 @@
                         </div>
                     </div>
                 </div>
-                <!-- /page content --> 
 
-                <!-- footer content -->
-                <footer>
-                    <div class="pull-right"> Hệ thống quản lý đồ án tốt nghiệp Đại học Công Nghiệp Hà Nội <a href="https://colorlib.com">• Nhóm 4</a> </div>
-                    <div class="clearfix"></div>
-                </footer>
-                <!-- /footer content --> 
             </div>
+            <!-- /page content -->
+
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Hệ thống quản lý đồ án tốt nghiệp Đại học Công Nghiệp Hà Nội • Nhóm 4
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
         </div>
-    </body>
-    <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="../vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="../vendors/Flot/jquery.flot.js"></script>
-    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="../vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <script src="../build/js/jquery.dataTables.min.js"></script>
+    </div>
 
-    <!-- Custom Theme Scripts -->
-    <script src="../build/js/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#myTable").DataTable();
-        });
 
-    </script>
-    <!-- Custom Theme Scripts --> 
-    <script src="../build/js/custom.min.js"></script>
+
+</body>
+
+<!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+
+<script src="../resources/js/jquery-1.12.4.js"></script>
+<script src="../resources/js/jquery-ui.js"></script>
+
+<!-- Bootstrap -->
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="../vendors/nprogress/nprogress.js"></script>
+<!-- Chart.js -->
+<script src="../vendors/Chart.js/dist/Chart.min.js"></script>
+<!-- gauge.js -->
+<script src="../vendors/gauge.js/dist/gauge.min.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="../vendors/iCheck/icheck.min.js"></script>
+<!-- Skycons -->
+<script src="../vendors/skycons/skycons.js"></script>
+<!-- Flot -->
+<script src="../vendors/Flot/jquery.flot.js"></script>
+<script src="../vendors/Flot/jquery.flot.pie.js"></script>
+<script src="../vendors/Flot/jquery.flot.time.js"></script>
+<script src="../vendors/Flot/jquery.flot.stack.js"></script>
+<script src="../vendors/Flot/jquery.flot.resize.js"></script>
+<!-- Flot plugins -->
+<script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+<script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+<script src="../vendors/flot.curvedlines/curvedLines.js"></script>
+<!-- DateJS -->
+<script src="../vendors/DateJS/build/date.js"></script>
+<!-- JQVMap -->
+<script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
+<script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="../vendors/moment/min/moment.min.js"></script>
+<script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+<!-- Datatables -->
+<script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="../vendors/jszip/dist/jszip.min.js"></script>
+<script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+<!-- Custom Theme Scripts -->
+<script src="../build/js/custom.min.js"></script>
+<script type="text/javascript" src="../resources/js/custom.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#myTable").DataTable();
+    });
     
+</script>
 </html>

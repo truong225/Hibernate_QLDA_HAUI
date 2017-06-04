@@ -208,6 +208,11 @@
         <!-- /footer content -->
     </div>
 </div>
+
+
+
+</body>
+
 <!-- jQuery -->
 <script src="../vendors/jquery/dist/jquery.min.js"></script>
 
@@ -269,7 +274,4 @@
 <!-- Custom Theme Scripts -->
 <script src="../build/js/custom.min.js"></script>
 <script type="text/javascript" src="../resources/js/custom.js"></script>
-
-
-</body>
 </html>
