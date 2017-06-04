@@ -6,6 +6,7 @@
 package hibernate.model;
 
 import hibernate.entity.Detai;
+import hibernate.entity.Message;
 import hibernate.entity.Tiendo;
 import hibernate.entity.Users;
 import hibernate.util.HibernateUtil;
@@ -38,6 +39,26 @@ public class ClientModel {
                 ).list();
 
         return listFaculty;
+    }
+    
+    //Lay User qua ten dang nhap va mat khau
+    public Users getUserByUsername(String username, String pw){
+        Users users = null;
+        try {
+            init();
+            String hql = "FROM Users as u where u.userName = ? and u.userPassword = ?";
+            Query query = ss.createQuery(hql);
+            query.setString(0, username);
+            query.setString(1, pw);
+            users = (Users) query.uniqueResult();
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+        }finally{
+            ss.close();
+        }
+        return users;
+        
     }
 
     //Lay danh sách GV theo khoa
@@ -154,10 +175,10 @@ public class ClientModel {
         List<Detai> ls = null;
         try {
             init();
-            String hql = "FROM Detai as d where d.projectInstructorid = ? and d.projectStatus = ? and d.projectCancel=?";
+            String hql = "FROM Detai as d where d.projectInstructorid = ? and d.projectStudentid < 0 and d.projectProgress = ? and d.projectCancel=?";
             Query query = ss.createQuery(hql);
             query.setInteger(0, userID);
-            query.setBoolean(1, false);
+            query.setInteger(1, 0);
             query.setBoolean(2, false);
             ls = query.list();
              t.commit();
@@ -244,6 +265,9 @@ public class ClientModel {
             init();
             dt.setProjectStudentid(userId);
             ss.update(dt);
+            
+            Message message = new Message(dt.getProjectId(), userId, dt.getProjectInstructorid(), 1, 0, "", 0);
+            ss.save(message);
             t.commit();
             check = true;
         } catch (Exception e) {

@@ -87,7 +87,13 @@ public class ClientController {
 
     //Khai bao trang dang nhap neu nguoi dung chua dang nhap
     @RequestMapping(value = "initLogin-error")
-    public ModelAndView initloginError() {
+    public ModelAndView initloginError(HttpSession session) {
+        String username = session.getAttribute("Username").toString();
+        String pw = session.getAttribute("pw").toString();
+        if( username != null || !username.equals("")){
+            Users user = clientModel.getUserByUsername(username, pw);
+            return Login(session, user);
+        }
         ModelAndView model = new ModelAndView("client-login");
         Users users = new Users();
         model.getModel().put("User", users);
@@ -107,6 +113,7 @@ public class ClientController {
             session.setAttribute("Username", users.getUserFullname());
             session.setAttribute("avatar", users.getUserAvatar());
             session.setAttribute("id", users.getUserId());
+            session.setAttribute("pw", users.getUserPassword());
             return model;
         } else {
             model = new ModelAndView("client-login");
