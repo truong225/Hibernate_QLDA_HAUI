@@ -28,7 +28,7 @@ public class ClientController {
         clientModel = new ClientModel();
     }
 
-     //Su kien dang xuat
+    //Su kien dang xuat
     @RequestMapping(value = "logout")
     public ModelAndView Logout(HttpSession session) {
         ModelAndView model = new ModelAndView("client-login");
@@ -39,8 +39,6 @@ public class ClientController {
         model.getModel().put("User", users);
         return model;
     }
-
-
 
     //Check Login
     public boolean CheckLogin(HttpSession session) {
@@ -176,7 +174,7 @@ public class ClientController {
 
     //Khai bao giao dien danh sach de tai
     @RequestMapping(value = "initHompageProjectList")
-    public ModelAndView initHompageProjectList(){
+    public ModelAndView initHompageProjectList() {
         ModelAndView model = new ModelAndView("homepage-project-list");
         List ls = clientModel.getAllFaculty();
         model.addObject("listFaculty", ls);
@@ -184,17 +182,44 @@ public class ClientController {
         return model;
     }
 
-     @RequestMapping(value = "loadHomepageDSDT")
+    @RequestMapping(value = "loadHomepageDSDT")
     public ModelAndView loadHomepageDSDT(@RequestParam(value = "faculty") String faculty) {
         List<Users> ls = clientModel.getAllDSGVByID(faculty);
         ModelAndView model = new ModelAndView("homepage-project-list_1");
-       // model.addObject("listGVHD", ls);
+        // model.addObject("listGVHD", ls);
         List ls1 = clientModel.getAllFaculty();
         model.addObject("listFaculty", ls1);
         List<Detai> lsDT = clientModel.getAllDT(faculty);
         model.addObject("listDT", lsDT);
         List<Users> lsUser = clientModel.getAllGVByDSDT(lsDT);
         model.addObject("listUsers", lsUser);
+        return model;
+    }
+
+    //Khai bao trang dang ki de tai
+    @RequestMapping(value = "initStudent_regProjet")
+    public ModelAndView initStudent_regProjet() {
+        ModelAndView model = new ModelAndView("student-RegProject_1");
+
+        return model;
+    }
+
+    @RequestMapping(value = "initStudent_regProjet2")
+    public ModelAndView initStudent_regProjet2() {
+        ModelAndView model = new ModelAndView("student-RegProject_2");
+        List ls1 = clientModel.getAllFaculty();
+        model.addObject("listFaculty", ls1);
+        return model;
+    }
+    
+    //Lay khoa
+    @RequestMapping(value = "regProjet2")
+    public ModelAndView getAllDTbyFaculty(@RequestParam(value = "faculty") String faculty){
+        ModelAndView model = new ModelAndView("student-RegProject_2_1");
+        List<Detai> lsDT = clientModel.getAllDT(faculty);
+        model.addObject("lsDT", lsDT);
+        List<Users> listUsers = clientModel.getAllGVByDSDT(lsDT);
+        model.addObject("listUsers", listUsers);
         return model;
     }
 }

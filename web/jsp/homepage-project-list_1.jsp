@@ -178,9 +178,6 @@
     $(document).ready(function () {
         $("#myTable").DataTable();
     });
-    function test111() {
-        var x = document.getElementById('test1').value;
-        document.getElementById('test').value=x;
-    }
+    
 </script>
 <!-- InstanceEnd --></html>

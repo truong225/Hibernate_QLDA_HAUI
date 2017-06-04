@@ -75,8 +75,8 @@
                                     </li>
                                     <li><a href="initClient-Task.htm"><i class="fa fa-edit"></i> Đề tài <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="initClient-Task.htm">Tiến độ đề tài</a></li>
-                                            <li><a href="">Đăng kí đề tài</a></li>
+                                            <<li><a href="initClient-Task.htm">Tiến độ đề tài</a></li>
+                                            <li><a href="initStudent_regProjet.htm">Đăng kí đề tài</a></li>
                                             <li><a href="">Hủy đề tài</a></li>
                                             <li><a href="">Trạng thái phê duyệt</a></li>
                                         </ul>
@@ -164,55 +164,20 @@
                                     <div style="margin-bottom: 20px; font-size: 20px">
                                         <div class="col-md-4 col-sm-12">
                                             <h3>Chọn kiểu đăng ký: </h3>
-                                            <select class="form-control">
+                                            <select class="form-control" onchange="">
                                                 <option value="">Chọn từ danh sách có sẵn</option>
                                                 <option value="">Đề xuất đề tài mới</option>
                                             </select>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12">
+                                            <input type="submit" value="Chọn" style="margin-top: 40px; padding: 5px"/>
                                         </div>
                                     </div>
                                     <br />
                                     <br />
                                     <br />
                                     <br />
-                                    <div class="x_panel" style="margin-top: 10px; position: relative">
-                                        <table id="myTable" class="table table-striped table-bordered" style="width: 99%; position: relative; z-index: 0">
-                                            <thead style="position: relative">
-                                                <tr>
-                                                    <th style="text-align: center">Tên đề tài</th>
-                                                    <th style="text-align: center">Thông tin đề tài</th>
-                                                    <th style="text-align: center">Giảng viên hướng dẫn</th>
-                                                    <th style="text-align: center">Đăng ký</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody style="position: relative">
-                                                <tr>
-                                                    <td style="text-align: center">Thết kế hệ thống điều khiển Đèn giao thông trên Micro PLC SIMATIC S7- 200 </td>
-                                                    <td style="text-align: center">Tìm hiểu về các thiết bị tự động hố, các giải pháp tự động hố tích hợp tồn diện thông qua PLC S7 – 200 và quan trọng nhất là những ứng dụng của PLC trong cuộc sống. </td>
-                                                    <td style="text-align: center">
-                                                        <div class="tooltip-a">
-                                                            <a href="#" style="font-weight: bold">T.S Trường Tróc</a>
-                                                            <div class="tooltiptext-a">
-                                                                <img src="<c:url  value="../images/0.png"/>" style="width: 150px; height: 200px; margin-top: 10px" />
-                                                                <hr style="width: 80%" />
-                                                                <div style="font-family: Cambria; text-align: left; margin-left: 20%; margin-top: -10px">
-                                                                    ★ Họ tên: Trường Tróc
-                                                                    <br />
-                                                                    ★ Học vị: Tiến sĩ<br />
-                                                                    ★ Email: Troc@gmail.com
-                                                                    <br />
-                                                                    ★ SDT: 013123123231
-                                                                </div>
-                                                            </div>
 
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn btn-success new-btn" onclick="redirect_to_confirm(1);return false;">Đăng ký ❯</button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -274,6 +239,10 @@
                                                             $(document).ready(function () {
                                                                 $("#myTable").DataTable();
                                                             });
+                                                            
+        function chooseDT(){
+            window.location.href="initClientHompage.htm";
+        }
 
     </script>
     <!-- Custom Theme Scripts --> 
