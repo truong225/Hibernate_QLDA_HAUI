@@ -67,13 +67,13 @@
                             <div class="menu_section">
                                 <h3>Chung</h3>
                                 <ul class="nav side-menu">
-                                    <li><a href="initClientHompage.htm"><i class="fa fa-home"></i> Trang chủ <span class="fa fa-chevron-down"></span></a>
+                                    <li><a><i class="fa fa-home"></i> Trang chủ <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a href="initClientHompage.htm">Trang chủ</a></li>
                                             <li><a href="notify.html">Thông báo</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="initClient-Task.htm"><i class="fa fa-edit"></i> Đề tài <span class="fa fa-chevron-down"></span></a>
+                                    <li><a><i class="fa fa-edit"></i> Đề tài <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a href="initClient-Task.htm">Tiến độ đề tài</a></li>
                                             <li><a href="initStudent_regProjet.htm">Đăng kí đề tài</a></li>

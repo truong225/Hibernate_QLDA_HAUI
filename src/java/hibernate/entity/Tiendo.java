@@ -1,5 +1,5 @@
 package hibernate.entity;
-// Generated Jun 1, 2017 11:03:26 PM by Hibernate Tools 4.3.1
+// Generated Jun 4, 2017 6:40:18 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -25,6 +25,7 @@ public class Tiendo  implements java.io.Serializable {
      private String tdResult;
      private String tdRequest;
      private String tdEnddate;
+     private String tdNote;
      private Set<Comments> commentses = new HashSet<Comments>(0);
 
     public Tiendo() {
@@ -35,7 +36,7 @@ public class Tiendo  implements java.io.Serializable {
         this.detai = detai;
         this.userId = userId;
     }
-    public Tiendo(Detai detai, String tdName, String tdCreatedate, int userId, String tdDescription, Boolean tdStatus, Integer tdProcess, Boolean isdelete, String deleteDate, Integer deleteUserid, String tdResult, String tdRequest, String tdEnddate, Set<Comments> commentses) {
+    public Tiendo(Detai detai, String tdName, String tdCreatedate, int userId, String tdDescription, Boolean tdStatus, Integer tdProcess, Boolean isdelete, String deleteDate, Integer deleteUserid, String tdResult, String tdRequest, String tdEnddate, String tdNote, Set<Comments> commentses) {
        this.detai = detai;
        this.tdName = tdName;
        this.tdCreatedate = tdCreatedate;
@@ -49,6 +50,7 @@ public class Tiendo  implements java.io.Serializable {
        this.tdResult = tdResult;
        this.tdRequest = tdRequest;
        this.tdEnddate = tdEnddate;
+       this.tdNote = tdNote;
        this.commentses = commentses;
     }
    
@@ -149,6 +151,13 @@ public class Tiendo  implements java.io.Serializable {
     
     public void setTdEnddate(String tdEnddate) {
         this.tdEnddate = tdEnddate;
+    }
+    public String getTdNote() {
+        return this.tdNote;
+    }
+    
+    public void setTdNote(String tdNote) {
+        this.tdNote = tdNote;
     }
     public Set<Comments> getCommentses() {
         return this.commentses;

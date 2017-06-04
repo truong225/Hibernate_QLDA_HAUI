@@ -12,7 +12,6 @@ import hibernate.model.ClientModel;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -198,28 +197,62 @@ public class ClientController {
 
     //Khai bao trang dang ki de tai
     @RequestMapping(value = "initStudent_regProjet")
-    public ModelAndView initStudent_regProjet() {
-        ModelAndView model = new ModelAndView("student-RegProject_1");
-
+    public ModelAndView initStudent_regProjet(HttpSession session) {
+        ModelAndView model;
+        int id = Integer.parseInt(session.getAttribute("id").toString());
+        if(clientModel.checkRegis(id)){
+            model = new ModelAndView("student-RegProject_1");
+        }else{
+            model = new ModelAndView("student-RegProject_registed");
+        }
         return model;
     }
 
     @RequestMapping(value = "initStudent_regProjet2")
-    public ModelAndView initStudent_regProjet2() {
-        ModelAndView model = new ModelAndView("student-RegProject_2");
-        List ls1 = clientModel.getAllFaculty();
-        model.addObject("listFaculty", ls1);
+    public ModelAndView initStudent_regProjet2(@RequestParam(value = "type") String type) {
+        ModelAndView model;
+        if (type.equals("1")) {
+            model = new ModelAndView("student-RegProject_2");
+            List ls1 = clientModel.getAllFaculty();
+            model.addObject("listFaculty", ls1);
+        } else {
+            model = new ModelAndView("");
+        }
+
         return model;
     }
-    
+
     //Lay khoa
     @RequestMapping(value = "regProjet2")
-    public ModelAndView getAllDTbyFaculty(@RequestParam(value = "faculty") String faculty){
+    public ModelAndView getAllDTbyFaculty(@RequestParam(value = "faculty") String faculty) {
         ModelAndView model = new ModelAndView("student-RegProject_2_1");
+        //Lay danh sach khoa
+        List ls1 = clientModel.getAllFaculty();
+        model.addObject("listFaculty", ls1);
+        //Lay danh sach de tai theo khoa da chon
         List<Detai> lsDT = clientModel.getAllDT(faculty);
         model.addObject("lsDT", lsDT);
+        //Danh sach giang vien theo de tai
         List<Users> listUsers = clientModel.getAllGVByDSDT(lsDT);
         model.addObject("listUsers", listUsers);
+        //De tai se dang ki
+        Detai dt = new Detai();
+        model.addObject("dt", dt);
+        return model;
+    }
+
+    //Xu ly su kien dang ki
+    @RequestMapping(value = "registProject")
+    public ModelAndView registProject(@RequestParam(value = "dt") int dtId, HttpSession session) {
+        int userId = Integer.valueOf(session.getAttribute("id").toString());
+        boolean check = clientModel.regisProject(dtId,userId);
+        ModelAndView model;
+        if (check == true) {
+            model = new ModelAndView("student-RegProject_registed");
+        } else {
+            model = new ModelAndView("student-RegProject_2_1");
+            model.addObject("error", "Đề tài đã được đăng kí!");
+        }
         return model;
     }
 }

@@ -3,7 +3,8 @@
     Created on : May 31, 2017, 2:53:22 PM
     Author     : we
 --%>
-
+<%@taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vi">
@@ -13,26 +14,32 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Đồ án tốt nghiệp</title>
-
+        <title>Hệ thống quản lý đồ án tốt nghiệp Đại Học Công Nghiệp Hà Nội</title>
+        <!-- InstanceBeginEditable name="doctitle" -->
+        <title>Hệ thống quản lý đồ án tốt nghiệp Đại Học Công Nghiệp Hà Nội</title>
         <!-- Bootstrap -->
-        <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
         <!-- Font Awesome -->
-        <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
         <!-- NProgress -->
-        <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+        <link href="../vendors/nprogress/nprogress.css" rel="stylesheet" />
         <!-- iCheck -->
-        <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-
+        <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet" />
+        <link href="../build/css/list.css" rel="stylesheet" />
         <!-- bootstrap-progressbar -->
-        <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+        <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
         <!-- JQVMap -->
-        <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+        <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
         <!-- bootstrap-daterangepicker -->
-        <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
+        <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+        <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+        <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet" />
+        <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet" />
+        <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet" />
+        <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet" />
+        <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
         <!-- Custom Theme Style -->
-        <link href="../build/css/custom.min_1.css" rel="stylesheet">
+        <link href="../build/css/custom.min_1.css" rel="stylesheet" />
 
     </head>
 
@@ -66,9 +73,9 @@
                                             <li><a href="notify.html">Thông báo</a></li>
                                         </ul>
                                     </li>
-                                    <li><a ><i class="fa fa-edit"></i> Đề tài <span class="fa fa-chevron-down"></span></a>
+                                    <li><a><i class="fa fa-edit"></i> Đề tài <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="initClient-Task.htm">Tiến độ đề tài</a></li>
+                                            <<li><a href="initClient-Task.htm">Tiến độ đề tài</a></li>
                                             <li><a href="initStudent_regProjet.htm">Đăng kí đề tài</a></li>
                                             <li><a href="">Hủy đề tài</a></li>
                                             <li><a href="">Trạng thái phê duyệt</a></li>
@@ -144,10 +151,40 @@
 
                 <!-- page content -->
                 <div class="right_col" role="main">
-                    <div class="tile_head">
-                        <h3 style="font-weight: bold">CHÀO MỪNG BẠN ĐẾN VỚI HỆ THỐNG QUẢN LÝ ĐỒ ÁN TỐT NGHIỆP HAUI</h3>
-                    </div>
+                    <div class="clearfix"></div>
+                    <!-- end page title -->
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_title">
+                                <h2>Đăng Kí - Bước 1: Đăng kí</h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <f:form action="initStudent_regProjet2.htm">
+                                        <div style="margin-bottom: 20px; font-size: 20px">
+                                            <div class="col-md-4 col-sm-12">
+                                                <h3>Chọn kiểu đăng ký: </h3>
+                                                <select class="form-control" name="type">
+                                                    <option value="1">Chọn từ danh sách có sẵn</option>
+                                                    <option value="2">Đề xuất đề tài mới</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 col-sm-12">
+                                                <input type="submit" value="Chọn" style="margin-top: 40px; padding: 5px"/>
+                                            </div>
+                                        </div>
+                                    </f:form>
 
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /page content --> 
 
@@ -160,44 +197,57 @@
             </div>
         </div>
     </body>
-    <!-- jQuery --> 
-    <script src="../vendors/jquery/dist/jquery.min.js"></script> 
-    <!-- Bootstrap --> 
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script> 
-    <!-- FastClick --> 
-    <script src="../vendors/fastclick/lib/fastclick.js"></script> 
-    <!-- NProgress --> 
-    <script src="../vendors/nprogress/nprogress.js"></script> 
-    <!-- Chart.js --> 
-    <script src="../vendors/Chart.js/dist/Chart.min.js"></script> 
-    <!-- gauge.js --> 
-    <script src="../vendors/gauge.js/dist/gauge.min.js"></script> 
-    <!-- bootstrap-progressbar --> 
-    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script> 
-    <!-- iCheck --> 
-    <script src="../vendors/iCheck/icheck.min.js"></script> 
-    <!-- Skycons --> 
-    <script src="../vendors/skycons/skycons.js"></script> 
-    <!-- Flot --> 
-    <script src="../vendors/Flot/jquery.flot.js"></script> 
-    <script src="../vendors/Flot/jquery.flot.pie.js"></script> 
-    <script src="../vendors/Flot/jquery.flot.time.js"></script> 
-    <script src="../vendors/Flot/jquery.flot.stack.js"></script> 
-    <script src="../vendors/Flot/jquery.flot.resize.js"></script> 
-    <!-- Flot plugins --> 
-    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script> 
-    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script> 
-    <script src="../vendors/flot.curvedlines/curvedLines.js"></script> 
-    <!-- DateJS --> 
-    <script src="../vendors/DateJS/build/date.js"></script> 
-    <!-- JQVMap --> 
-    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script> 
-    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script> 
-    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script> 
-    <!-- bootstrap-daterangepicker --> 
-    <script src="../vendors/moment/min/moment.min.js"></script> 
-    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script> 
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="../vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="../vendors/Flot/jquery.flot.js"></script>
+    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="../vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="../build/js/jquery.dataTables.min.js"></script>
 
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myTable").DataTable();
+        });
+
+        function chooseDT() {
+            window.location.href = "initClientHompage.htm";
+        }
+
+    </script>
     <!-- Custom Theme Scripts --> 
     <script src="../build/js/custom.min.js"></script>
 

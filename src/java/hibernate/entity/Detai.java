@@ -1,5 +1,5 @@
 package hibernate.entity;
-// Generated Jun 1, 2017 11:03:26 PM by Hibernate Tools 4.3.1
+// Generated Jun 4, 2017 6:40:18 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,9 +12,9 @@ public class Detai  implements java.io.Serializable {
 
 
      private Integer projectId;
-     private Users users;
      private String projectName;
      private String projectContentlink;
+     private Integer projectStudentid;
      private int projectInstructorid;
      private Integer projectProgress;
      private String projectStartdate;
@@ -38,10 +38,10 @@ public class Detai  implements java.io.Serializable {
     public Detai(int projectInstructorid) {
         this.projectInstructorid = projectInstructorid;
     }
-    public Detai(Users users, String projectName, String projectContentlink, int projectInstructorid, Integer projectProgress, String projectStartdate, Boolean projectStatus, String projectDescription, Integer projectViewcount, Integer projectPagecount, Boolean projectCancel, Boolean isdelete, String deleteDate, Integer deleteUserid, String detaiResult, String detaiRequest, String detaiSpecialized, Set<Tiendo> tiendos) {
-       this.users = users;
+    public Detai(String projectName, String projectContentlink, Integer projectStudentid, int projectInstructorid, Integer projectProgress, String projectStartdate, Boolean projectStatus, String projectDescription, Integer projectViewcount, Integer projectPagecount, Boolean projectCancel, Boolean isdelete, String deleteDate, Integer deleteUserid, String detaiResult, String detaiRequest, String detaiSpecialized, Set<Tiendo> tiendos) {
        this.projectName = projectName;
        this.projectContentlink = projectContentlink;
+       this.projectStudentid = projectStudentid;
        this.projectInstructorid = projectInstructorid;
        this.projectProgress = projectProgress;
        this.projectStartdate = projectStartdate;
@@ -66,13 +66,6 @@ public class Detai  implements java.io.Serializable {
     public void setProjectId(Integer projectId) {
         this.projectId = projectId;
     }
-    public Users getUsers() {
-        return this.users;
-    }
-    
-    public void setUsers(Users users) {
-        this.users = users;
-    }
     public String getProjectName() {
         return this.projectName;
     }
@@ -86,6 +79,13 @@ public class Detai  implements java.io.Serializable {
     
     public void setProjectContentlink(String projectContentlink) {
         this.projectContentlink = projectContentlink;
+    }
+    public Integer getProjectStudentid() {
+        return this.projectStudentid;
+    }
+    
+    public void setProjectStudentid(Integer projectStudentid) {
+        this.projectStudentid = projectStudentid;
     }
     public int getProjectInstructorid() {
         return this.projectInstructorid;

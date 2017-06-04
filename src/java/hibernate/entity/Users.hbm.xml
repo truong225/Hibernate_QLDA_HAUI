@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 1, 2017 11:03:29 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 4, 2017 6:40:19 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="hibernate.entity.Users" table="users" catalog="nhom4_qldoan" optimistic-lock="version">
         <id name="userId" type="java.lang.Integer">
@@ -80,11 +80,5 @@
         <property name="userNv" type="java.lang.Integer">
             <column name="user_nv" />
         </property>
-        <set name="detais" table="detai" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="project_studentid" />
-            </key>
-            <one-to-many class="hibernate.entity.Detai" />
-        </set>
     </class>
 </hibernate-mapping>

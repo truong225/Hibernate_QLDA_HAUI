@@ -106,6 +106,7 @@ public class ClientModel {
             query.setParameter(0, id);
             Detai detai = (Detai) query.uniqueResult();
             projectId = detai.getProjectId();
+             t.commit();
         } catch (Exception e) {
         }
         return projectId;
@@ -121,6 +122,7 @@ public class ClientModel {
             query.setParameter(0, id);
             Users users = (Users) query.uniqueResult();
             userId = users.getUserId();
+             t.commit();
         } catch (Exception e) {
         }finally{
             ss.close();
@@ -139,7 +141,7 @@ public class ClientModel {
             Query query = ss.createQuery(hql);
             query.setInteger(0, projectId);
             ls = query.list();
-            
+             t.commit();
         } catch (Exception e) {
         }finally{
             ss.close();
@@ -152,10 +154,13 @@ public class ClientModel {
         List<Detai> ls = null;
         try {
             init();
-            String hql = "FROM Detai as d where d.projectInstructorid = ?";
+            String hql = "FROM Detai as d where d.projectInstructorid = ? and d.projectStatus = ? and d.projectCancel=?";
             Query query = ss.createQuery(hql);
             query.setInteger(0, userID);
+            query.setBoolean(1, false);
+            query.setBoolean(2, false);
             ls = query.list();
+             t.commit();
         } catch (Exception e) {
             t.rollback();
         }finally{
@@ -172,6 +177,7 @@ public class ClientModel {
             String hql = "FROM Users as u where u.id="+id;
             Query query = ss.createQuery(hql);
             user = (Users) query.uniqueResult();
+             t.commit();
         } catch (Exception e) {
             t.rollback();
         }finally{
@@ -204,11 +210,72 @@ public class ClientModel {
                     ls.add(j);
                 }
             }
-            
+    
         } catch (Exception e) {
             
         }
         return ls;
     }
+    
+    //Lay de tai theo id
+    public Detai getProjectById(int id){
+        Detai dt = null;
+        
+        try {
+            init();
+            String hql = "FROM Detai as d where d.projectId = ?";
+            Query query = ss.createQuery(hql);
+            query.setInteger(0, id);
+            dt = (Detai) query.uniqueResult();
+             t.commit();
+        } catch (Exception e) {
+            t.rollback();
+        }finally{
+            ss.close();
+        }
+        return dt;
+    }
 
+    //Dang ki de tai
+    public boolean regisProject(int dtId, int userId){
+        Detai dt = getProjectById(dtId);
+        boolean check = false;
+        try {
+            init();
+            dt.setProjectStudentid(userId);
+            ss.update(dt);
+            t.commit();
+            check = true;
+        } catch (Exception e) {
+            t.rollback();
+        }finally{
+            ss.close();
+        }
+        
+        return check;
+    }
+    
+    //Kiem tra xem sinh vien da dang ki de tai chuwa
+    public boolean checkRegis(int id){
+        boolean check = false;
+        try {
+            init();
+            String hql = "FROM Detai as d where d.users.userId=? and d.projectStatus = ? and d.projectCancel=? ";
+            Query query = ss.createQuery(hql);
+            query.setInteger(0, id);
+            query.setBoolean(1, false);
+            query.setBoolean(2, false);
+            List<Detai> ls = query.list();
+            t.commit();
+            if(ls.size()==0){
+                check = true;
+            }
+        } catch (Exception e) {
+            t.rollback();
+        }finally{
+            ss.close();
+        }
+        return check;
+    }
+    
 }
