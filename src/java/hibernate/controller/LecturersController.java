@@ -170,4 +170,20 @@ public class LecturersController {
         return model;
     }
 
+    
+    //init Theo doi tien do
+    @RequestMapping(value = "initlecturerProjectProcess")
+    public ModelAndView initlecturerProjectProcess(@RequestParam(value = "id") int id){
+        ModelAndView model = new ModelAndView("lecturer_Project_Process");
+        List<Tiendo> lsTD = lecturersModel.getAllTDbyProjectId(id);
+        Users user = new Users();
+        if(lsTD.size()>0){
+            int userId = lsTD.get(0).getUserId();
+            user = lecturersModel.getUserByID(userId);
+        }
+        model.addObject("lsTD", lsTD);
+        model.addObject("user", user);
+        
+        return model;
+    }
 }

@@ -7,6 +7,7 @@ package hibernate.model;
 
 import hibernate.entity.Detai;
 import hibernate.entity.Message;
+import hibernate.entity.Tiendo;
 import hibernate.entity.Users;
 import hibernate.util.HibernateUtil;
 import java.util.List;
@@ -184,4 +185,25 @@ public class LecturersModel {
         
         return lsProject;
     }
+    
+    //Lay danh sach tien do theo de tai
+    public List<Tiendo> getAllTDbyProjectId(int id){
+         List<Tiendo> lsProject = null;
+        try {
+            init();
+            String hql = "FROM Tiendo as t where t.detai.projectId = ? and t.isdelete = ?";
+            Query query = ss.createQuery(hql);
+            query.setInteger(0, id);
+            query.setBoolean(1, false);
+            lsProject = query.list();
+            commit();
+        } catch (Exception e) {
+            rollback();
+        }finally{
+            close();
+        }
+        
+        return lsProject;
+    }
+    
 }
