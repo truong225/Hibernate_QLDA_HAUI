@@ -94,7 +94,7 @@ public class ClientModel {
             sf = HibernateUtil.getSessionFactory();
             ss = sf.openSession();
             t = ss.beginTransaction();
-            String hql = "FROM Users as u where u.userName=? and u.userPassword=? and u.userActive = 1 and u.userType = 1";
+            String hql = "FROM Users as u where u.userName=? and u.userPassword=? and u.userActive = 1";
             Query query = ss.createQuery(hql);
             query.setParameter(0, users.getUserName());
             query.setParameter(1, users.getUserPassword());
