@@ -157,13 +157,13 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_title">
-                                <h2>Phê duyệt yêu cầu</h2>
+                                <h2>Danh sách sinh viên đang hướng dẫn</h2>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_panel">
                                 <div class="x_content">
-                                   
-                                    
+
+
                                     <div class="x_panel" style="margin-top: 10px; position: relative">
                                         <table id="myTable" class="table table-striped table-bordered" style="width: 99%; position: relative; z-index: 0">
                                             <thead style="position: relative">
@@ -171,52 +171,46 @@
                                                     <th style="text-align: center">STT</th>
                                                     <th style="text-align: center">Tên đề tài</th>
                                                     <th style="text-align: center">Thông tin đề tài</th>
-                                                    <th style="text-align: center">Sinh viên</th>
-                                                    <th style="text-align: center">Loại</th>
-                                                    <th style="text-align: center">Phê duyệt</th>
+                                                    <th style="text-align: center">Sinh viên đăng ký</th>
+                                                    <th style="text-align: center">Ngày bắt đầu</th>
+                                                    <th style="text-align: center"></th>
                                                 </tr>
                                             </thead>
                                             <tbody style="position: relative">
                                                 <%
                                                     int x = 1;
-                                                    List<Message> lsMes = (List<Message>) request.getAttribute("lsMes");
-                                                    List<Users> lsUsers = (List<Users>) request.getAttribute("lsUsers");
-                                                    List<Detai> lsProject = (List<Detai>) request.getAttribute("lsProject");
-                                                    for (int i = 0; i < lsMes.size(); i++) {
-                                                        out.print("<tr>");
-                                                        out.print("   <td style=\"text-align: center\">" + x + "</td>");
-                                                        out.print("    <td style=\"text-align: center\">" + lsProject.get(i).getProjectName()+ "</td>");
-                                                        out.print("    <td style=\"text-align: center\">" + lsProject.get(i).getProjectDescription()+ "</td>");
-                                                        out.print("   <td style=\"text-align: center\">");
-                                                        out.print("       <div class=\"tooltip-a\">");
-                                                        out.print("           <a href=\"#\">" +lsUsers.get(i).getUserFullname() + "</a>");
-                                                        out.print("          <div class=\"tooltiptext-a\">");
-                                                        out.print("               <img src=\"../images/" + lsUsers.get(i).getUserAvatar() + "\" style=\"width:150px;height:200px;margin-top:10px\" />");
-                                                        out.print("              <hr style=\"width: 80%\" />");
-                                                        out.print("               <div style=\"font-family:Cambria; text-align:center; margin-top:-10px\">");
-                                                        out.print("                 ★ Họ tên: " + lsUsers.get(i).getUserFullname() + " <br />");
-                                                        out.print("                 ★ Lớp: " + lsUsers.get(i).getUserClass() + "<br />");
-                                                        out.print("                 ★ Email: " + lsUsers.get(i).getUserEmail() + "<br />");
-                                                        out.print("                 ★ SDT: " + lsUsers.get(i).getUserMobile());
-                                                        out.print("              </div>");
-                                                        out.print("          </div>");
-                                                        out.print("      </div>");
-                                                        out.print("  </td>");
-                                                        if(lsMes.get(i).getMessageType()==1){
-                                                            out.print("    <td style=\"text-align: center; color: green; font-weight:bold\">Đăng kí đề tài</td>");
+                                                    List<Users> lsUsers = (List<Users>) request.getAttribute("lsStudent");
+                                                    List<Detai> lsProject = (List<Detai>) request.getAttribute("lsDT");
+                                                    if (lsProject != null) {
+                                                        for (int i = 0; i < lsProject.size(); i++) {
+                                                            out.print("<tr>");
+                                                            out.print("   <td style=\"text-align: center\">" + x + "</td>");
+                                                            out.print("    <td style=\"text-align: center\">" + lsProject.get(i).getProjectName() + "</td>");
+                                                            out.print("    <td style=\"text-align: center\">" + lsProject.get(i).getProjectDescription() + "</td>");
+                                                            out.print("   <td style=\"text-align: center\">");
+                                                            out.print("       <div class=\"tooltip-a\">");
+                                                            out.print("           <a href=\"#\">" + lsUsers.get(i).getUserFullname() + "</a>");
+                                                            out.print("          <div class=\"tooltiptext-a\">");
+                                                            out.print("               <img src=\"../images/" + lsUsers.get(i).getUserAvatar() + "\" style=\"width:150px;height:200px;margin-top:10px\" />");
+                                                            out.print("              <hr style=\"width: 80%\" />");
+                                                            out.print("               <div style=\"font-family:Cambria; text-align:center; margin-top:-10px\">");
+                                                            out.print("                 ★ Họ tên: " + lsUsers.get(i).getUserFullname() + " <br />");
+                                                            out.print("                 ★ Lớp: " + lsUsers.get(i).getUserClass() + "<br />");
+                                                            out.print("                 ★ Email: " + lsUsers.get(i).getUserEmail() + "<br />");
+                                                            out.print("                 ★ SDT: " + lsUsers.get(i).getUserMobile());
+                                                            out.print("              </div>");
+                                                            out.print("          </div>");
+                                                            out.print("      </div>");
+                                                            out.print("  </td>");
+                                                            out.print("  <td>");
+                                                            out.print(lsProject.get(i).getProjectStartdate().toString());
+                                                            out.print(" </td>");
+                                                            out.print("<td><a href=\"\"><button class=\"btn btn-success new-btn\"  >Tiến độ❯</button></a></td>");
+                                                            out.print(" </tr>");
+                                                            x++;
                                                         }
-                                                        else if(lsMes.get(i).getMessageType()==2){
-                                                            out.print("    <td style=\"text-align: center; color: red; font-weight:bold\">Hủy đề tài</td>");
-                                                        }
-                                                        out.print("  <td>");
-                                                        out.print("<div>"
-                                                                + "<a href=\"approveProject.htm?mesId="+lsMes.get(i).getMessageId()+"\"><button class=\"btn btn-success new-btn\"  >Duyệt❯</button></a>"
-                                                                + "<a href=\"\"><button class=\"btn btn-danger new-btn\"  >Hủy❯</button></a>"
-                                                                + "</div>");
-                                                        out.print(" </td>");
-                                                        out.print(" </tr>");
-                                                        x++;
                                                     }
+
 
                                                 %>
 

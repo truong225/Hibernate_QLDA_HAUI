@@ -83,8 +83,8 @@
                                     </li>
                                     <li><a><i class="fa fa-user"></i> Sinh viên <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="">Danh sách sinh viên đang hướng dẫn</a></li>
-                                            <li><a href="">Phê duyệt đề tài</a></li>
+                                            <li><a href="initlecturer_Project_List_Ongoing.htm">Danh sách sinh viên đang hướng dẫn</a></li>
+                                            <li><a href="lecturerProjectListApprove.htm">Phê duyệt đề tài</a></li>
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-book"></i> Đề tài <span class="fa fa-chevron-down"></span></a>
