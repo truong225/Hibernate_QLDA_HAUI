@@ -10,6 +10,7 @@
 <%@page import="hibernate.entity.Users"%>
 <%@page import="java.util.List"%>
 <%@page import="hibernate.entity.Detai"%>
+<%@taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -156,96 +157,93 @@
                 <!-- page content -->
 
 
+
                 <div class="right_col" role="main">
                     <div class="clearfix"></div>
                     <!-- end page title -->
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_title">
-
-                                <div style="float: right; margin-top: 5px">
-                                    <asp:Button runat="server" Text="➕ Thêm công việc" OnClick="btn_to_progress_Click" ID="btn_back" CssClass="btn btn-default new-btn" />
-                                </div>
-                                <div style="font-size: 18px; float: left; margin-right: 3px; margin-top: 2px">Theo dõi tiến độ sinh viên : </div>
-                                <%
-                                    out.print("       <div class=\"tooltip-a left-col\">");
-                                    out.print("           <a href=\"#\" style=\"font-weight: bold; color: green; font-size: 20px\">" + user.getUserFullname() + "</a>");
-                                    out.print("          <div class=\"tooltiptext-a\">");
-                                    out.print("               <img src=\"../images/" + user.getUserAvatar() + "\" style=\"width:150px;height:200px;margin-top:10px\" />");
-                                    out.print("              <hr style=\"width: 80%\" />");
-                                    out.print("               <div style=\"font-family:Cambria; text-align:center; margin-top:-10px\">");
-                                    out.print("                 ★ Họ tên: " + user.getUserFullname() + " <br />");
-                                    out.print("                 ★ Lớp: " + user.getUserClass() + "<br />");
-                                    out.print("                 ★ Email: " + user.getUserEmail() + "<br />");
-                                    out.print("                 ★ SDT: " + user.getUserMobile());
-                                    out.print("              </div>");
-                                    out.print("          </div>");
-                                    out.print("      </div>");
-                                %>
+                                <h2>Thêm công việc</h2>
                                 <div class="clearfix"></div>
                             </div>
-
                             <div class="x_panel">
+                                <div style="float: left">
+                                    <button OnClick="btn_back_Click" id="btn_back" class="btn btn-default new-btn">❮ Quay lại</button>
+                                </div>
                                 <div class="x_content">
-                                    <div id="home" class="tab-pane fade in active">
-                                        <div style="float: right; margin-top: 5px">
-                                            <asp:Button runat="server" Text="➕ Thêm công việc" OnClick="btn_to_progress_Click" ID="btn_back" CssClass="btn btn-default new-btn" />
+                                    <f:form action="addProcess.htm" commandName="projectId" method="GET">
+                                        <div class="form-horizontal form-label-left" style="font-family: Cambria; font-size: 18px">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3">Tên công việc</label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <f:input path="tdName" type="text" class="form-control col-md-7 col-xs-12" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3" for="lydo">
+                                                    Đầu vào dự kiến
+                                                </label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <f:input type="text" path="tdRequest" class="form-control col-md-7 col-xs-12" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3" for="lydo">
+                                                    Đầu ra dự kiến
+                                                </label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <f:input type="text" path="tdResult" class="form-control col-md-7 col-xs-12" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3" for="lydo">
+                                                    Ngày bắt đầu
+                                                </label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <f:input placeholder="<<ngày hôm nay>>" class="form-control col-md-7 col-xs-12" type="text" path="tdCreatedate" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3" for="lydo">
+                                                    Ngày dự kiến kết thúc
+                                                </label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <f:input placeholder="Nhấp chuột để hiện lịch..." class="form-control col-md-7 col-xs-12" type="text" name="txtTimeDK" path="tdEnddate" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3" for="lydo">
+                                                    Link báo cáo
+                                                </label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <f:input disabled="disabled" type="text" path="tdNote" class="form-control col-md-7 col-xs-12" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3" for="lydo">
+                                                    Ghi chú
+                                                </label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <f:textarea rows="4" class="form-control col-md-7 col-xs-12" path="tdDescription"></f:textarea>
+                                                </div>
+                                            </div>
                                         </div>
+                                        <div>${alert}</div>
+                                        <div style="float: right; margin-top: 30px; margin-right: 40%">
+                                            <input value="✘ Hủy" type="button" id="btn_del" class="btn btn-danger new-btn"></input>
 
-                                        <div class="x_panel" style="margin-top: 10px; position: relative">
-                                            <table id="myTable" class="table table-striped table-bordered" style="width: 99%; position: relative; z-index: 0">
-                                                <thead style="position: relative">
-                                                    <tr>
-                                                        <th style="text-align: center">STT</th>
-                                                        <th style="text-align: center">Tên công việc</th>
-                                                        <th style="text-align: center">Đầu vào dự kiến</th>
-                                                        <th style="text-align: center">Đầu ra dự kiến</th>
-                                                        <th style="text-align: center">Ngày bắt đầu</th>
-                                                        <th style="text-align: center">Kết quả</th>
-                                                        <th style="text-align: center">Ghi chú</th>
-                                                        <th style="text-align: center"></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody style="position: relative">
-                                                    <%
-                                                        if (lsTD != null) {
-                                                            for (int i = 0; i < lsTD.size(); i++) {
-                                                                out.print("<tr>");
-                                                                out.print("   <td style=\"text-align: center\">" + x + "</td>");
-                                                                out.print("    <td style=\"text-align: center\">" + lsTD.get(i).getTdName() + "</td>");
-                                                                out.print("    <td style=\"text-align: center\">" + lsTD.get(i).getTdRequest() + "</td>");
-                                                                out.print("    <td style=\"text-align: center\">" + lsTD.get(i).getTdResult() + "</td>");
-                                                                out.print("    <td style=\"text-align: center\">" + lsTD.get(i).getTdCreatedate() + "</td>");
-                                                                out.print("<td><a href=\"#\" style=\"font-weight: bold\">Link</a></td>");
-                                                                out.print("<td style=\"text-align: center\">");
-                                                                out.print("<div class=\"tooltip-a\">");
-                                                                out.print("<a href=\"#\" style=\"font-weight: bold\">Ghi chú</a>");
-                                                                out.print("<div class=\"tooltiptext-a\" style=\"height: auto;\">");
-                                                                out.print(lsTD.get(i).getTdDescription());
-                                                                out.print("</div>");
-                                                                out.print(" </div>");
-                                                                out.print("</td>");
-                                                                out.print("<td><a href=\"\"><button class=\"btn btn-success new-btn\"  >Sửa❯</button></a></td>");
-                                                                out.print(" </tr>");
-                                                                x++;
-                                                            }
-                                                        }
+                                            <input value="➕ Thêm" type="submit" id="btn_add" class="btn btn-success new-btn"></input>
 
-
-                                                    %>
-
-
-                                                </tbody>
-                                            </table>
-
+<!--                                            <input value="✔ Cập nhật" type="button" id="btn_fix" class="btn btn-info new-btn"></input>-->
                                         </div>
                                     </div>
-                                </div>
+                                </f:form>
                             </div>
                         </div>
                     </div>
                 </div>
-
 
             </div>
             <!-- /page content -->
@@ -327,9 +325,9 @@
 <script src="../build/js/custom.min.js"></script>
 <script type="text/javascript" src="../resources/js/custom.js"></script>
 <script type="text/javascript">
-                            $(document).ready(function () {
-                                $("#myTable").DataTable();
-                            });
+                                        $(document).ready(function () {
+                                            $("#myTable").DataTable();
+                                        });
 
 </script>
 </html>

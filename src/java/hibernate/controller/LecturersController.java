@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -173,17 +174,57 @@ public class LecturersController {
     
     //init Theo doi tien do
     @RequestMapping(value = "initlecturerProjectProcess")
-    public ModelAndView initlecturerProjectProcess(@RequestParam(value = "id") int id){
+    public ModelAndView initlecturerProjectProcess(@RequestParam(value = "id") int id,HttpSession session){
         ModelAndView model = new ModelAndView("lecturer_Project_Process");
         List<Tiendo> lsTD = lecturersModel.getAllTDbyProjectId(id);
         Users user = new Users();
+        Detai project = new Detai();
         if(lsTD.size()>0){
             int userId = lsTD.get(0).getUserId();
             user = lecturersModel.getUserByID(userId);
+            project = lecturersModel.getProjectByID(lsTD.get(0).getDetai().getProjectId());
         }
         model.addObject("lsTD", lsTD);
         model.addObject("user", user);
+        model.addObject("project", project);
+        model.addObject("projectId", id);
+        session.setAttribute("prid", id);
+        session.setAttribute("prStudentId", user.getUserId());
+        return model;
+    }
+    
+    
+    //init Them tien do
+    
+    @RequestMapping(value = "initLecturerProjectAdd")
+    public ModelAndView initLecturerProcessAdd(@RequestParam(value = "projectId") int id){
         
+        ModelAndView model = new ModelAndView("lecturer_Project_add");
+        Tiendo td = new Tiendo();
+        Detai dt = lecturersModel.getProjectByID(id);
+        td.setDetai(dt);
+        model.addObject("projectId", td);
+        
+        return model;
+    }
+    
+    //Xu ly them tien do
+    @RequestMapping(value = "addProcess")
+    public ModelAndView addProcess(@ModelAttribute("projectId") Tiendo td, HttpSession session){
+        
+         int id = (int) session.getAttribute("prid");
+        Detai dt = lecturersModel.getProjectByID(id);
+        int studentId = (int) session.getAttribute("prStudentId");
+        td.setUserId(studentId);
+        td.setDetai(dt);
+        boolean check = lecturersModel.addProcess(td);
+        ModelAndView model= initLecturerProcessAdd(id);
+        if(check){
+            model.getModelMap().put("alert", "Thêm thành công");
+        }
+        else{
+            model.getModelMap().put("alert", "Thêm thất bại");
+        }
         return model;
     }
 }

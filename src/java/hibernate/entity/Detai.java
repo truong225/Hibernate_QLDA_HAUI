@@ -10,7 +10,26 @@ import java.util.Set;
  */
 public class Detai  implements java.io.Serializable {
 
+    public static final String PROJECTNAME = "";
+       public static final String PROJECTCONTENTLINK = "";
+       public static final int PROJECTSTUDENTID = -1;
+       public static final int PROJECTINSTRUCTORID = -1;
+       public static final int PROJECTPROGRESS = 0;
+       public static final String PROJECTSTARTDATE = "";
+       public static final boolean PROJECTSTATUS = false;
+       public static final String PROJECTDESCRIPTION = "";
+       public static final int PROJECTVIEWCOUNT = 0;
+       public static final int PROJECTPAGECOUNT = 0;
+       public static final boolean PROJECTCANCEL = false;
+       public static final boolean ISDELETE = false;
+       public static final String DELETEDATE = "";
+       public static final int DELETEUSERID = -1;
+       public static final String DETAIRESULT = "";
+       public static final String DETAIREQUEST = "";
+       public static final String DETAISPECIALIZED = "";
+       
 
+    
      private Integer projectId;
      private String projectName;
      private String projectContentlink;
@@ -32,13 +51,14 @@ public class Detai  implements java.io.Serializable {
      private Set<Tiendo> tiendos = new HashSet<Tiendo>(0);
 
     public Detai() {
+       this(PROJECTNAME, PROJECTCONTENTLINK, PROJECTSTUDENTID, 0, PROJECTPROGRESS, PROJECTSTARTDATE, PROJECTSTATUS, PROJECTDESCRIPTION, PROJECTVIEWCOUNT, PROJECTPAGECOUNT, PROJECTCANCEL, ISDELETE, DELETEDATE, DELETEUSERID, DETAIRESULT, DETAIREQUEST, DETAISPECIALIZED);
     }
 
 	
     public Detai(int projectInstructorid) {
         this.projectInstructorid = projectInstructorid;
     }
-    public Detai(String projectName, String projectContentlink, Integer projectStudentid, int projectInstructorid, Integer projectProgress, String projectStartdate, Boolean projectStatus, String projectDescription, Integer projectViewcount, Integer projectPagecount, Boolean projectCancel, Boolean isdelete, String deleteDate, Integer deleteUserid, String detaiResult, String detaiRequest, String detaiSpecialized, Set<Tiendo> tiendos) {
+    public Detai(String projectName, String projectContentlink, Integer projectStudentid, int projectInstructorid, Integer projectProgress, String projectStartdate, Boolean projectStatus, String projectDescription, Integer projectViewcount, Integer projectPagecount, Boolean projectCancel, Boolean isdelete, String deleteDate, Integer deleteUserid, String detaiResult, String detaiRequest, String detaiSpecialized) {
        this.projectName = projectName;
        this.projectContentlink = projectContentlink;
        this.projectStudentid = projectStudentid;

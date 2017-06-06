@@ -158,9 +158,10 @@ public class ClientModel {
             ls = new ArrayList<>();
             init();
             int projectId = getIDProject(id);
-            String hql = "FROM Tiendo as u where u.detai.projectId = ? and u.tdStatus=1";
+            String hql = "FROM Tiendo as u where u.detai.projectId=? and u.projectStudentid = ? and u.tdStatus=1";
             Query query = ss.createQuery(hql);
             query.setInteger(0, projectId);
+            query.setInteger(1, id);
             ls = query.list();
              t.commit();
         } catch (Exception e) {

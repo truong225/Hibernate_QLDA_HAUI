@@ -206,4 +206,19 @@ public class LecturersModel {
         return lsProject;
     }
     
+    //Them tien do
+    public boolean addProcess(Tiendo td){
+        boolean check = false;
+        try {
+            init();
+            ss.save(td);
+            commit();
+            check = true;
+        } catch (Exception e) {
+            rollback();
+        }finally{
+            close();
+        }
+        return check;
+    }
 }

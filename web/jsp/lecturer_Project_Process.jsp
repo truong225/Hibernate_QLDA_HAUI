@@ -55,6 +55,7 @@
         int x = 1;
         Users user = (Users) request.getAttribute("user");
         List<Tiendo> lsTD = (List<Tiendo>) request.getAttribute("lsTD");
+        
     %>
     <body class="nav-md">
         <div class="container body">
@@ -181,67 +182,85 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_panel">
-                                <div class="x_content">
-                                    <ul class="nav nav-tabs">
-                                        <li class="active"><a data-toggle="tab" href="#home"><b>Công việc</b></a></li>
-                                        <li><a data-toggle="tab" href="#menu1"><b>Tổng quan về đề tài</b></a></li>
-                                    </ul>
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a data-toggle="tab" href="#home"><b>Công việc</b></a></li>
+                                    <li><a data-toggle="tab" href="#detail"><b>Tổng quan về đề tài</b></a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="home" class="tab-pane fade in active">
+                                        <div style="float: right; margin-top: 5px">
+                                            <a href="initLecturerProjectAdd.htm?projectId=${projectId}"><button  OnClick="btn_to_progress_Click" ID="btn_back" class="btn btn-default new-btn" >➕ Thêm công việc</button></a>
+                                        </div>
 
-                                    <div class="tab-content">
-                                        <div id="home" class="tab-pane fade in active">
-                                            <div style="float: right; margin-top: 5px">
-                                                <asp:Button runat="server" Text="➕ Thêm công việc" OnClick="btn_to_progress_Click" ID="btn_back" CssClass="btn btn-default new-btn" />
-                                            </div>
-
-                                            <div class="x_panel" style="margin-top: 10px; position: relative">
-                                                <table id="myTable" class="table table-striped table-bordered" style="width: 99%; position: relative; z-index: 0">
-                                                    <thead style="position: relative">
-                                                        <tr>
-                                                            <th style="text-align: center">STT</th>
-                                                            <th style="text-align: center">Tên công việc</th>
-                                                            <th style="text-align: center">Đầu vào dự kiến</th>
-                                                            <th style="text-align: center">Đầu ra dự kiến</th>
-                                                            <th style="text-align: center">Ngày bắt đầu</th>
-                                                            <th style="text-align: center">Kết quả</th>
-                                                            <th style="text-align: center">Ghi chú</th>
-                                                            <th style="text-align: center"></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody style="position: relative">
-                                                        <%
-                                                            if (lsTD != null) {
-                                                                for (int i = 0; i < lsTD.size(); i++) {
-                                                                    out.print("<tr>");
-                                                                    out.print("   <td style=\"text-align: center\">" + x + "</td>");
-                                                                    out.print("    <td style=\"text-align: center\">" + lsTD.get(i).getTdName() + "</td>");
-                                                                    out.print("    <td style=\"text-align: center\">" + lsTD.get(i).getTdRequest() + "</td>");
-                                                                    out.print("    <td style=\"text-align: center\">" + lsTD.get(i).getTdResult() + "</td>");
-                                                                    out.print("    <td style=\"text-align: center\">" + lsTD.get(i).getTdCreatedate() + "</td>");
-                                                                    out.print("<td><a href=\"#\" style=\"font-weight: bold\">Link</a></td>");
-                                                                    out.print("<td style=\"text-align: center\">");
-                                                                    out.print("<div class=\"tooltip-a\">");
-                                                                    out.print("<a href=\"#\" style=\"font-weight: bold\">Ghi chú</a>");
-                                                                    out.print("<div class=\"tooltiptext-a\" style=\"height: auto;\">");
-                                                                    out.print(lsTD.get(i).getTdDescription());
-                                                                    out.print("</div>");
-                                                                    out.print(" </div>");
-                                                                    out.print("</td>");
-                                                                    out.print("<td><a href=\"\"><button class=\"btn btn-success new-btn\"  >Sửa❯</button></a></td>");
-                                                                    out.print(" </tr>");
-                                                                    x++;
-                                                                }
+                                        <div class="x_panel" style="margin-top: 10px; position: relative">
+                                            <table id="myTable" class="table table-striped table-bordered" style="width: 99%; position: relative; z-index: 0">
+                                                <thead style="position: relative">
+                                                    <tr>
+                                                        <th style="text-align: center">STT</th>
+                                                        <th style="text-align: center">Tên công việc</th>
+                                                        <th style="text-align: center">Đầu vào dự kiến</th>
+                                                        <th style="text-align: center">Đầu ra dự kiến</th>
+                                                        <th style="text-align: center">Ngày bắt đầu</th>
+                                                        <th style="text-align: center">Kết quả</th>
+                                                        <th style="text-align: center">Ghi chú</th>
+                                                        <th style="text-align: center"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="position: relative">
+                                                    <%
+                                                        if (lsTD != null) {
+                                                            for (int i = 0; i < lsTD.size(); i++) {
+                                                                out.print("<tr>");
+                                                                out.print("   <td style=\"text-align: center\">" + x + "</td>");
+                                                                out.print("    <td style=\"text-align: center\">" + lsTD.get(i).getTdName() + "</td>");
+                                                                out.print("    <td style=\"text-align: center\">" + lsTD.get(i).getTdRequest() + "</td>");
+                                                                out.print("    <td style=\"text-align: center\">" + lsTD.get(i).getTdResult() + "</td>");
+                                                                out.print("    <td style=\"text-align: center\">" + lsTD.get(i).getTdCreatedate() + "</td>");
+                                                                out.print("<td><a href=\"#\" style=\"font-weight: bold\">Link</a></td>");
+                                                                out.print("<td style=\"text-align: center\">");
+                                                                out.print("<div class=\"tooltip-a\">");
+                                                                out.print("<a href=\"#\" style=\"font-weight: bold\">Ghi chú</a>");
+                                                                out.print("<div class=\"tooltiptext-a\" style=\"height: auto;\">");
+                                                                out.print(lsTD.get(i).getTdDescription());
+                                                                out.print("</div>");
+                                                                out.print(" </div>");
+                                                                out.print("</td>");
+                                                                out.print("<td><a href=\"\"><button class=\"btn btn-success new-btn\"  >Sửa❯</button></a></td>");
+                                                                out.print(" </tr>");
+                                                                x++;
                                                             }
+                                                        }
+                                                    %>
 
 
-                                                        %>
-
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
+                                    <div id="detail" class="tab-pane fade">
+                                       
+                                            <div class="form-horizontal form-label-left" style="font-family: Cambria; font-size: 18px">
+
+                                                <dl class="dl-horizontal">
+                                                    <%
+                                                    Detai d = (Detai) request.getAttribute("project");
+                                                    out.print("<dt>Tên đề tài</dt>");
+                                                    out.print("<dd>"+d.getProjectName()+"</dd>");
+                                                    out.print("<br />");
+                                                    out.print("<dt>Mô tả đề tài</dt>");
+                                                    out.print("<dd>"+d.getProjectDescription()+"</dd>");
+                                                    out.print("<br />");
+                                                    out.print("<dd>"+d.getProjectStartdate()+"</dd>");
+                                                    %>
+
+                                                </dl>
+
+
+                                            </div>
+                                        
+                                    </div>    
                                 </div>
+
                             </div>
                         </div>
                     </div>
