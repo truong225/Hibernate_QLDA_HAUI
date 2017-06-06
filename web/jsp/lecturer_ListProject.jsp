@@ -154,7 +154,70 @@
                 <div class="right_col" role="main">
                     <div class="clearfix"></div>
                     <!-- end page title -->
-                    CHÀO MỪNG BẠN ĐẾN VỚI HỆ THỐNG QUẢN LÝ ĐỒ ÁN TỐT NGHIỆP
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_title">
+                                <h2>Danh sách sinh viên đang hướng dẫn</h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <div style="float: right; margin-top: 5px">
+                                        <a href="initLecturerProjectAdd.htm?projectId=${projectId}"><button  OnClick="btn_to_progress_Click" ID="btn_back" class="btn btn-default new-btn" >➕ Thêm công việc</button></a>
+                                    </div>
+
+                                    <div class="x_panel" style="margin-top: 10px; position: relative">
+                                        <table id="myTable" class="table table-striped table-bordered" style="width: 99%; position: relative; z-index: 0">
+                                            <thead style="position: relative">
+                                                <tr>
+                                                    <th style="text-align: center">STT</th>
+                                                    <th style="text-align: center">Tên đề tài</th>
+                                                    <th style="text-align: center">Thông tin đề tài</th>
+                                                    <th style="text-align: center">Sinh viên thực hiện</th>
+                                                    <th style="text-align: center">Trạng thái</th>
+                                                    <th style="text-align: center">Kết quả</th>
+                                                    <th style="text-align: center">Hủy đề tài</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="position: relative">
+                                                <%
+                                                    int x = 1;
+                                                    List<Users> lsUsers = (List<Users>) request.getAttribute("lsStudent");
+                                                    List<Detai> lsProject = (List<Detai>) request.getAttribute("lsDT");
+                                                    if (lsProject != null) {
+                                                        for (int i = 0; i < lsProject.size(); i++) {
+                                                            out.print("<tr>");
+                                                            out.print("   <td style=\"text-align: center\">" + x + "</td>");
+                                                            out.print("    <td style=\"text-align: center\">" + lsProject.get(i).getProjectName() + "</td>");
+                                                            out.print("    <td style=\"text-align: center\">" + lsProject.get(i).getProjectDescription() + "</td>");
+                                                            out.print("   <td style=\"text-align: center\">");
+                                                            try {
+                                                                if (lsUsers.get(i).getUserId() != null) {
+                                                                    out.print(lsUsers.get(i).getUserFullname());
+                                                                }
+                                                            } catch (Exception e) {
+                                                                out.print("Chưa có sinh viên đăng kí");
+                                                            }
+                                                            out.print("  </td>");
+                                                            out.print("  <td>");
+                                                            out.print("");
+                                                            out.print(" </td>");
+
+                                                            out.print("<td><a href=\"#\" style=\"font-weight: bold\">Link</a></td>");
+
+                                                            out.print("<td><a href=\"initlecturerProjectProcess.htm?id=\"><button class=\"btn btn-success new-btn\"  >Tiến độ❯</button></a></td>");
+                                                            out.print(" </tr>");
+                                                            x++;
+                                                        }
+                                                    }
+                                                %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
 
@@ -238,9 +301,9 @@
 <script src="../build/js/custom.min.js"></script>
 <script type="text/javascript" src="../resources/js/custom.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $("#myTable").DataTable();
-    });
+                                            $(document).ready(function () {
+                                                $("#myTable").DataTable();
+                                            });
 
 </script>
 </html>

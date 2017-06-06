@@ -95,7 +95,7 @@
                                     </li>
                                     <li><a><i class="fa fa-book"></i> Đề tài <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="HDC.html">Danh sách đề tài</a></li>
+                                            <li><a href="lecturer_ListProject.htm">Danh sách đề tài</a></li>
                                         </ul>
                                     </li>
 

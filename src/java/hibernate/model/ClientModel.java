@@ -122,7 +122,7 @@ public class ClientModel {
         int projectId = 0;
         try {
             init();
-            String hql = "FROM Detai as d where d.users.userId =?";
+            String hql = "FROM Detai as d where d.projectStudentid =?";
             Query query = ss.createQuery(hql);
             query.setParameter(0, id);
             Detai detai = (Detai) query.uniqueResult();

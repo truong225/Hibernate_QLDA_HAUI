@@ -186,6 +186,26 @@ public class LecturersModel {
         return lsProject;
     }
     
+    //Lay danh sach de tai cua minh
+    public List<Detai> getListProject(int userId){
+        List<Detai> lsProject = null;
+        try {
+            init();
+            String hql = "FROM Detai as d where d.projectInstructorid = ? and d.isdelete = ?";
+            Query query = ss.createQuery(hql);
+            query.setInteger(0, userId);
+            query.setBoolean(1, false);
+            lsProject = query.list();
+            commit();
+        } catch (Exception e) {
+            rollback();
+        }finally{
+            close();
+        }
+        
+        return lsProject;
+    }
+    
     //Lay danh sach tien do theo de tai
     public List<Tiendo> getAllTDbyProjectId(int id){
          List<Tiendo> lsProject = null;

@@ -48,7 +48,7 @@ public class LecturersController {
     //Su kien dang xuat
     @RequestMapping(value = "logout")
     public ModelAndView Logout(HttpSession session) {
-        ModelAndView model = new ModelAndView("redirect:/client/client-login");
+        ModelAndView model = new ModelAndView("redirect:/client/logout.htm");
         session.setAttribute("Username", "");
         session.removeAttribute("avatar");
         session.removeAttribute("Username");
@@ -225,6 +225,26 @@ public class LecturersController {
         else{
             model.getModelMap().put("alert", "Thêm thất bại");
         }
+        return model;
+    }
+    
+     //Lay danh sach de tai cua minh
+    @RequestMapping(value = "lecturer_ListProject")
+    public ModelAndView lecturer_ListProject(HttpSession session) {
+        int id = Integer.valueOf(session.getAttribute("id").toString());
+        ModelAndView model = new ModelAndView("lecturer_ListProject");
+        List<Detai> lsDT = lecturersModel.getListProject(id);
+        model.addObject("lsDT", lsDT);
+        if (lsDT != null) {
+            List<Users> lsStudent = new ArrayList<>();
+            for (int i = 0; i < lsDT.size(); i++) {
+                Users u = new Users();
+                u = lecturersModel.getUserByID(lsDT.get(i).getProjectStudentid());
+                lsStudent.add(u);
+            }
+            model.addObject("lsStudent", lsStudent);
+        }
+
         return model;
     }
 }
