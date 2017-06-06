@@ -247,4 +247,31 @@ public class LecturersController {
 
         return model;
     }
+    
+    //giao dien them tien do
+    @RequestMapping(value = "initlecturer_addProject")
+    public ModelAndView initLecturer_addProject(){
+        
+        ModelAndView model = new ModelAndView("lecturer_addProject");
+        Detai project = new Detai();
+        model.addObject("project", project);
+        
+        return model;
+    }
+    
+     //Xu ly them de tai
+    @RequestMapping(value = "addProject")
+    public ModelAndView addProject(@ModelAttribute("project") Detai project, HttpSession session){
+        ModelAndView model = new ModelAndView("lecturer_addProject2");
+        model.addObject("project", project);
+        return model;
+    }
+    
+     //Xu ly them de tai ( commit )
+    @RequestMapping(value = "commitProject")
+    public ModelAndView commitProject(@ModelAttribute("project") Detai project, HttpSession session){
+        boolean check = lecturersModel.addProject(project);
+
+        return lecturer_ListProject(session);
+    }
 }
