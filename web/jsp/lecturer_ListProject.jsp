@@ -163,7 +163,7 @@
                             <div class="x_panel">
                                 <div class="x_content">
                                     <div style="float: right; margin-top: 5px">
-                                        <a href="initLecturerProjectAdd.htm?projectId=${projectId}"><button  OnClick="btn_to_progress_Click" ID="btn_back" class="btn btn-default new-btn" >➕ Thêm công việc</button></a>
+                                        <a href="initlecturer_addProject.htm"><button  OnClick="btn_to_progress_Click" ID="btn_back" class="btn btn-default new-btn" >➕ Thêm đề tài</button></a>
                                     </div>
 
                                     <div class="x_panel" style="margin-top: 10px; position: relative">
@@ -205,7 +205,8 @@
 
                                                             out.print("<td><a href=\"#\" style=\"font-weight: bold\">Link</a></td>");
 
-                                                            out.print("<td><a href=\"initlecturerProjectProcess.htm?id=\"><button class=\"btn btn-success new-btn\"  >Tiến độ❯</button></a></td>");
+                                                            out.print("<td><a href=\"initlecturerProjectProcess.htm?id=\"><button class=\"btn btn-danger new-btn\"  >Hủy đề tài❯</button></a>"
+                                                                    + "<a href=\"initlecturerProjectProcess.htm?id=\"><button class=\"btn btn-success new-btn\"  >Sửa đề tài❯</button></a></td>");
                                                             out.print(" </tr>");
                                                             x++;
                                                         }

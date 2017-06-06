@@ -241,4 +241,20 @@ public class LecturersModel {
         }
         return check;
     }
+    
+    //Them de tai
+    public boolean addProject(Detai project){
+        boolean check = false;
+        try {
+            init();
+            ss.save(project);
+            commit();
+            check = true;
+        } catch (Exception e) {
+            rollback();
+        }finally{
+            close();
+        }
+        return check;
+    }
 }

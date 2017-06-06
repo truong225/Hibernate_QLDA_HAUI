@@ -159,87 +159,50 @@
 
 
                 <div class="right_col" role="main">
-                    <div class="clearfix"></div>
+                    <div  class="clearfix"></div>
                     <!-- end page title -->
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="x_title">
-                                <h2>Thêm công việc</h2>
+                    <div  class="row">
+                        <div  class="col-md-12 col-sm-12 col-xs-12">
+                            <div  class="x_title">
+                                <h2>Thêm đề tài - Bước 2: Xác nhận </h2>
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="x_panel">
-                                <div style="float: left">
-                                    <button OnClick="btn_back_Click" id="btn_back" class="btn btn-default new-btn">❮ Quay lại</button>
+                            <div  class="x_panel">
+
+                                <div  class="x_content">
+
+                                    <!-- Tabs -->
+                                   
+
+
+                                        <div id="step-22">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="text-align: center">Tên đề tài</th>
+                                                        <th style="text-align: center">Thông tin đề tài</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align: center">${project.projectName}</td>
+                                                        <td style="text-align: center">${project.projectDescription}</td>
+                                                        <%--<td style="text-align: center;font-weight:bold">◯ Đang chờ duyệt</td>--%>
+                                                        <%--<td style="text-align: center;color:green;font-weight:bold">✔ Đã duyệt</td>--%>
+                                                        <%--<td style="text-align: center;color:red;font-weight:bold">✘ Không duyệt</td>--%>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div style="float: left">
+                                           <input type="button"  value="❮ Quay lại" OnClick="btn_back_Click" ID="btn_back" class="btn btn-default new-btn" />
+                                        </div>
+                                        <div style="float: right">
+                                            <a href="commitProject.htm?projectName=${project.projectName}&projectDescription=${project.projectDescription}"><input type="submit" value="Xác nhận" ID="btn_continue" OnClick="btn_continue_Click" class="btn btn-success new-btn" /></a>
+                                        </div>
+                                    
+                                    <!-- End SmartWizard Content -->
                                 </div>
-                                <div class="x_content">
-                                    <f:form action="addProcess.htm" commandName="projectId" method="GET">
-                                        <div class="form-horizontal form-label-left" style="font-family: Cambria; font-size: 18px">
-
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3">Tên công việc</label>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <f:input path="tdName" type="text" class="form-control col-md-7 col-xs-12" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3" for="lydo">
-                                                    Đầu vào dự kiến
-                                                </label>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <f:input type="text" path="tdRequest" class="form-control col-md-7 col-xs-12" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3" for="lydo">
-                                                    Đầu ra dự kiến
-                                                </label>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <f:input type="text" path="tdResult" class="form-control col-md-7 col-xs-12" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3" for="lydo">
-                                                    Ngày bắt đầu
-                                                </label>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <f:input placeholder="<<ngày hôm nay>>" class="form-control col-md-7 col-xs-12" type="text" path="tdCreatedate" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3" for="lydo">
-                                                    Ngày dự kiến kết thúc
-                                                </label>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <f:input placeholder="Nhấp chuột để hiện lịch..." class="form-control col-md-7 col-xs-12" type="text" name="txtTimeDK" path="tdEnddate" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3" for="lydo">
-                                                    Link báo cáo
-                                                </label>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <f:input disabled="disabled" type="text" path="tdNote" class="form-control col-md-7 col-xs-12" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3" for="lydo">
-                                                    Ghi chú
-                                                </label>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <f:textarea rows="4" class="form-control col-md-7 col-xs-12" path="tdDescription"></f:textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>${alert}</div>
-                                        <div style="float: right; margin-top: 30px; margin-right: 40%">
-                                            <input value="✘ Hủy" type="button" id="btn_del" class="btn btn-danger new-btn"></input>
-
-                                            <input value="➕ Thêm" type="submit" id="btn_add" class="btn btn-success new-btn"></input>
-
-<!--                                            <input value="✔ Cập nhật" type="button" id="btn_fix" class="btn btn-info new-btn"></input>-->
-                                        </div>
-                                    </div>
-                                </f:form>
                             </div>
                         </div>
                     </div>
@@ -325,9 +288,9 @@
 <script src="../build/js/custom.min.js"></script>
 <script type="text/javascript" src="../resources/js/custom.js"></script>
 <script type="text/javascript">
-                                        $(document).ready(function () {
-                                            $("#myTable").DataTable();
-                                        });
+                                                $(document).ready(function () {
+                                                    $("#myTable").DataTable();
+                                                });
 
 </script>
 </html>

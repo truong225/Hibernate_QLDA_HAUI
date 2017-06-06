@@ -122,9 +122,9 @@ public class ClientModel {
         int projectId = 0;
         try {
             init();
-            String hql = "FROM Detai as d where d.projectStudentid =?";
+            String hql = "FROM Detai as d where d.projectStudentid = ?";
             Query query = ss.createQuery(hql);
-            query.setParameter(0, id);
+            query.setInteger(0, id);
             Detai detai = (Detai) query.uniqueResult();
             projectId = detai.getProjectId();
              t.commit();
@@ -158,7 +158,7 @@ public class ClientModel {
             ls = new ArrayList<>();
             init();
             int projectId = getIDProject(id);
-            String hql = "FROM Tiendo as u where u.detai.projectId=? and u.projectStudentid = ? and u.tdStatus=1";
+            String hql = "FROM Tiendo as u where u.detai.projectId=? and u.detai.projectStudentid = ? and u.detai.projectProgress=1";
             Query query = ss.createQuery(hql);
             query.setInteger(0, projectId);
             query.setInteger(1, id);

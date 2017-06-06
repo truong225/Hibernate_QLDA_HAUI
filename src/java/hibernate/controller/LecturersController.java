@@ -263,13 +263,18 @@ public class LecturersController {
     @RequestMapping(value = "addProject")
     public ModelAndView addProject(@ModelAttribute("project") Detai project, HttpSession session){
         ModelAndView model = new ModelAndView("lecturer_addProject2");
-        model.addObject("project", project);
+        model.addObject("newProject", project);
         return model;
     }
     
      //Xu ly them de tai ( commit )
     @RequestMapping(value = "commitProject")
-    public ModelAndView commitProject(@ModelAttribute("project") Detai project, HttpSession session){
+    public ModelAndView commitProject(@RequestParam(value = "projectName") String projectName, @RequestParam(value = "projectDescription") String projectDescription,HttpSession session){
+        Detai project = new Detai();
+        int id = (int) session.getAttribute("id");
+        project.setProjectInstructorid(id);
+        project.setProjectName(projectName);
+        project.setProjectDescription(projectDescription);
         boolean check = lecturersModel.addProject(project);
 
         return lecturer_ListProject(session);
