@@ -171,19 +171,14 @@ public class LecturersController {
         return model;
     }
 
-    
     //init Theo doi tien do
     @RequestMapping(value = "initlecturerProjectProcess")
-    public ModelAndView initlecturerProjectProcess(@RequestParam(value = "id") int id,HttpSession session){
+    public ModelAndView initlecturerProjectProcess(@RequestParam(value = "id") int id, HttpSession session) {
         ModelAndView model = new ModelAndView("lecturer_Project_Process");
         List<Tiendo> lsTD = lecturersModel.getAllTDbyProjectId(id);
-        Users user = new Users();
-        Detai project = new Detai();
-        if(lsTD.size()>0){
-            int userId = lsTD.get(0).getUserId();
-            user = lecturersModel.getUserByID(userId);
-            project = lecturersModel.getProjectByID(lsTD.get(0).getDetai().getProjectId());
-        }
+        Detai project = lecturersModel.getProjectByID(id);
+        Users user = lecturersModel.getUserByID(project.getProjectStudentid());
+
         model.addObject("lsTD", lsTD);
         model.addObject("user", user);
         model.addObject("project", project);
@@ -192,43 +187,40 @@ public class LecturersController {
         session.setAttribute("prStudentId", user.getUserId());
         return model;
     }
-    
-    
+
     //init Them tien do
-    
     @RequestMapping(value = "initLecturerProjectAdd")
-    public ModelAndView initLecturerProcessAdd(@RequestParam(value = "projectId") int id){
-        
+    public ModelAndView initLecturerProcessAdd(@RequestParam(value = "projectId") int id) {
+
         ModelAndView model = new ModelAndView("lecturer_Project_add");
         Tiendo td = new Tiendo();
         Detai dt = lecturersModel.getProjectByID(id);
         td.setDetai(dt);
         model.addObject("projectId", td);
-        
+
         return model;
     }
-    
+
     //Xu ly them tien do
     @RequestMapping(value = "addProcess")
-    public ModelAndView addProcess(@ModelAttribute("projectId") Tiendo td, HttpSession session){
-        
-         int id = (int) session.getAttribute("prid");
+    public ModelAndView addProcess(@ModelAttribute("projectId") Tiendo td, HttpSession session) {
+
+        int id = (int) session.getAttribute("prid");
         Detai dt = lecturersModel.getProjectByID(id);
         int studentId = (int) session.getAttribute("prStudentId");
         td.setUserId(studentId);
         td.setDetai(dt);
         boolean check = lecturersModel.addProcess(td);
-        ModelAndView model= initLecturerProcessAdd(id);
-        if(check){
+        ModelAndView model = initLecturerProcessAdd(id);
+        if (check) {
             model.getModelMap().put("alert", "Thêm thành công");
-        }
-        else{
+        } else {
             model.getModelMap().put("alert", "Thêm thất bại");
         }
         return model;
     }
-    
-     //Lay danh sach de tai cua minh
+
+    //Lay danh sach de tai cua minh
     @RequestMapping(value = "lecturer_ListProject")
     public ModelAndView lecturer_ListProject(HttpSession session) {
         int id = Integer.valueOf(session.getAttribute("id").toString());
@@ -247,29 +239,29 @@ public class LecturersController {
 
         return model;
     }
-    
+
     //giao dien them tien do
     @RequestMapping(value = "initlecturer_addProject")
-    public ModelAndView initLecturer_addProject(){
-        
+    public ModelAndView initLecturer_addProject() {
+
         ModelAndView model = new ModelAndView("lecturer_addProject");
         Detai project = new Detai();
         model.addObject("project", project);
-        
+
         return model;
     }
-    
-     //Xu ly them de tai
+
+    //Xu ly them de tai
     @RequestMapping(value = "addProject")
-    public ModelAndView addProject(@ModelAttribute("project") Detai project, HttpSession session){
+    public ModelAndView addProject(@ModelAttribute("project") Detai project, HttpSession session) {
         ModelAndView model = new ModelAndView("lecturer_addProject2");
         model.addObject("newProject", project);
         return model;
     }
-    
-     //Xu ly them de tai ( commit )
+
+    //Xu ly them de tai ( commit )
     @RequestMapping(value = "commitProject")
-    public ModelAndView commitProject(@RequestParam(value = "projectName") String projectName, @RequestParam(value = "projectDescription") String projectDescription,HttpSession session){
+    public ModelAndView commitProject(@RequestParam(value = "projectName") String projectName, @RequestParam(value = "projectDescription") String projectDescription, HttpSession session) {
         Detai project = new Detai();
         int id = (int) session.getAttribute("id");
         project.setProjectInstructorid(id);

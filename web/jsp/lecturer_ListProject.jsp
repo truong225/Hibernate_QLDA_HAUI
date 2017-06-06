@@ -190,13 +190,29 @@
                                                             out.print("   <td style=\"text-align: center\">" + x + "</td>");
                                                             out.print("    <td style=\"text-align: center\">" + lsProject.get(i).getProjectName() + "</td>");
                                                             out.print("    <td style=\"text-align: center\">" + lsProject.get(i).getProjectDescription() + "</td>");
-                                                            out.print("   <td style=\"text-align: center\">");
+                                                            out.print("   <td style=\"text-align: center; color:green;\">");
                                                             try {
                                                                 if (lsUsers.get(i).getUserId() != null) {
-                                                                    out.print(lsUsers.get(i).getUserFullname());
+
+                                                                    out.print("       <div class=\"tooltip-a left-col\">");
+                                                                    out.print("           <a href=\"#\" style=\"font-weight: bold; color: green; font-size: 20px\">" + lsUsers.get(i).getUserFullname() + "</a>");
+                                                                    out.print("          <div class=\"tooltiptext-a\">");
+                                                                    out.print("               <img src=\"../images/" + lsUsers.get(i).getUserAvatar() + "\" style=\"width:150px;height:200px;margin-top:10px\" />");
+                                                                    out.print("              <hr style=\"width: 80%\" />");
+                                                                    out.print("               <div style=\"font-family:Cambria; text-align:center; margin-top:-10px\">");
+                                                                    out.print("                 ★ Họ tên: " + lsUsers.get(i).getUserFullname() + " <br />");
+                                                                    out.print("                 ★ Lớp: " + lsUsers.get(i).getUserClass() + "<br />");
+                                                                    out.print("                 ★ Email: " + lsUsers.get(i).getUserEmail() + "<br />");
+                                                                    out.print("                 ★ SDT: " + lsUsers.get(i).getUserMobile());
+                                                                    out.print("              </div>");
+                                                                    out.print("          </div>");
+                                                                    out.print("      </div>");
+
                                                                 }
                                                             } catch (Exception e) {
+                                                                out.print("<span style = \"color:red\">");
                                                                 out.print("Chưa có sinh viên đăng kí");
+                                                                out.print("</span>");
                                                             }
                                                             out.print("  </td>");
                                                             out.print("  <td>");

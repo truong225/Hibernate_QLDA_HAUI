@@ -73,11 +73,11 @@ public class LecturersModel {
             String hql = "FROM Users as u where u.id="+id;
             Query query = ss.createQuery(hql);
             user = (Users) query.uniqueResult();
-             t.commit();
+             rollback();
         } catch (Exception e) {
             t.rollback();
         }finally{
-            ss.close();
+            close();
         }
         return user;
     }
@@ -85,17 +85,16 @@ public class LecturersModel {
     //Lay de tai theo ID
     public Detai getProjectByID(int id){
          Detai project = null;
-        
         try {
             init();
             String hql = "FROM Detai as u where u.projectId="+id;
             Query query = ss.createQuery(hql);
             project = (Detai) query.uniqueResult();
-             t.commit();
+             rollback();
         } catch (Exception e) {
             t.rollback();
         }finally{
-            ss.close();
+            close();
         }
         return project;
     }
@@ -103,17 +102,16 @@ public class LecturersModel {
     //Lay Messenger theo ID
      public Message getMesByID(int id){
         Message mes = null;
-        
         try {
             init();
             String hql = "FROM Message as m where m.messageId="+id;
             Query query = ss.createQuery(hql);
             mes = (Message) query.uniqueResult();
-             t.commit();
+             rollback();
         } catch (Exception e) {
             t.rollback();
         }finally{
-            ss.close();
+            close();
         }
         return mes;
     }
